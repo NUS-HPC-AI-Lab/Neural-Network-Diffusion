@@ -1,7 +1,7 @@
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-os.chdir(os.path.dirname(os.path.dirname(__file__)))
+import sys, os
+root = os.sep + os.sep.join(__file__.split(os.sep)[1:__file__.split(os.sep).index("Neural-Network-Parameter-Diffusion")+1])
+sys.path.append(root)
+os.chdir(root)
 USE_WANDB = False
 
 # set global seed
@@ -35,7 +35,7 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 from accelerate.utils import DistributedDataParallelKwargs, AutocastKwargs
 from accelerate import Accelerator
 # dataset
-from dataset import in1k_ViT_Base as Dataset
+from dataset import In1k_ConvNeXtTiny as Dataset
 from torch.utils.data import DataLoader
 
 config = {
@@ -72,7 +72,7 @@ config = {
         "channels": [64, 128, 256, 256, 32],
         "last_length": 96,
     },
-    "tag": "pdiff_in1k_vit_base",
+    "tag": "pdiff_in1k_convnexttiny",
 }
 
 # Data
