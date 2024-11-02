@@ -287,17 +287,17 @@ class Cifar100_ResNet18(BaseDataset):
     test_command = "python ./dataset/cifar100_resnet18/test.py " + \
                    "./dataset/cifar100_resnet18/generated/generated_model.pth"
 
-class Cifar100_ViTTiny(BaseDataset):
-    data_path = "./dataset/cifar100_vittiny/checkpoint"
-    generated_path = "./dataset/cifar100_vittiny/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_vittiny/test.py " + \
-                   "./dataset/cifar100_vittiny/generated/generated_model.pth"
-
 class Cifar100_ResNet50(BaseDataset):
     data_path = "./dataset/cifar100_resnet50/checkpoint"
     generated_path = "./dataset/cifar100_resnet50/generated/generated_model.pth"
     test_command = "python ./dataset/cifar100_resnet50/test.py " + \
                    "./dataset/cifar100_resnet50/generated/generated_model.pth"
+
+class Cifar100_ViTTiny(BaseDataset):
+    data_path = "./dataset/cifar100_vittiny/checkpoint"
+    generated_path = "./dataset/cifar100_vittiny/generated/generated_model.pth"
+    test_command = "python ./dataset/cifar100_vittiny/test.py " + \
+                   "./dataset/cifar100_vittiny/generated/generated_model.pth"
 
 class Cifar100_ViTBase(BaseDataset):
     data_path = "./dataset/cifar100_vitbase/checkpoint"
@@ -310,6 +310,27 @@ class Cifar100_ConvNeXtTiny(BaseDataset):
     generated_path = "./dataset/cifar100_convnexttiny/generated/generated_model.pth"
     test_command = "python ./dataset/cifar100_convnexttiny/test.py " + \
                    "./dataset/cifar100_convnexttiny/generated/generated_model.pth"
+
+class Cifar100_ConvNeXtBase(BaseDataset):
+    data_path = "./dataset/cifar100_convnextbase/checkpoint"
+    generated_path = "./dataset/cifar100_convnextbase/generated/generated_model.pth"
+    test_command = "python ./dataset/cifar100_convnextbase/test.py " + \
+                   "./dataset/cifar100_convnextbase/generated/generated_model.pth"
+
+class In1k_ResNet50(BaseDataset):
+    data_path = "./dataset/in1k_resnet50/checkpoint"
+    generated_path = "./dataset/in1k_resnet50/generated/generated_model.pth"
+    test_command = "python ./dataset/in1k_resnet50/test.py " + \
+                   "./dataset/in1k_resnet50/generated/generated_model.pth"
+
+class In1k_ResNet18(BaseDataset):
+    data_path = "./dataset/in1k_resnet18/checkpoint"
+    generated_path = "./dataset/in1k_resnet18/generated/generated_model.pth"
+    test_command = "python ./dataset/in1k_resnet18/test.py " + \
+                   "./dataset/in1k_resnet18/generated/generated_model.pth"
+
+
+
 
 
 
@@ -373,6 +394,7 @@ class Cifar10_ConvNet3(BaseDataset):
 
 
 
+
 # class Cifar100_ConvNeXt_Tiny(BaseDataset):
 #     data_path = "./dataset/cifar100_ConvNeXt_T/checkpoint"
 #     generated_path = "./dataset/cifar100_ConvNeXt_T/generated/generated_model.pth"
@@ -389,24 +411,12 @@ class Cifar10_ConvNet3(BaseDataset):
 
 
 
-class Cifar100_ConvNeXt_Base(BaseDataset):
-    data_path = "./dataset/zzz_cifar100_convnext_base/checkpoint"
-    generated_path = "./dataset/zzz_cifar100_convnext_base/generated/generated_model.pth"
-    test_command = "python ./dataset/zzz_cifar100_convnext_base/test.py " + \
-                   "./dataset/zzz_cifar100_convnext_base/generated/generated_model.pth"
 
 
-class in1k_ResNet18(BaseDataset):
-    data_path = "./dataset/zzz_in1k_resnet18/checkpoint"
-    generated_path = "./dataset/zzz_in1k_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/zzz_in1k_resnet18/test.py " + \
-                   "./dataset/zzz_in1k_resnet18/generated/generated_model.pth"
 
-class in1k_ResNet50(BaseDataset):
-    data_path = "./dataset/zzz_in1k_resnet50/checkpoint"
-    generated_path = "./dataset/zzz_in1k_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/zzz_in1k_resnet50/test.py " + \
-                   "./dataset/zzz_in1k_resnet50/generated/generated_model.pth"
+
+
+
 
 class in1k_ViT_Tiny(BaseDataset):
     data_path = "./dataset/in1k_vit_tiny/checkpoint"

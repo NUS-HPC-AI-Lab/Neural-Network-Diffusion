@@ -10,7 +10,7 @@ from torch import optim
 from torch.optim import lr_scheduler
 from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
-from torchvision.datasets import CIFAR100 as Dataset
+from torchvision.datasets import ImageFolder
 
 
 def set_seed(seed):
@@ -27,47 +27,55 @@ def get_config():
     with open(config_file, "r") as f:
         additional_config = json.load(f)
     config = {
-        "dataset_root": "from_additional_config",
         "batch_size": 128,
         "num_workers": 4,
         "learning_rate": 0.05,
         "weight_decay": 5e-4,
-        "epochs": 1,  # Changed to 1 as we're only doing one epoch
+        "epochs": 1,
         "save_learning_rate": 0.05,
         "total_save_number": 200,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
-        "seed": 40
+        "seed": 40,
+        "model_name": "convnext_base"
     }
     config.update(additional_config)
     return config
 
 
 def get_data_loaders(config):
+    print(f"Initializing data loaders with dataset_root: {config['imagenet_root']}")
     train_transform = transforms.Compose([
         transforms.RandomResizedCrop(224),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
     test_transform = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),
         transforms.ToTensor(),
-        transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
-    train_dataset = Dataset(root=config["dataset_root"], train=True, download=True, transform=train_transform)
-    test_dataset = Dataset(root=config["dataset_root"], train=False, download=True, transform=test_transform)
+    train_path = os.path.join(config['imagenet_root'], 'train')
+    val_path = os.path.join(config['imagenet_root'], 'val')
+    # print(f"Checking if train path exists: {os.path.exists(train_path)}")
+    # print(f"Checking if val path exists: {os.path.exists(val_path)}")
+    train_dataset = ImageFolder(root=train_path, transform=train_transform)
+    test_dataset = ImageFolder(root=val_path, transform=test_transform)
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True,
                               num_workers=config["num_workers"], pin_memory=True)
     test_loader = DataLoader(test_dataset, batch_size=config["batch_size"], shuffle=False,
                              num_workers=config["num_workers"], pin_memory=True)
+    print(f"Train dataset size: {len(train_dataset)}")
+    print(f"Test dataset size: {len(test_dataset)}")
     return train_loader, test_loader
 
 
 def get_optimizer_and_scheduler(model, config):
     trainable_params = []
-    last_two_norms = ['blocks.11.norm2.weight', 'blocks.11.norm2.bias', 'norm.weight', 'norm.bias']
+    norm_layers = [name for name, _ in model.named_modules() if 'norm' in name]
+    last_two_norms = norm_layers[-4:]  # as the norm layer has weight and bias
     for name, param in model.named_parameters():
         if any(norm in name for norm in last_two_norms):
             param.requires_grad = True
@@ -111,12 +119,13 @@ def test(model, test_loader, device):
 def save_checkpoint(model, batch_idx, acc, config):
     if not os.path.isdir('checkpoint'):
         os.mkdir('checkpoint')
-    last_two_norms = ['model.blocks.11.norm2', 'model.norm']
+    norm_layers = [name for name, _ in model.named_modules() if 'norm' in name]
+    last_two_norms = norm_layers[-4:]  # as the norm layer has weight and bias
     save_state = {key: value.cpu().to(torch.float32) for key, value in model.state_dict().items()
                   if any(norm in key for norm in last_two_norms)}
-    torch.save(save_state,
-               f"checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth")
-    print(f"Saved: checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth")
+    save_path = f"checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth"
+    torch.save(save_state, save_path)
+    print(f"Saved: {save_path}")
 
 
 config = get_config()
@@ -126,11 +135,8 @@ set_seed(config['seed'])
 # load dataset
 train_loader, test_loader = get_data_loaders(config)
 # load model
-model = timm.create_model('vit_tiny_patch16_224', pretrained=True, num_classes=100)
+model = timm.create_model('convnext_base', pretrained=True, num_classes=1000)
 model = model.to(device)
-state_dict = torch.load(os.path.join(os.path.dirname(__file__), "pretrained.pth"),
-                        map_location=device, weights_only=True)
-model.load_state_dict(state_dict)
 # get optimizer
 optimizer, scheduler = get_optimizer_and_scheduler(model, config)
 

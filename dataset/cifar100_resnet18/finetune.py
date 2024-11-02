@@ -112,8 +112,7 @@ def test(model, test_loader, device):
 def save_checkpoint(model, batch_idx, acc, config):
     if not os.path.isdir('checkpoint'):
         os.mkdir('checkpoint')
-    norm_layers = [name for name, _ in model.named_modules()
-                   if 'bn' in name]
+    norm_layers = [name for name, _ in model.named_modules() if 'bn' in name]
     last_two_norms = norm_layers[-2:]
     save_state = {key: value.cpu().to(torch.float32) for key, value in model.state_dict().items()
                   if any(norm in key for norm in last_two_norms)}
