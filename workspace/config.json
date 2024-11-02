@@ -1,0 +1,5 @@
+{
+  "use_wandb": true,
+  "wandb_api_key": "b8a4b0c7373c8bba8f3d13a2298cd95bf3165260",
+  "test_gpu_ids": "0"
+}
