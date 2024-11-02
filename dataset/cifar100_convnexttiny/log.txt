@@ -1,0 +1,44 @@
+
+
+===============================================
+Summary: cifar100_convnexttiny
+
+num_checkpoint: 391
+num_generated: 200
+num_noised: 50x3
+original_acc_mean: 0.8937590792838874
+original_acc_max: 0.8966
+original_acc_min: 0.8915
+original_acc_std: 0.0009122430529063853
+original_acc_median: 0.8938
+generated_acc_mean: 0.895626
+generated_acc_max: 0.8973
+generated_acc_min: 0.8941
+generated_acc_std: 0.0006425138130810876
+generated_acc_median: 0.8956
+noise=0.0300_acc_mean: 0.8937100000000001
+noise=0.0500_acc_mean: 0.893784
+noise=0.1000_acc_mean: 0.8937480000000001
+
+origin-origin: 0.798480975824628
+generated-generated: 0.9235539630978661
+origin-generated: 0.8310098677579103
+origin-generated(max): 0.8650270005330065
+
+noise_intensity=0.03
+noised-noised: 0.7975494423110205
+origin-noised: 0.7990896638222936
+origin-noised(max): 0.9873465820283358
+
+noise_intensity=0.05
+noised-noised: 0.799313448674202
+origin-noised: 0.7985054005504665
+origin-noised(max): 0.9804563453633797
+
+noise_intensity=0.1
+noised-noised: 0.7945203791044632
+origin-noised: 0.797001561683649
+origin-noised(max): 0.9630473450779227
+
+==> start drawing..
+plot saved to plot_cifar100_convnexttiny.png
