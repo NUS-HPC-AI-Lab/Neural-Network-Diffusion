@@ -1,3 +1,4 @@
 {
-  "dataset_root": "~/.cache/p-diff/datasets"
+  "dataset_root": "~/.cache/p-diff/datasets",
+  "imagenet_root": "~/data/imagenet"
 }

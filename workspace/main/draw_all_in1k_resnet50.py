@@ -33,9 +33,9 @@ test = item.test
 
 
 
-checkpoint_path = "./dataset/in1k_resnet50/checkpoint"
-generated_path = "./dataset/in1k_resnet50/generated"
-tag = "in1k_resnet50"
+checkpoint_path = "./dataset/zzz_in1k_resnet50/checkpoint"
+generated_path = "./dataset/zzz_in1k_resnet50/generated"
+tag = "zzz_in1k_resnet50"
 try:
     exec(sys.argv[1])
 except:
@@ -85,7 +85,7 @@ total_acc_list = []
 # compute checkpoint and generated
 # load pretrained model
 # pretrained_state = torch.load(
-#     "/home/wangkai/cvpr_pdiff/p-diff-v2/dataset/in1k_resnet18/pretrained.pth")
+#     "/home/wangkai/cvpr_pdiff/p-diff-v2/dataset/zzz_in1k_resnet18/pretrained.pth")
 # model.load_state_dict({key: value.to(torch.float32).to(device) for key, value in pretrained_state.items()},
 #                       strict=False)
 model = timm.create_model('resnet50', pretrained=True, num_classes=1000)
@@ -107,7 +107,7 @@ bias = 0
 
 # load pretrained model
 # pretrained_state = torch.load(
-#     "/home/wangkai/cvpr_pdiff/p-diff-v2/dataset/in1k_resnet18/pretrained.pth")
+#     "/home/wangkai/cvpr_pdiff/p-diff-v2/dataset/zzz_in1k_resnet18/pretrained.pth")
 # model.load_state_dict({key: value.to(torch.float32).to(device) for key, value in pretrained_state.items()},
 #                       strict=False)
 model = timm.create_model('resnet50', pretrained=True, num_classes=1000)

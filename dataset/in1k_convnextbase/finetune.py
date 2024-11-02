@@ -67,8 +67,7 @@ def get_data_loaders(config):
 
 def get_optimizer_and_scheduler(model, config):
     trainable_params = []
-    norm_layers = [name for name, _ in model.named_modules() if 'bn' in name]
-    last_two_norms = norm_layers[-2:]
+    last_two_norms = ['blocks.11.norm2.weight', 'blocks.11.norm2.bias', 'norm.weight', 'norm.bias']
     for name, param in model.named_parameters():
         if any(norm in name for norm in last_two_norms):
             param.requires_grad = True
@@ -112,9 +111,7 @@ def test(model, test_loader, device):
 def save_checkpoint(model, batch_idx, acc, config):
     if not os.path.isdir('checkpoint'):
         os.mkdir('checkpoint')
-    norm_layers = [name for name, _ in model.named_modules()
-                   if 'bn' in name]
-    last_two_norms = norm_layers[-2:]
+    last_two_norms = ['model.blocks.11.norm2', 'model.norm']
     save_state = {key: value.cpu().to(torch.float32) for key, value in model.state_dict().items()
                   if any(norm in key for norm in last_two_norms)}
     torch.save(save_state,
