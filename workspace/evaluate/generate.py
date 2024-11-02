@@ -42,12 +42,13 @@ print('==> Defining generate..')
 def generate(save_path=config["generated_path"], test_command=config["test_command"], need_test=True):
     print("\n==> Generating..")
     model.eval()
-    with torch.cuda.amp.autocast(True, torch.bfloat16):
+    with torch.amp.autocast("cuda", enabled=True, dtype=torch.bfloat16):
         with torch.no_grad():
             mu = model(sample=True)
             prediction = vae.decode(mu)
             generated_norm = torch.nanmean(prediction.abs())
     print("Generated_norm:", generated_norm.item())
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
     train_set.save_params(prediction, save_path=save_path)
     if need_test:
         os.system(test_command)

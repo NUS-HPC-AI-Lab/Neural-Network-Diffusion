@@ -65,18 +65,21 @@ def get_data_loaders(config):
     return train_loader, test_loader
 
 
-def get_optimizer_and_scheduler(model, config):
-    trainable_params = []
-    norm_layers = [name for name, _ in model.named_modules() if 'bn' in name]
-    last_two_norms = norm_layers[-2:]
-    for name, param in model.named_parameters():
-        if any(norm in name for norm in last_two_norms):
-            param.requires_grad = True
-            trainable_params.append(param)
-        else:
-            param.requires_grad = False
-    optimizer = optim.AdamW(trainable_params, lr=config["learning_rate"], weight_decay=config["weight_decay"])
-    scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=len(get_data_loaders(config)[0]), eta_min=config["save_learning_rate"])
+def get_optimizer_and_scheduler(model, config, freeze_all_except_last_two_norms=True):
+    if freeze_all_except_last_two_norms:
+        trainable_params = []
+        last_two_norms = ['blocks.11.norm2.weight', 'blocks.11.norm2.bias', 'norm.weight', 'norm.bias']
+        for name, param in model.named_parameters():
+            if name in last_two_norms:
+                param.requires_grad = True
+                trainable_params.append(param)
+            else:
+                param.requires_grad = False
+        optimizer = optim.AdamW(trainable_params, lr=config["learning_rate"], weight_decay=config["weight_decay"])
+    else:
+        optimizer = optim.AdamW(model.parameters(), lr=config["learning_rate"], weight_decay=config["weight_decay"])
+    scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=len(get_data_loaders(config)[0]),
+                                               eta_min=config["save_learning_rate"])
     return optimizer, scheduler
 
 
@@ -112,14 +115,12 @@ def test(model, test_loader, device):
 def save_checkpoint(model, batch_idx, acc, config):
     if not os.path.isdir('checkpoint'):
         os.mkdir('checkpoint')
-    norm_layers = [name for name, _ in model.named_modules()
-                   if 'bn' in name]
-    last_two_norms = norm_layers[-2:]
+    last_two_norms = ['blocks.11.norm2.weight', 'blocks.11.norm2.bias', 'norm.weight', 'norm.bias']
     save_state = {key: value.cpu().to(torch.float32) for key, value in model.state_dict().items()
                   if any(norm in key for norm in last_two_norms)}
-    torch.save(save_state,
-               f"checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth")
-    print(f"Saved: checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth")
+    save_path = f"checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth"
+    torch.save(save_state, save_path)
+    print(f"Saved: {save_path}")
 
 
 config = get_config()
@@ -129,7 +130,7 @@ set_seed(config['seed'])
 # load dataset
 train_loader, test_loader = get_data_loaders(config)
 # load model
-model = timm.create_model('resnet50', pretrained=True, num_classes=100)
+model = timm.create_model('vit_tiny_patch16_224', pretrained=True, num_classes=100)
 model = model.to(device)
 state_dict = torch.load(os.path.join(os.path.dirname(__file__), "pretrained.pth"),
                         map_location=device, weights_only=True)

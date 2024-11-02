@@ -72,7 +72,7 @@ def train(config):
                              num_workers=config["num_workers"], pin_memory=True)
 
     # Create model
-    model = timm.create_model('resnet50', pretrained=True, num_classes=100)
+    model = timm.create_model('vit_tiny_patch16_224', pretrained=True, num_classes=100)
     model = model.to(device)
 
     # Loss function and optimizer
@@ -124,8 +124,8 @@ def main():
         "dataset_root": "from_additional_config",
         "batch_size": 128,
         "num_workers": 4,
-        "learning_rate": 1e-4,
-        "weight_decay": 1e-4,
+        "learning_rate": 5e-4,
+        "weight_decay": 5e-4,
         "epochs": 10,
         "seed": 42,
         "tag": os.path.basename(os.path.dirname(__file__)),

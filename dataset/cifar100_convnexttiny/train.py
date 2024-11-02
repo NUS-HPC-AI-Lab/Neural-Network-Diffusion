@@ -72,7 +72,7 @@ def train(config):
                              num_workers=config["num_workers"], pin_memory=True)
 
     # Create model
-    model = timm.create_model('resnet50', pretrained=True, num_classes=100)
+    model = timm.create_model('convnext_tiny', pretrained=True, num_classes=100)
     model = model.to(device)
 
     # Loss function and optimizer

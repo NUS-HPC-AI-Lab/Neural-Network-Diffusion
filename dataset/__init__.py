@@ -129,7 +129,7 @@ class BaseDataset(Dataset, ABC):
         self.config.update(kwargs)
         checkpoint_path = self.data_path if checkpoint_path is None else checkpoint_path
         # import pdb; pdb.set_trace()
-        assert os.path.exists(checkpoint_path)
+        assert os.path.exists(checkpoint_path), f"{checkpoint_path}"
         self.dim_per_token = dim_per_token
         self.structure = None  # set in get_structure()
         self.sequence_length = None  # set in get_structure()
@@ -146,7 +146,7 @@ class BaseDataset(Dataset, ABC):
         checkpoint_list = self.checkpoint_list
         structures = [{} for _ in range(len(checkpoint_list))]
         for i, checkpoint in enumerate(checkpoint_list):
-            diction = torch.load(checkpoint, map_location="cpu")
+            diction = torch.load(checkpoint, map_location="cpu", weights_only=True)
             for key, value in diction.items():
                 if ("num_batches_tracked" in key) or (value.numel() == 1) or not torch.is_floating_point(value):
                     structures[i][key] = (value.shape, value, None)
@@ -157,7 +157,7 @@ class BaseDataset(Dataset, ABC):
                 else:  # conv & linear
                     structures[i][key] = (value.shape, value.mean(), value.std())
         final_structure = {}
-        structure_diction = torch.load(checkpoint_list[0], map_location="cpu")
+        structure_diction = torch.load(checkpoint_list[0], map_location="cpu", weights_only=True)
         for key, param in structure_diction.items():
             if ("num_batches_tracked" in key) or (param.numel() == 1) or not torch.is_floating_point(param):
                 final_structure[key] = (param.shape, param, None)
@@ -232,7 +232,7 @@ class BaseDataset(Dataset, ABC):
 
     def __getitem__(self, index):
         index = index % self.real_length
-        diction = torch.load(self.checkpoint_list[index], map_location="cpu")
+        diction = torch.load(self.checkpoint_list[index], map_location="cpu", weights_only=True)
         param = self.preprocess(diction)
         return param, index
 
@@ -277,6 +277,29 @@ class BaseDataset(Dataset, ABC):
                 this_param = torch.clip(torch.exp(this_param) - 0.05, min=0.001) * pre_mean
             diction[key] = this_param
         return diction
+
+
+
+
+class Cifar100_ResNet18(BaseDataset):
+    data_path = "./dataset/cifar100_resnet18/checkpoint"
+    generated_path = "./dataset/cifar100_resnet18/generated/generated_model.pth"
+    test_command = "python ./dataset/cifar100_resnet18/test.py " + \
+                   "./dataset/cifar100_resnet18/generated/generated_model.pth"
+
+class Cifar100_ViTTiny(BaseDataset):
+    data_path = "./dataset/cifar100_vittiny/checkpoint"
+    generated_path = "./dataset/cifar100_vittiny/generated/generated_model.pth"
+    test_command = "python ./dataset/cifar100_vittiny/test.py " + \
+                   "./dataset/cifar100_vittiny/generated/generated_model.pth"
+
+class Cifar100_ResNet50(BaseDataset):
+    data_path = "./dataset/cifar100_resnet50/checkpoint"
+    generated_path = "./dataset/cifar100_resnet50/generated/generated_model.pth"
+    test_command = "python ./dataset/cifar100_resnet50/test.py " + \
+                   "./dataset/cifar100_resnet50/generated/generated_model.pth"
+
+
 
 
 
@@ -344,41 +367,29 @@ class Cifar10_ConvNet3(BaseDataset):
 #     test_command = "python ./dataset/cifar100_ConvNeXt_T/test.py " + \
 #                    "./dataset/cifar100_ConvNeXt_T/generated/generated_model.pth"
 
-class Cifar100_Vit_Tiny(BaseDataset):
-    data_path = "./dataset/cifar100_vit_tiny/checkpoint"
-    generated_path = "./dataset/cifar100_vit_tiny/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_vit_tiny/test.py " + \
-                   "./dataset/cifar100_vit_tiny/generated/generated_model.pth"
+
 
 class Cifar100_Vit_Base(BaseDataset):
-    data_path = "./dataset/cifar100_vit_base/checkpoint"
-    generated_path = "./dataset/cifar100_vit_base/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_vit_base/test.py " + \
-                   "./dataset/cifar100_vit_base/generated/generated_model.pth"
+    data_path = "./dataset/zzz_cifar100_vit_base-OK/checkpoint"
+    generated_path = "./dataset/zzz_cifar100_vit_base-OK/generated/generated_model.pth"
+    test_command = "python ./dataset/zzz_cifar100_vit_base-OK/test.py " + \
+                   "./dataset/zzz_cifar100_vit_base-OK/generated/generated_model.pth"
 
 class Cifar100_ConvNeXt_Tiny(BaseDataset):
-    data_path = "./dataset/cifar100_convnext_tiny/checkpoint"
-    generated_path = "./dataset/cifar100_convnext_tiny/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_convnext_tiny/test.py " + \
-                   "./dataset/cifar100_convnext_tiny/generated/generated_model.pth"
+    data_path = "./dataset/zzz_cifar100_convnext_tiny/checkpoint"
+    generated_path = "./dataset/zzz_cifar100_convnext_tiny/generated/generated_model.pth"
+    test_command = "python ./dataset/zzz_cifar100_convnext_tiny/test.py " + \
+                   "./dataset/zzz_cifar100_convnext_tiny/generated/generated_model.pth"
 
-class Cifar100_ResNet50(BaseDataset):
-    data_path = "./dataset/cifar100_resnet50/checkpoint"
-    generated_path = "./dataset/cifar100_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_resnet50/test.py " + \
-                   "./dataset/cifar100_resnet50/generated/generated_model.pth"
 
-class Cifar100_ResNet18(BaseDataset):
-    data_path = "./dataset/cifar100_resnet18/checkpoint"
-    generated_path = "./dataset/cifar100_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_resnet18/test.py " + \
-                   "./dataset/cifar100_resnet18/generated/generated_model.pth"
+
+
 
 class Cifar100_ConvNeXt_Base(BaseDataset):
-    data_path = "./dataset/cifar100_convnext_base/checkpoint"
-    generated_path = "./dataset/cifar100_convnext_base/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_convnext_base/test.py " + \
-                   "./dataset/cifar100_convnext_base/generated/generated_model.pth"
+    data_path = "./dataset/zzz_cifar100_convnext_base/checkpoint"
+    generated_path = "./dataset/zzz_cifar100_convnext_base/generated/generated_model.pth"
+    test_command = "python ./dataset/zzz_cifar100_convnext_base/test.py " + \
+                   "./dataset/zzz_cifar100_convnext_base/generated/generated_model.pth"
 
 
 class in1k_ResNet18(BaseDataset):

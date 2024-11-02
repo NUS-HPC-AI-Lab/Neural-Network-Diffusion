@@ -32,9 +32,9 @@ test = item.test
 
 
 
-checkpoint_path = "./dataset/cifar100_vit_tiny/checkpoint"
-generated_path = "./dataset/cifar100_vit_tiny/generated"
-tag = "cifar100_vit_tiny"
+checkpoint_path = "./dataset/zzz_cifar100_vit_tiny-OK/checkpoint"
+generated_path = "./dataset/zzz_cifar100_vit_tiny-OK/generated"
+tag = "zzz_cifar100_vit_tiny-OK"
 try:
     exec(sys.argv[1])
 except:

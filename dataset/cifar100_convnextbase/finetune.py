@@ -129,7 +129,7 @@ set_seed(config['seed'])
 # load dataset
 train_loader, test_loader = get_data_loaders(config)
 # load model
-model = timm.create_model('resnet50', pretrained=True, num_classes=100)
+model = timm.create_model('convnext_base', pretrained=True, num_classes=100)
 model = model.to(device)
 state_dict = torch.load(os.path.join(os.path.dirname(__file__), "pretrained.pth"),
                         map_location=device, weights_only=True)

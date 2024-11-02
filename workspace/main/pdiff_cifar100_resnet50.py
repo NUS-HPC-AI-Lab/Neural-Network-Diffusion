@@ -1,7 +1,7 @@
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-os.chdir(os.path.dirname(os.path.dirname(__file__)))
+import sys, os
+root = os.sep + os.sep.join(__file__.split(os.sep)[1:__file__.split(os.sep).index("Neural-Network-Parameter-Diffusion")+1])
+sys.path.append(root)
+os.chdir(root)
 USE_WANDB = False
 
 # set global seed
@@ -78,7 +78,6 @@ config = {
 # Data
 divide_slice_length = 64
 print('==> Preparing data..')
-import pdb; pdb.set_trace()
 train_set = config["dataset"](dim_per_token=divide_slice_length,
                               granularity=0,
                               pe_granularity=0,

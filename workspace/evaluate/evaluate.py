@@ -21,12 +21,12 @@ tag = os.path.basename(os.path.dirname(item.__file__))
 
 
 config = {
-    "checkpoint_path": f"./dataset/{tag}/test",
+    "checkpoint_path": f"./dataset/{tag}/checkpoint",
     "generated_path": f"./dataset/{tag}/generated",
     "cache_file": None,  # None means default dataset/tag/cache.pt
     "resume": True,  # if you updated the checkpoint and generated models, use "resume": False.
-    "noise_intensity": [0.01, 0.02, 0.03, 0.04, 0.05],
-    "total_noised_number": 10,
+    "noise_intensity": [0.005, 0.01, 0.02, 0.03],
+    "total_noised_number": 200,
 }
 assert config["total_noised_number"] % len(config["noise_intensity"]) == 0, \
     "total_noised_number must be a multiple of noise_intensity"
