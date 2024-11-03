@@ -70,9 +70,8 @@ config = {
         "T": 1000,
         # vae config
         "channels": [64, 128, 256, 256, 32],
-        "last_length": 320,
     },
-    "tag": "pdiff_cifar100_resnet50",
+    "tag": os.path.basename(__file__)[:-3],
 }
 
 # Data
@@ -102,7 +101,7 @@ Model.config = config["model_config"]
 model = Model(sequence_length=config["sequence_length"])
 vae = VAE(d_model=config["model_config"]["channels"],
           d_latent=config["model_config"]["model_dim"],
-          last_length=config["model_config"]["last_length"],
+          sequence_length=config["sequence_length"],
           kernel_size=config["model_config"]["kernel_size"])
 
 # Optimizer

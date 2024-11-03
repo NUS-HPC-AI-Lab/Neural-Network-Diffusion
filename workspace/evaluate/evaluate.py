@@ -31,6 +31,11 @@ config = {
 assert config["total_noised_number"] % len(config["noise_intensity"]) == 0, \
     "total_noised_number must be a multiple of noise_intensity"
 globals().update(config)
+if len(sys.argv) == 3:
+    exec("noise_intensity=[" + sys.argv[2] + "]")
+    total_noised_number = len(noise_intensity) * 50
+    print("noise_intensity:", noise_intensity)
+    print("total_noised_number:", total_noised_number)
 
 
 

@@ -30,10 +30,10 @@ def get_config():
         "dataset_root": "from_additional_config",
         "batch_size": 128,
         "num_workers": 4,
-        "learning_rate": 0.03,
+        "learning_rate": 0.05,
         "weight_decay": 5e-4,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
-        "save_learning_rate": 0.03,
+        "save_learning_rate": 0.05,
         "total_save_number": 200,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
@@ -67,8 +67,7 @@ def get_data_loaders(config):
 
 def get_optimizer_and_scheduler(model, config):
     trainable_params = []
-    norm_layers = [name for name, _ in model.named_modules() if 'bn' in name]
-    last_two_norms = norm_layers[-2:]
+    last_two_norms = ['layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias']
     for name, param in model.named_parameters():
         if any(norm in name for norm in last_two_norms):
             param.requires_grad = True
@@ -112,8 +111,7 @@ def test(model, test_loader, device):
 def save_checkpoint(model, batch_idx, acc, config):
     if not os.path.isdir('checkpoint'):
         os.mkdir('checkpoint')
-    norm_layers = [name for name, _ in model.named_modules() if 'bn' in name]
-    last_two_norms = norm_layers[-2:]
+    last_two_norms = ['layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias']
     save_state = {key: value.cpu().to(torch.float32) for key, value in model.state_dict().items()
                   if any(norm in key for norm in last_two_norms)}
     torch.save(save_state,

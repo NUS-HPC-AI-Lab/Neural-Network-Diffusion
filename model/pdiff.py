@@ -54,11 +54,16 @@ class PDiff(nn.Module):
 
 
 class OneDimVAE(nn.Module):
-    def __init__(self, d_model, d_latent, last_length, kernel_size=7):
+    def __init__(self, d_model, d_latent, sequence_length, kernel_size=7, divide_slice_length=64):
         super(OneDimVAE, self).__init__()
         self.d_model = d_model.copy()
         self.d_latent = d_latent
-        self.last_length = last_length
+        # confirm self.last_length
+        sequence_length = (sequence_length // divide_slice_length + 1) * divide_slice_length \
+                if sequence_length % divide_slice_length != 0 else sequence_length
+        assert sequence_length % int(2 ** len(d_model)) == 0, \
+                f"Please set divide_slice_length to {int(2 ** len(d_model))}."
+        self.last_length = sequence_length // int(2 ** len(d_model))
 
         # Build Encoder
         modules = []
@@ -94,11 +99,11 @@ class OneDimVAE(nn.Module):
         )
 
     def encode(self, input, **kwargs):
-        #print(input.shape)
+        # print(input.shape)
         # assert input.shape == [batch_size, num_parameters]
         input = input[:, None, :]
         result = self.encoder(input)
-        #print(result.shape)
+        # print(result.shape)
         result = torch.flatten(result, start_dim=1)
         result = self.to_latent(result)
         mu = self.fc_mu(result)

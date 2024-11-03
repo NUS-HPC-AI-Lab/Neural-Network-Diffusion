@@ -46,10 +46,10 @@ config = {
     # train setting
     "batch_size": 50,
     "num_workers": 4,
-    "total_steps": 2500,  # diffusion training steps
+    "total_steps": 2000,  # diffusion training steps
     "vae_steps": 500,  # vae training steps
     "learning_rate": 0.0001,  # diffusion learning rate
-    "vae_learning_rate": 0.00003,  # vae learning rate
+    "vae_learning_rate": 0.00002,  # vae learning rate
     "weight_decay": 0.0,
     "save_every": 500,
     "print_every": 50,
@@ -70,9 +70,8 @@ config = {
         "T": 1000,
         # vae config
         "channels": [64, 128, 256, 256, 32],
-        "last_length": 128,
     },
-    "tag": "pdiff_cifar100_resnet18",
+    "tag": os.path.basename(__file__)[:-3],
 }
 
 # Data
@@ -103,7 +102,7 @@ Model.config = config["model_config"]
 model = Model(sequence_length=config["sequence_length"])
 vae = VAE(d_model=config["model_config"]["channels"],
           d_latent=config["model_config"]["model_dim"],
-          last_length=config["model_config"]["last_length"],
+          sequence_length=config["sequence_length"],
           kernel_size=config["model_config"]["kernel_size"])
 
 # Optimizer
