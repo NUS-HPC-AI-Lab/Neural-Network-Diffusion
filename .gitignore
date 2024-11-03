@@ -1,0 +1,8 @@
+/.idea
+/.vscode
+**/checkpoint*/
+**/__pycache__/
+**/generated*/
+**/wandb/
+**/full_model.pth
+/rubbish

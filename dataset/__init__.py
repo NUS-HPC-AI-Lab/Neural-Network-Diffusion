@@ -355,7 +355,17 @@ class Pets_ViTBase(BaseDataset):
     test_command = "python ./dataset/pets_vitbase/test.py " + \
                    "./dataset/pets_vitbase/generated/generated_model.pth"
 
+class Pets_ConvNeXtTiny(BaseDataset):
+    data_path = "./dataset/pets_convnexttiny/checkpoint"
+    generated_path = "./dataset/pets_convnexttiny/generated/generated_model.pth"
+    test_command = "python ./dataset/pets_convnexttiny/test.py " + \
+                   "./dataset/pets_convnexttiny/generated/generated_model.pth"
 
+class Pets_ConvNeXtBase(BaseDataset):
+    data_path = "./dataset/pets_convnextbase/checkpoint"
+    generated_path = "./dataset/pets_convnextbase/generated/generated_model.pth"
+    test_command = "python ./dataset/pets_convnextbase/test.py " + \
+                   "./dataset/pets_convnextbase/generated/generated_model.pth"
 
 
 
@@ -499,17 +509,7 @@ class STL10_ConvNext_Base(BaseDataset):
 
 
 
-class pets_ConvNext_Tiny(BaseDataset):
-    data_path = "./dataset/pets_convnext_tiny/checkpoint"
-    generated_path = "./dataset/pets_convnext_tiny/generated/generated_model.pth"
-    test_command = "python ./dataset/pets_convnext_tiny/test.py " + \
-                   "./dataset/pets_convnext_tiny/generated/generated_model.pth"
 
-class pets_ConvNext_Base(BaseDataset):
-    data_path = "./dataset/pets_convnext_base/checkpoint"
-    generated_path = "./dataset/pets_convnext_base/generated/generated_model.pth"
-    test_command = "python ./dataset/pets_convnext_base/test.py " + \
-                   "./dataset/pets_convnext_base/generated/generated_model.pth"
 
 class flowers_ResNet18(BaseDataset):
     data_path = "./dataset/flowers_resnet18/checkpoint"
