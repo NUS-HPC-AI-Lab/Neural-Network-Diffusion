@@ -331,6 +331,30 @@ class STL10_ResNet50(BaseDataset):
     test_command = "python ./dataset/stl10_resnet50/test.py " + \
                    "./dataset/stl10_resnet50/generated/generated_model.pth"
 
+class STL10_ViTTiny(BaseDataset):
+    data_path = "./dataset/stl10_vittiny/checkpoint"
+    generated_path = "./dataset/stl10_vittiny/generated/generated_model.pth"
+    test_command = "python ./dataset/stl10_vittiny/test.py " + \
+                   "./dataset/stl10_vittiny/generated/generated_model.pth"
+
+class STL10_ViTBase(BaseDataset):
+    data_path = "./dataset/stl10_vitbase/checkpoint"
+    generated_path = "./dataset/stl10_vitbase/generated/generated_model.pth"
+    test_command = "python ./dataset/stl10_vitbase/test.py " + \
+                   "./dataset/stl10_vitbase/generated/generated_model.pth"
+
+class STL10_ConvNeXtTiny(BaseDataset):
+    data_path = "./dataset/stl10_convnexttiny/checkpoint"
+    generated_path = "./dataset/stl10_convnexttiny/generated/generated_model.pth"
+    test_command = "python ./dataset/stl10_convnexttiny/test.py " + \
+                   "./dataset/stl10_convnexttiny/generated/generated_model.pth"
+
+class STL10_ConvNeXtBase(BaseDataset):
+    data_path = "./dataset/stl10_convnextbase/checkpoint"
+    generated_path = "./dataset/stl10_convnextbase/generated/generated_model.pth"
+    test_command = "python ./dataset/stl10_convnextbase/test.py " + \
+                   "./dataset/stl10_convnextbase/generated/generated_model.pth"
+
 class Pets_ResNet18(BaseDataset):
     data_path = "./dataset/pets_resnet18/checkpoint"
     generated_path = "./dataset/pets_resnet18/generated/generated_model.pth"
@@ -481,29 +505,9 @@ class In1k_ConvNeXtBase(BaseDataset):
 
 
 
-class STL10_ViT_Tiny(BaseDataset):
-    data_path = "./dataset/stl10_vit_tiny/checkpoint"
-    generated_path = "./dataset/stl10_vit_tiny/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_vit_tiny/test.py " + \
-                   "./dataset/stl10_vit_tiny/generated/generated_model.pth"
 
-class STL10_ViT_Base(BaseDataset):
-    data_path = "./dataset/stl10_vit_base/checkpoint"
-    generated_path = "./dataset/stl10_vit_base/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_vit_base/test.py " + \
-                   "./dataset/stl10_vit_base/generated/generated_model.pth"
 
-class STL10_ConvNext_Tiny(BaseDataset):
-    data_path = "./dataset/stl10_convnext_tiny/checkpoint"
-    generated_path = "./dataset/stl10_convnext_tiny/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_convnext_tiny/test.py " + \
-                   "./dataset/stl10_convnext_tiny/generated/generated_model.pth"
 
-class STL10_ConvNext_Base(BaseDataset):
-    data_path = "./dataset/stl10_convnext_base/checkpoint"
-    generated_path = "./dataset/stl10_convnext_base/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_convnext_base/test.py " + \
-                   "./dataset/stl10_convnext_base/generated/generated_model.pth"
 
 
 

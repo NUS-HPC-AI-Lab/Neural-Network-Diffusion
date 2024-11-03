@@ -1,8 +1,8 @@
 /.idea
 /.vscode
+/rubbish
 **/checkpoint*/
 **/__pycache__/
 **/generated*/
 **/wandb/
-**/full_model.pth
-/rubbish
+**/pretrained.pth
