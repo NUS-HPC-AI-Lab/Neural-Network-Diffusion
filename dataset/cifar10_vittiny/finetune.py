@@ -10,7 +10,7 @@ from torch import optim
 from torch.optim import lr_scheduler
 from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
-from torchvision.datasets import OxfordIIITPet as Dataset
+from torchvision.datasets import CIFAR10 as Dataset
 
 
 def set_seed(seed):
@@ -28,12 +28,12 @@ def get_config():
         additional_config = json.load(f)
     config = {
         "dataset_root": "from_additional_config",
-        "batch_size": 64,
+        "batch_size": 128,
         "num_workers": 4,
-        "learning_rate": 0.1,
+        "learning_rate": 0.05,
         "weight_decay": 5e-4,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
-        "save_learning_rate": 0.1,
+        "save_learning_rate": 0.05,
         "total_save_number": 200,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
@@ -48,16 +48,16 @@ def get_data_loaders(config):
         transforms.RandomResizedCrop(224),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
     ])
     test_transform = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),
         transforms.ToTensor(),
-        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
     ])
-    train_dataset = Dataset(root=config["dataset_root"], split="trainval", download=True, transform=train_transform)
-    test_dataset = Dataset(root=config["dataset_root"], split="test", download=True, transform=test_transform)
+    train_dataset = Dataset(root=config["dataset_root"], train=True, download=True, transform=train_transform)
+    test_dataset = Dataset(root=config["dataset_root"], train=False, download=True, transform=test_transform)
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True,
                               num_workers=config["num_workers"], pin_memory=True)
     test_loader = DataLoader(test_dataset, batch_size=config["batch_size"], shuffle=False,
@@ -65,17 +65,21 @@ def get_data_loaders(config):
     return train_loader, test_loader
 
 
-def get_optimizer_and_scheduler(model, config):
-    trainable_params = []
-    last_two_norms = ['blocks.11.norm2.weight', 'blocks.11.norm2.bias', 'norm.weight', 'norm.bias']
-    for name, param in model.named_parameters():
-        if any(norm in name for norm in last_two_norms):
-            param.requires_grad = True
-            trainable_params.append(param)
-        else:
-            param.requires_grad = False
-    optimizer = optim.AdamW(trainable_params, lr=config["learning_rate"], weight_decay=config["weight_decay"])
-    scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=len(get_data_loaders(config)[0]), eta_min=config["save_learning_rate"])
+def get_optimizer_and_scheduler(model, config, freeze_all_except_last_two_norms=True):
+    if freeze_all_except_last_two_norms:
+        trainable_params = []
+        last_two_norms = ['blocks.11.norm2.weight', 'blocks.11.norm2.bias', 'norm.weight', 'norm.bias']
+        for name, param in model.named_parameters():
+            if name in last_two_norms:
+                param.requires_grad = True
+                trainable_params.append(param)
+            else:
+                param.requires_grad = False
+        optimizer = optim.AdamW(trainable_params, lr=config["learning_rate"], weight_decay=config["weight_decay"])
+    else:
+        optimizer = optim.AdamW(model.parameters(), lr=config["learning_rate"], weight_decay=config["weight_decay"])
+    scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=len(get_data_loaders(config)[0]),
+                                               eta_min=config["save_learning_rate"])
     return optimizer, scheduler
 
 
@@ -114,9 +118,9 @@ def save_checkpoint(model, batch_idx, acc, config):
     last_two_norms = ['blocks.11.norm2.weight', 'blocks.11.norm2.bias', 'norm.weight', 'norm.bias']
     save_state = {key: value.cpu().to(torch.float32) for key, value in model.state_dict().items()
                   if any(norm in key for norm in last_two_norms)}
-    torch.save(save_state,
-               f"checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth")
-    print(f"Saved: checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth")
+    save_path = f"checkpoint/{str(batch_idx).zfill(4)}_acc{acc:.4f}_seed{config['seed']:04d}_{config['tag']}.pth"
+    torch.save(save_state, save_path)
+    print(f"Saved: {save_path}")
 
 
 config = get_config()
@@ -126,7 +130,7 @@ set_seed(config['seed'])
 # load dataset
 train_loader, test_loader = get_data_loaders(config)
 # load model
-model = timm.create_model('vit_base_patch16_224', pretrained=True, num_classes=37)
+model = timm.create_model('vit_tiny_patch16_224', pretrained=True, num_classes=10)
 model = model.to(device)
 state_dict = torch.load(os.path.join(os.path.dirname(__file__), "pretrained.pth"),
                         map_location=device, weights_only=True)
