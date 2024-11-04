@@ -29,10 +29,10 @@ def get_config():
     config = {
         "batch_size": 128,
         "num_workers": 8,
-        "learning_rate": 0.003,
+        "learning_rate": 0.05,
         "weight_decay": 5e-4,
         "epochs": 1,
-        "save_learning_rate": 0.003,
+        "save_learning_rate": 0.05,
         "total_save_number": 200,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
