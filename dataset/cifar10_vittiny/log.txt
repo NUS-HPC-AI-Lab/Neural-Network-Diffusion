@@ -11,10 +11,10 @@ original_acc_max: 0.9796
 original_acc_min: 0.976
 original_acc_std: 0.0005742414185188168
 original_acc_median: 0.9777
-generated_acc_mean: 0.9777985074626867
-generated_acc_max: 0.9788
-generated_acc_min: 0.9766
-generated_acc_std: 0.0004223221297630398
+generated_acc_mean: 0.9778014925373134
+generated_acc_max: 0.9789
+generated_acc_min: 0.9765
+generated_acc_std: 0.0004211424419504283
 generated_acc_median: 0.9778
 noise=0.0100_acc_mean: 0.977642
 noise=0.0300_acc_mean: 0.9777899999999999
@@ -22,9 +22,9 @@ noise=0.0500_acc_mean: 0.9777040000000001
 noise=0.1000_acc_mean: 0.977768
 
 origin-origin: 0.7500664102469043
-generated-generated: 0.8915492532028834
-origin-generated: 0.7909805888010386
-origin-generated(max): 0.8794707844562496
+generated-generated: 0.8915641191647897
+origin-generated: 0.7910236381402517
+origin-generated(max): 0.8798702891199008
 
 noise_intensity=0.01
 noised-noised: 0.7501056998280172

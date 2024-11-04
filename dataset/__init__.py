@@ -1,12 +1,7 @@
 import torch
-import einops
 from torch.utils.data import Dataset
-from torchvision.datasets import CIFAR10
-from torchvision import transforms
 import os
 import math
-import random
-import json
 from abc import ABC
 
 
@@ -499,6 +494,41 @@ class Flowers_ConvNeXtBase(BaseDataset):
     test_command = "python ./dataset/flowers_convnextbase/test.py " + \
                    "./dataset/flowers_convnextbase/generated/generated_model.pth"
 
+class Food101_ResNet18(BaseDataset):
+    data_path = "./dataset/food101_resnet18/checkpoint"
+    generated_path = "./dataset/food101_resnet18/generated/generated_model.pth"
+    test_command = "python ./dataset/food101_resnet18/test.py " + \
+                   "./dataset/food101_resnet18/generated/generated_model.pth"
+
+class Food101_ResNet50(BaseDataset):
+    data_path = "./dataset/food101_resnet50/checkpoint"
+    generated_path = "./dataset/food101_resnet50/generated/generated_model.pth"
+    test_command = "python ./dataset/food101_resnet50/test.py " + \
+                   "./dataset/food101_resnet50/generated/generated_model.pth"
+
+class Food101_ViTTiny(BaseDataset):
+    data_path = "./dataset/food101_vittiny/checkpoint"
+    generated_path = "./dataset/food101_vittiny/generated/generated_model.pth"
+    test_command = "python ./dataset/food101_vittiny/test.py " + \
+                   "./dataset/food101_vittiny/generated/generated_model.pth"
+
+class Food101_ViTBase(BaseDataset):
+    data_path = "./dataset/food101_vitbase/checkpoint"
+    generated_path = "./dataset/food101_vitbase/generated/generated_model.pth"
+    test_command = "python ./dataset/food101_vitbase/test.py " + \
+                   "./dataset/food101_vitbase/generated/generated_model.pth"
+
+class Food101_ConvNeXtTiny(BaseDataset):
+    data_path = "./dataset/food101_convnexttiny/checkpoint"
+    generated_path = "./dataset/food101_convnexttiny/generated/generated_model.pth"
+    test_command = "python ./dataset/food101_convnexttiny/test.py " + \
+                   "./dataset/food101_convnexttiny/generated/generated_model.pth"
+
+class Food101_ConvNeXtBase(BaseDataset):
+    data_path = "./dataset/food101_convnextbase/checkpoint"
+    generated_path = "./dataset/food101_convnextbase/generated/generated_model.pth"
+    test_command = "python ./dataset/food101_convnextbase/test.py " + \
+                   "./dataset/food101_convnextbase/generated/generated_model.pth"
 
 
 
@@ -508,25 +538,20 @@ class Flowers_ConvNeXtBase(BaseDataset):
 
 
 
-
-
-
-
-class Cifar10_CNNSmall(BaseDataset):
-    data_path = "./dataset/cifar10_cnnsmall/checkpoint"
-    generated_path = "./dataset/cifar10_cnnsmall/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar10_cnnsmall/test.py " + \
-                   "./dataset/cifar10_cnnsmall/generated/generated_model.pth"
-
-class Cifar10_ConvNet3(BaseDataset):
-    data_path = "./dataset/cifar10_convnet3/checkpoint"
-    generated_path = "./dataset/cifar10_convnet3/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar10_convnet3/test.py " + \
-                   "./dataset/cifar10_convnet3/generated/generated_model.pth"
-
-
-class Cifar100_ResNet18_ablation_ft_lr_001(BaseDataset):
-    data_path = "./dataset/ablation_cifar100_resnet18_different_ft_lr/checkpoint"
-    generated_path = "./dataset/ablation_cifar100_resnet18_different_ft_lr/generated/generated_model.pth"
-    test_command = "python ./dataset/ablation_cifar100_resnet18_different_ft_lr/test.py " + \
-                   "./dataset/ablation_cifar100_resnet18_different_ft_lr/generated/generated_model.pth"
+# class Cifar10_CNNSmall(BaseDataset):
+#     data_path = "./dataset/cifar10_cnnsmall/checkpoint"
+#     generated_path = "./dataset/cifar10_cnnsmall/generated/generated_model.pth"
+#     test_command = "python ./dataset/cifar10_cnnsmall/test.py " + \
+#                    "./dataset/cifar10_cnnsmall/generated/generated_model.pth"
+#
+# class Cifar10_ConvNet3(BaseDataset):
+#     data_path = "./dataset/cifar10_convnet3/checkpoint"
+#     generated_path = "./dataset/cifar10_convnet3/generated/generated_model.pth"
+#     test_command = "python ./dataset/cifar10_convnet3/test.py " + \
+#                    "./dataset/cifar10_convnet3/generated/generated_model.pth"
+#
+# class Cifar100_ResNet18_ablation_ft_lr_001(BaseDataset):
+#     data_path = "./dataset/ablation_cifar100_resnet18_different_ft_lr/checkpoint"
+#     generated_path = "./dataset/ablation_cifar100_resnet18_different_ft_lr/generated/generated_model.pth"
+#     test_command = "python ./dataset/ablation_cifar100_resnet18_different_ft_lr/test.py " + \
+#                    "./dataset/ablation_cifar100_resnet18_different_ft_lr/generated/generated_model.pth"

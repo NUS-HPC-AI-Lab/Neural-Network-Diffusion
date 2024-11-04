@@ -18,15 +18,10 @@ np.random.seed(seed)
 random.seed(seed)
 
 # other
-import math
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 if USE_WANDB: import wandb
-# torch
-import torch.nn as nn
 import torch.optim as optim
-from torch.nn import functional as F
-from torch.cuda.amp import autocast
 # model
 from model.pdiff import PDiff as Model
 from model.pdiff import OneDimVAE as VAE
