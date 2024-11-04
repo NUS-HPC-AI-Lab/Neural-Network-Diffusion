@@ -463,7 +463,41 @@ class In1k_ConvNeXtBase(BaseDataset):
     test_command = "python ./dataset/in1k_convnextbase/test.py " + \
                    "./dataset/in1k_convnextbase/generated/generated_model.pth"
 
+class Flowers_ResNet18(BaseDataset):
+    data_path = "./dataset/flowers_resnet18/checkpoint"
+    generated_path = "./dataset/flowers_resnet18/generated/generated_model.pth"
+    test_command = "python ./dataset/flowers_resnet18/test.py " + \
+                   "./dataset/flowers_resnet18/generated/generated_model.pth"
 
+class Flowers_ResNet50(BaseDataset):
+    data_path = "./dataset/flowers_resnet50/checkpoint"
+    generated_path = "./dataset/flowers_resnet50/generated/generated_model.pth"
+    test_command = "python ./dataset/flowers_resnet50/test.py " + \
+                   "./dataset/flowers_resnet50/generated/generated_model.pth"
+
+class Flowers_ViTTiny(BaseDataset):
+    data_path = "./dataset/flowers_vittiny/checkpoint"
+    generated_path = "./dataset/flowers_vittiny/generated/generated_model.pth"
+    test_command = "python ./dataset/flowers_vittiny/test.py " + \
+                   "./dataset/flowers_vittiny/generated/generated_model.pth"
+
+class Flowers_ViTBase(BaseDataset):
+    data_path = "./dataset/flowers_vitbase/checkpoint"
+    generated_path = "./dataset/flowers_vitbase/generated/generated_model.pth"
+    test_command = "python ./dataset/flowers_vitbase/test.py " + \
+                   "./dataset/flowers_vitbase/generated/generated_model.pth"
+
+class Flowers_ConvNeXtTiny(BaseDataset):
+    data_path = "./dataset/flowers_convnexttiny/checkpoint"
+    generated_path = "./dataset/flowers_convnexttiny/generated/generated_model.pth"
+    test_command = "python ./dataset/flowers_convnexttiny/test.py " + \
+                   "./dataset/flowers_convnexttiny/generated/generated_model.pth"
+
+class Flowers_ConvNeXtBase(BaseDataset):
+    data_path = "./dataset/flowers_convnextbase/checkpoint"
+    generated_path = "./dataset/flowers_convnextbase/generated/generated_model.pth"
+    test_command = "python ./dataset/flowers_convnextbase/test.py " + \
+                   "./dataset/flowers_convnextbase/generated/generated_model.pth"
 
 
 
@@ -491,48 +525,6 @@ class Cifar10_ConvNet3(BaseDataset):
                    "./dataset/cifar10_convnet3/generated/generated_model.pth"
 
 
-
-
-
-class flowers_ResNet18(BaseDataset):
-    data_path = "./dataset/flowers_resnet18/checkpoint"
-    generated_path = "./dataset/flowers_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_resnet18/test.py " + \
-                   "./dataset/flowers_resnet18/generated/generated_model.pth"
-
-class flowers_ResNet50(BaseDataset):
-    data_path = "./dataset/flowers_resnet50/checkpoint"
-    generated_path = "./dataset/flowers_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_resnet50/test.py " + \
-                   "./dataset/flowers_resnet50/generated/generated_model.pth"
-
-class flowers_ViT_Tiny(BaseDataset):
-    data_path = "./dataset/flowers_vit_tiny/checkpoint"
-    generated_path = "./dataset/flowers_vit_tiny/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_vit_tiny/test.py " + \
-                   "./dataset/flowers_vit_tiny/generated/generated_model.pth"
-                   
-class flowers_ViT_Base(BaseDataset):
-    data_path = "./dataset/flowers_vit_base/checkpoint"
-    generated_path = "./dataset/flowers_vit_base/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_vit_base/test.py " + \
-                   "./dataset/flowers_vit_base/generated/generated_model.pth"
-
-
-class flowers_ConvNext_Tiny(BaseDataset):
-    data_path = "./dataset/flowers_convnext_tiny/checkpoint"
-    generated_path = "./dataset/flowers_convnext_tiny/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_convnext_tiny/test.py " + \
-                   "./dataset/flowers_convnext_tiny/generated/generated_model.pth"
-
-
-class flowers_ConvNext_Base(BaseDataset):
-    data_path = "./dataset/flowers_convnext_base/checkpoint"
-    generated_path = "./dataset/flowers_convnext_base/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_convnext_base/test.py " + \
-                   "./dataset/flowers_convnext_base/generated/generated_model.pth"
-                   
-                   
 class Cifar100_ResNet18_ablation_ft_lr_001(BaseDataset):
     data_path = "./dataset/ablation_cifar100_resnet18_different_ft_lr/checkpoint"
     generated_path = "./dataset/ablation_cifar100_resnet18_different_ft_lr/generated/generated_model.pth"
