@@ -112,7 +112,7 @@ def test(model, test_loader, device):
     print(f"Test Loss: {loss:.4f} | Test Acc: {acc:.4f}")
     return loss, acc, all_targets, all_predicts
 
-
+nn.LayerNorm
 def save_checkpoint(model, batch_idx, acc, config):
     if not os.path.isdir('checkpoint'):
         os.mkdir('checkpoint')
