@@ -29,10 +29,10 @@ def get_config():
     config = {
         "batch_size": 128,
         "num_workers": 16,
-        "learning_rate": 0.008,
+        "learning_rate": 0.005,
         "weight_decay": 5e-3,
         "epochs": 1,
-        "save_learning_rate": 0.008,
+        "save_learning_rate": 0.005,
         "total_save_number": 200,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
@@ -148,6 +148,19 @@ if __name__ == "__main__":
     model.train()
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
+    # pre epoch
+    for batch_idx, (inputs, targets) in enumerate(pbar):
+        inputs, targets = inputs.to(device), targets.to(device)
+        optimizer.zero_grad()
+        with torch.amp.autocast("cuda", enabled=True, dtype=torch.bfloat16):
+            outputs = model(inputs)
+            loss = criterion(outputs, targets)
+        loss.backward()
+        optimizer.step()
+        if scheduler is not None:
+            scheduler.step()
+        pbar.set_postfix({'Loss': f'{loss:.3f}'})
+    # save epoch
     for batch_idx, (inputs, targets) in enumerate(pbar):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
@@ -159,8 +172,9 @@ if __name__ == "__main__":
         if scheduler is not None:
             scheduler.step()
         # Save checkpoint at regular intervals
-        if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 1500:
-            # loss, acc, _, _ = test(model, test_loader, device)
+        if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 500:
+            if batch_idx % 1000 == 0:
+                loss, acc, _, _ = test(model, test_loader, device)
             loss, acc = 1., 1.
             save_checkpoint(model, batch_idx, acc, config)
         pbar.set_postfix({'Loss': f'{loss:.3f}'})

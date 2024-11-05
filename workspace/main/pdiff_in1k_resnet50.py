@@ -41,7 +41,7 @@ config = {
     # train setting
     "batch_size": 50,
     "num_workers": 4,
-    "total_steps": 2000,  # diffusion training steps
+    "total_steps": 4000,  # diffusion training steps
     "vae_steps": 1000,  # vae training steps
     "learning_rate": 0.0001,  # diffusion learning rate
     "vae_learning_rate": 0.00002,  # vae learning rate
