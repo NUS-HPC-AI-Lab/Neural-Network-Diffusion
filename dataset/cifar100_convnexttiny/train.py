@@ -123,7 +123,7 @@ def main():
     config = {
         "dataset_root": "from_additional_config",
         "batch_size": 128,
-        "num_workers": 4,
+        "num_workers": 16,
         "learning_rate": 1e-4,
         "weight_decay": 1e-4,
         "epochs": 10,

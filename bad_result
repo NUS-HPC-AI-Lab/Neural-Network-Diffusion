@@ -1,10 +1,10 @@
 stl10_convnexttiny: 0.9915 / 0.9914
+flowers_convnextbase: 0.9958 / 0.9954
+cifar10_vittiny: 0.9796 / 0.9789
+
 in1k_resnet18
 in1k_resnet50
 food101_resnet18
 food101_resnet50
-flowers_convnextbase: 0.9958 / 0.9954
-cifar10_vittiny: 0.9796 / 0.9789
-
 cifar100 *6
 

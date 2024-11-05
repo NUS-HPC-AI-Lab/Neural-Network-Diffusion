@@ -29,10 +29,10 @@ def get_config():
     config = {
         "batch_size": 128,
         "num_workers": 16,
-        "learning_rate": 0.025,
-        "weight_decay": 5e-4,
+        "learning_rate": 0.03,
+        "weight_decay": 5e-3,
         "epochs": 1,
-        "save_learning_rate": 0.025,
+        "save_learning_rate": 0.03,
         "total_save_number": 200,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
@@ -160,7 +160,7 @@ if __name__ == "__main__":
             scheduler.step()
         # Save checkpoint at regular intervals
         if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 500:
-            loss, acc, _, _ = test(model, test_loader, device)
+            # loss, acc, _, _ = test(model, test_loader, device)
             loss, acc = 1., 1.
             save_checkpoint(model, batch_idx, acc, config)
         pbar.set_postfix({'Loss': f'{loss:.3f}'})
