@@ -25,11 +25,11 @@ echo "Using main_process_port=$main_process_port"
 
 # construct command
 command="accelerate launch --main_process_port=$main_process_port --num_processes=$num_gpus --gpu_ids=$gpu_ids"
-command+=" --num_machines=1 --mixed_precision=bf16 --dynamo_backend=no"
+command+=" --num_machines=1 --mixed_precision=no --dynamo_backend=no"
 if [ $num_gpus -ge 2 ]; then
   command+=" --multi_gpu"
 fi
-command+=" ./main/pdiff_$exec_file.py"
+command+=" ./full/full_$exec_file.py"
 
 # execute command
 eval $command

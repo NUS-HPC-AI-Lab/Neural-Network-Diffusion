@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: cifar100_convnextbase
+
+num_checkpoint: 391
+num_generated: 201
+num_noised: 50x4
+original_acc_mean: 0.9295475703324808
+original_acc_max: 0.9328
+original_acc_min: 0.9267
+original_acc_std: 0.0009991750968720923
+original_acc_median: 0.9297
+generated_acc_mean: 0.9311228855721394
+generated_acc_max: 0.9327
+generated_acc_min: 0.9284
+generated_acc_std: 0.0007856129411955527
+generated_acc_median: 0.9312
+noise=0.0100_acc_mean: 0.929514
+noise=0.0300_acc_mean: 0.929486
+noise=0.0500_acc_mean: 0.929478
+noise=0.1000_acc_mean: 0.929606
+
+origin-origin: 0.7507492087595119
+generated-generated: 0.9019113178021292
+origin-generated: 0.7909613617812213
+origin-generated(max): 0.8485278280621629
+
+noise_intensity=0.01
+noised-noised: 0.7507260963899678
+origin-noised: 0.7509773803229945
+origin-noised(max): 0.9937490535777684
+
+noise_intensity=0.03
+noised-noised: 0.7540582000607945
+origin-noised: 0.7531579826850792
+origin-noised(max): 0.9881706128329949
+
+noise_intensity=0.05
+noised-noised: 0.7468333755569246
+origin-noised: 0.7500261484385653
+origin-noised(max): 0.9786678587530331
+
+noise_intensity=0.1
+noised-noised: 0.7468349469082427
+origin-noised: 0.7488828295985404
+origin-noised(max): 0.9611970841675196
+
+==> start drawing..
+plot saved to plot_cifar100_convnextbase.png

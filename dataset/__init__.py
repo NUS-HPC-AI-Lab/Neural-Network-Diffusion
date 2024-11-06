@@ -111,9 +111,7 @@ def positional_embedding_1d(dim1, d_model):
 
 
 class BaseDataset(Dataset, ABC):
-    data_path = None
-    generated_path = None
-    test_command = None
+    category = None
     config = {
         "fill_value": torch.nan,
         "granularity": 1,  # 0: flatten directly, 1: split by layer, 2: split by output
@@ -275,283 +273,91 @@ class BaseDataset(Dataset, ABC):
             diction[key] = this_param
         return diction
 
+    @classmethod
+    @property
+    def data_path(cls):
+        return f"./dataset/{cls.category}/{cls.tag}/checkpoint"
+
+    @classmethod
+    @property
+    def generated_path(cls):
+        return f"./dataset/{cls.category}/{cls.tag}/generated/generated_model.pth"
+
+    @classmethod
+    @property
+    def test_command(cls):
+        return f"python ./dataset/{cls.category}/{cls.tag}/test.py " + \
+               f"./dataset/{cls.category}/{cls.tag}/generated/generated_model.pth"
+
+    @classmethod
+    @property
+    def tag(cls):
+        return cls.__name__.lower()
 
 
+class MainDataset(BaseDataset):
+    category = "main"
 
-class Cifar100_ResNet18(BaseDataset):
-    data_path = "./dataset/cifar100_resnet18/checkpoint"
-    generated_path = "./dataset/cifar100_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_resnet18/test.py " + \
-                   "./dataset/cifar100_resnet18/generated/generated_model.pth"
 
-class Cifar100_ResNet50(BaseDataset):
-    data_path = "./dataset/cifar100_resnet50/checkpoint"
-    generated_path = "./dataset/cifar100_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_resnet50/test.py " + \
-                   "./dataset/cifar100_resnet50/generated/generated_model.pth"
-
-class Cifar100_ViTTiny(BaseDataset):
-    data_path = "./dataset/cifar100_vittiny/checkpoint"
-    generated_path = "./dataset/cifar100_vittiny/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_vittiny/test.py " + \
-                   "./dataset/cifar100_vittiny/generated/generated_model.pth"
-
-class Cifar100_ViTBase(BaseDataset):
-    data_path = "./dataset/cifar100_vitbase/checkpoint"
-    generated_path = "./dataset/cifar100_vitbase/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_vitbase/test.py " + \
-                   "./dataset/cifar100_vitbase/generated/generated_model.pth"
-
-class Cifar100_ConvNeXtTiny(BaseDataset):
-    data_path = "./dataset/cifar100_convnexttiny/checkpoint"
-    generated_path = "./dataset/cifar100_convnexttiny/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_convnexttiny/test.py " + \
-                   "./dataset/cifar100_convnexttiny/generated/generated_model.pth"
-
-class Cifar100_ConvNeXtBase(BaseDataset):
-    data_path = "./dataset/cifar100_convnextbase/checkpoint"
-    generated_path = "./dataset/cifar100_convnextbase/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar100_convnextbase/test.py " + \
-                   "./dataset/cifar100_convnextbase/generated/generated_model.pth"
-
-class STL10_ResNet18(BaseDataset):
-    data_path = "./dataset/stl10_resnet18/checkpoint"
-    generated_path = "./dataset/stl10_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_resnet18/test.py " + \
-                   "./dataset/stl10_resnet18/generated/generated_model.pth"
-
-class STL10_ResNet50(BaseDataset):
-    data_path = "./dataset/stl10_resnet50/checkpoint"
-    generated_path = "./dataset/stl10_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_resnet50/test.py " + \
-                   "./dataset/stl10_resnet50/generated/generated_model.pth"
-
-class STL10_ViTTiny(BaseDataset):
-    data_path = "./dataset/stl10_vittiny/checkpoint"
-    generated_path = "./dataset/stl10_vittiny/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_vittiny/test.py " + \
-                   "./dataset/stl10_vittiny/generated/generated_model.pth"
-
-class STL10_ViTBase(BaseDataset):
-    data_path = "./dataset/stl10_vitbase/checkpoint"
-    generated_path = "./dataset/stl10_vitbase/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_vitbase/test.py " + \
-                   "./dataset/stl10_vitbase/generated/generated_model.pth"
-
-class STL10_ConvNeXtTiny(BaseDataset):
-    data_path = "./dataset/stl10_convnexttiny/checkpoint"
-    generated_path = "./dataset/stl10_convnexttiny/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_convnexttiny/test.py " + \
-                   "./dataset/stl10_convnexttiny/generated/generated_model.pth"
-
-class STL10_ConvNeXtBase(BaseDataset):
-    data_path = "./dataset/stl10_convnextbase/checkpoint"
-    generated_path = "./dataset/stl10_convnextbase/generated/generated_model.pth"
-    test_command = "python ./dataset/stl10_convnextbase/test.py " + \
-                   "./dataset/stl10_convnextbase/generated/generated_model.pth"
-
-class Pets_ResNet18(BaseDataset):
-    data_path = "./dataset/pets_resnet18/checkpoint"
-    generated_path = "./dataset/pets_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/pets_resnet18/test.py " + \
-                   "./dataset/pets_resnet18/generated/generated_model.pth"
-
-class Pets_ResNet50(BaseDataset):
-    data_path = "./dataset/pets_resnet50/checkpoint"
-    generated_path = "./dataset/pets_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/pets_resnet50/test.py " + \
-                   "./dataset/pets_resnet50/generated/generated_model.pth"
-
-class Pets_ViTTiny(BaseDataset):
-    data_path = "./dataset/pets_vittiny/checkpoint"
-    generated_path = "./dataset/pets_vittiny/generated/generated_model.pth"
-    test_command = "python ./dataset/pets_vittiny/test.py " + \
-                   "./dataset/pets_vittiny/generated/generated_model.pth"
-
-class Pets_ViTBase(BaseDataset):
-    data_path = "./dataset/pets_vitbase/checkpoint"
-    generated_path = "./dataset/pets_vitbase/generated/generated_model.pth"
-    test_command = "python ./dataset/pets_vitbase/test.py " + \
-                   "./dataset/pets_vitbase/generated/generated_model.pth"
-
-class Pets_ConvNeXtTiny(BaseDataset):
-    data_path = "./dataset/pets_convnexttiny/checkpoint"
-    generated_path = "./dataset/pets_convnexttiny/generated/generated_model.pth"
-    test_command = "python ./dataset/pets_convnexttiny/test.py " + \
-                   "./dataset/pets_convnexttiny/generated/generated_model.pth"
-
-class Pets_ConvNeXtBase(BaseDataset):
-    data_path = "./dataset/pets_convnextbase/checkpoint"
-    generated_path = "./dataset/pets_convnextbase/generated/generated_model.pth"
-    test_command = "python ./dataset/pets_convnextbase/test.py " + \
-                   "./dataset/pets_convnextbase/generated/generated_model.pth"
-
-class Cifar10_ResNet18(BaseDataset):
-    data_path = "./dataset/cifar10_resnet18/checkpoint"
-    generated_path = "./dataset/cifar10_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar10_resnet18/test.py " + \
-                   "./dataset/cifar10_resnet18/generated/generated_model.pth"
-
-class Cifar10_ResNet50(BaseDataset):
-    data_path = "./dataset/cifar10_resnet50/checkpoint"
-    generated_path = "./dataset/cifar10_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar10_resnet50/test.py " + \
-                   "./dataset/cifar10_resnet50/generated/generated_model.pth"
-
-class Cifar10_ViTTiny(BaseDataset):
-    data_path = "./dataset/cifar10_vittiny/checkpoint"
-    generated_path = "./dataset/cifar10_vittiny/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar10_vittiny/test.py " + \
-                   "./dataset/cifar10_vittiny/generated/generated_model.pth"
-
-class Cifar10_ViTBase(BaseDataset):
-    data_path = "./dataset/cifar10_vitbase/checkpoint"
-    generated_path = "./dataset/cifar10_vitbase/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar10_vitbase/test.py " + \
-                   "./dataset/cifar10_vitbase/generated/generated_model.pth"
-
-class Cifar10_ConvNeXtTiny(BaseDataset):
-    data_path = "./dataset/cifar10_convnexttiny/checkpoint"
-    generated_path = "./dataset/cifar10_convnexttiny/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar10_convnexttiny/test.py " + \
-                   "./dataset/cifar10_convnexttiny/generated/generated_model.pth"
-
-class Cifar10_ConvNeXtBase(BaseDataset):
-    data_path = "./dataset/cifar10_convnextbase/checkpoint"
-    generated_path = "./dataset/cifar10_convnextbase/generated/generated_model.pth"
-    test_command = "python ./dataset/cifar10_convnextbase/test.py " + \
-                   "./dataset/cifar10_convnextbase/generated/generated_model.pth"
-
-class In1k_ResNet18(BaseDataset):
-    data_path = "./dataset/in1k_resnet18/checkpoint"
-    generated_path = "./dataset/in1k_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/in1k_resnet18/test.py " + \
-                   "./dataset/in1k_resnet18/generated/generated_model.pth"
-
-class In1k_ResNet50(BaseDataset):
-    data_path = "./dataset/in1k_resnet50/checkpoint"
-    generated_path = "./dataset/in1k_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/in1k_resnet50/test.py " + \
-                   "./dataset/in1k_resnet50/generated/generated_model.pth"
-
-class In1k_ViTTiny(BaseDataset):
-    data_path = "./dataset/in1k_vittiny/checkpoint"
-    generated_path = "./dataset/in1k_vittiny/generated/generated_model.pth"
-    test_command = "python ./dataset/in1k_vittiny/test.py " + \
-                   "./dataset/in1k_vittiny/generated/generated_model.pth"
-
-class In1k_ViTBase(BaseDataset):
-    data_path = "./dataset/in1k_vitbase/checkpoint"
-    generated_path = "./dataset/in1k_vitbase/generated/generated_model.pth"
-    test_command = "python ./dataset/in1k_vitbase/test.py " + \
-                   "./dataset/in1k_vitbase/generated/generated_model.pth"
-
-class In1k_ConvNeXtTiny(BaseDataset):
-    data_path = "./dataset/in1k_convnexttiny/checkpoint"
-    generated_path = "./dataset/in1k_convnexttiny/generated/generated_model.pth"
-    test_command = "python ./dataset/in1k_convnexttiny/test.py " + \
-                   "./dataset/in1k_convnexttiny/generated/generated_model.pth"
-
-class In1k_ConvNeXtBase(BaseDataset):
-    data_path = "./dataset/in1k_convnextbase/checkpoint"
-    generated_path = "./dataset/in1k_convnextbase/generated/generated_model.pth"
-    test_command = "python ./dataset/in1k_convnextbase/test.py " + \
-                   "./dataset/in1k_convnextbase/generated/generated_model.pth"
-
-class Flowers_ResNet18(BaseDataset):
-    data_path = "./dataset/flowers_resnet18/checkpoint"
-    generated_path = "./dataset/flowers_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_resnet18/test.py " + \
-                   "./dataset/flowers_resnet18/generated/generated_model.pth"
-
-class Flowers_ResNet50(BaseDataset):
-    data_path = "./dataset/flowers_resnet50/checkpoint"
-    generated_path = "./dataset/flowers_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_resnet50/test.py " + \
-                   "./dataset/flowers_resnet50/generated/generated_model.pth"
-
-class Flowers_ViTTiny(BaseDataset):
-    data_path = "./dataset/flowers_vittiny/checkpoint"
-    generated_path = "./dataset/flowers_vittiny/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_vittiny/test.py " + \
-                   "./dataset/flowers_vittiny/generated/generated_model.pth"
-
-class Flowers_ViTBase(BaseDataset):
-    data_path = "./dataset/flowers_vitbase/checkpoint"
-    generated_path = "./dataset/flowers_vitbase/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_vitbase/test.py " + \
-                   "./dataset/flowers_vitbase/generated/generated_model.pth"
-
-class Flowers_ConvNeXtTiny(BaseDataset):
-    data_path = "./dataset/flowers_convnexttiny/checkpoint"
-    generated_path = "./dataset/flowers_convnexttiny/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_convnexttiny/test.py " + \
-                   "./dataset/flowers_convnexttiny/generated/generated_model.pth"
-
-class Flowers_ConvNeXtBase(BaseDataset):
-    data_path = "./dataset/flowers_convnextbase/checkpoint"
-    generated_path = "./dataset/flowers_convnextbase/generated/generated_model.pth"
-    test_command = "python ./dataset/flowers_convnextbase/test.py " + \
-                   "./dataset/flowers_convnextbase/generated/generated_model.pth"
-
-class Food101_ResNet18(BaseDataset):
-    data_path = "./dataset/food101_resnet18/checkpoint"
-    generated_path = "./dataset/food101_resnet18/generated/generated_model.pth"
-    test_command = "python ./dataset/food101_resnet18/test.py " + \
-                   "./dataset/food101_resnet18/generated/generated_model.pth"
-
-class Food101_ResNet50(BaseDataset):
-    data_path = "./dataset/food101_resnet50/checkpoint"
-    generated_path = "./dataset/food101_resnet50/generated/generated_model.pth"
-    test_command = "python ./dataset/food101_resnet50/test.py " + \
-                   "./dataset/food101_resnet50/generated/generated_model.pth"
-
-class Food101_ViTTiny(BaseDataset):
-    data_path = "./dataset/food101_vittiny/checkpoint"
-    generated_path = "./dataset/food101_vittiny/generated/generated_model.pth"
-    test_command = "python ./dataset/food101_vittiny/test.py " + \
-                   "./dataset/food101_vittiny/generated/generated_model.pth"
-
-class Food101_ViTBase(BaseDataset):
-    data_path = "./dataset/food101_vitbase/checkpoint"
-    generated_path = "./dataset/food101_vitbase/generated/generated_model.pth"
-    test_command = "python ./dataset/food101_vitbase/test.py " + \
-                   "./dataset/food101_vitbase/generated/generated_model.pth"
-
-class Food101_ConvNeXtTiny(BaseDataset):
-    data_path = "./dataset/food101_convnexttiny/checkpoint"
-    generated_path = "./dataset/food101_convnexttiny/generated/generated_model.pth"
-    test_command = "python ./dataset/food101_convnexttiny/test.py " + \
-                   "./dataset/food101_convnexttiny/generated/generated_model.pth"
-
-class Food101_ConvNeXtBase(BaseDataset):
-    data_path = "./dataset/food101_convnextbase/checkpoint"
-    generated_path = "./dataset/food101_convnextbase/generated/generated_model.pth"
-    test_command = "python ./dataset/food101_convnextbase/test.py " + \
-                   "./dataset/food101_convnextbase/generated/generated_model.pth"
+class FullDataset(BaseDataset):
+    category = "full"
 
 
 
 
+class Cifar100_ResNet18(MainDataset): pass
+class Cifar100_ResNet50(MainDataset): pass
+class Cifar100_ViTTiny(MainDataset): pass
+class Cifar100_ViTBase(MainDataset): pass
+class Cifar100_ConvNeXtTiny(MainDataset): pass
+class Cifar100_ConvNeXtBase(MainDataset): pass
+class STL10_ResNet18(MainDataset): pass
+class STL10_ResNet50(MainDataset): pass
+class STL10_ViTTiny(MainDataset): pass
+class STL10_ViTBase(MainDataset): pass
+class STL10_ConvNeXtTiny(MainDataset): pass
+class STL10_ConvNeXtBase(MainDataset): pass
+class Pets_ResNet18(MainDataset): pass
+class Pets_ResNet50(MainDataset): pass
+class Pets_ViTTiny(MainDataset): pass
+class Pets_ViTBase(MainDataset): pass
+class Pets_ConvNeXtTiny(MainDataset): pass
+class Pets_ConvNeXtBase(MainDataset): pass
+class Cifar10_ResNet18(MainDataset): pass
+class Cifar10_ResNet50(MainDataset): pass
+class Cifar10_ViTTiny(MainDataset): pass
+class Cifar10_ViTBase(MainDataset): pass
+class Cifar10_ConvNeXtTiny(MainDataset): pass
+class Cifar10_ConvNeXtBase(MainDataset): pass
+class In1k_ResNet18(MainDataset): pass
+class In1k_ResNet50(MainDataset): pass
+class In1k_ViTTiny(MainDataset): pass
+class In1k_ViTBase(MainDataset): pass
+class In1k_ConvNeXtTiny(MainDataset): pass
+class In1k_ConvNeXtBase(MainDataset): pass
+class Flowers_ResNet18(MainDataset): pass
+class Flowers_ResNet50(MainDataset): pass
+class Flowers_ViTTiny(MainDataset): pass
+class Flowers_ViTBase(MainDataset): pass
+class Flowers_ConvNeXtTiny(MainDataset): pass
+class Flowers_ConvNeXtBase(MainDataset): pass
+class Food101_ResNet18(MainDataset): pass
+class Food101_ResNet50(MainDataset): pass
+class Food101_ViTTiny(MainDataset): pass
+class Food101_ViTBase(MainDataset): pass
+class Food101_ConvNeXtTiny(MainDataset): pass
+class Food101_ConvNeXtBase(MainDataset): pass
 
 
 
 
-
-# class Cifar10_CNNSmall(BaseDataset):
-#     data_path = "./dataset/cifar10_cnnsmall/checkpoint"
-#     generated_path = "./dataset/cifar10_cnnsmall/generated/generated_model.pth"
-#     test_command = "python ./dataset/cifar10_cnnsmall/test.py " + \
-#                    "./dataset/cifar10_cnnsmall/generated/generated_model.pth"
-#
-# class Cifar10_ConvNet3(BaseDataset):
-#     data_path = "./dataset/cifar10_convnet3/checkpoint"
-#     generated_path = "./dataset/cifar10_convnet3/generated/generated_model.pth"
-#     test_command = "python ./dataset/cifar10_convnet3/test.py " + \
-#                    "./dataset/cifar10_convnet3/generated/generated_model.pth"
-#
-# class Cifar100_ResNet18_ablation_ft_lr_001(BaseDataset):
-#     data_path = "./dataset/ablation_cifar100_resnet18_different_ft_lr/checkpoint"
-#     generated_path = "./dataset/ablation_cifar100_resnet18_different_ft_lr/generated/generated_model.pth"
-#     test_command = "python ./dataset/ablation_cifar100_resnet18_different_ft_lr/test.py " + \
-#                    "./dataset/ablation_cifar100_resnet18_different_ft_lr/generated/generated_model.pth"
+class Cifar10_ConvNet(FullDataset): pass
+class Cifar10_MLP(FullDataset): pass
+class Cifar10_ResNet(FullDataset): pass
+class Cifar10_ViT(FullDataset): pass
+class Cifar10_ConvNeXt(FullDataset): pass
+class STL10_ConvNet(FullDataset): pass
+class STL10_MLP(FullDataset): pass
+class STL10_ResNet(FullDataset): pass
+class STL10_ViT(FullDataset): pass
+class STL10_ConvNeXt(FullDataset): pass
