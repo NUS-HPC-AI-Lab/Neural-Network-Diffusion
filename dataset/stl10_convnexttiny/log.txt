@@ -6,45 +6,45 @@ Summary: stl10_convnexttiny
 num_checkpoint: 40
 num_generated: 201
 num_noised: 50x4
-original_acc_mean: 0.9896218749999999
-original_acc_max: 0.9915
-original_acc_min: 0.98775
-original_acc_std: 0.0009648054774797963
-original_acc_median: 0.989625
-generated_acc_mean: 0.990730721393035
-generated_acc_max: 0.991375
-generated_acc_min: 0.99
-generated_acc_std: 0.00022516903985119512
-generated_acc_median: 0.99075
-noise=0.0100_acc_mean: 0.9895925
-noise=0.0300_acc_mean: 0.9896299999999999
-noise=0.0500_acc_mean: 0.9895725
-noise=0.1000_acc_mean: 0.9897075000000001
+original_acc_mean: 0.990171875
+original_acc_max: 0.991625
+original_acc_min: 0.989
+original_acc_std: 0.0006901582132924339
+original_acc_median: 0.99025
+generated_acc_mean: 0.990846393034826
+generated_acc_max: 0.9915
+generated_acc_min: 0.989875
+generated_acc_std: 0.00028316582654801085
+generated_acc_median: 0.990875
+noise=0.0100_acc_mean: 0.9901224999999999
+noise=0.0300_acc_mean: 0.9901650000000001
+noise=0.0500_acc_mean: 0.9901475000000001
+noise=0.1000_acc_mean: 0.9901775
 
-origin-origin: 0.6670021322360868
-generated-generated: 0.9142206797403297
-origin-generated: 0.7124448621399528
-origin-generated(max): 0.8229627564886259
+origin-origin: 0.7425335105015781
+generated-generated: 0.8988704649299445
+origin-generated: 0.7794210591554612
+origin-generated(max): 0.8592943394324848
 
 noise_intensity=0.01
-noised-noised: 0.6694443343991484
-origin-noised: 0.6749993252217569
-origin-noised(max): 0.9935728124011608
+noised-noised: 0.7470249930236289
+origin-noised: 0.7499140505380745
+origin-noised(max): 0.9937146060891522
 
 noise_intensity=0.03
-noised-noised: 0.6681272735377057
-origin-noised: 0.6745028370249202
-origin-noised(max): 0.9838360793388375
+noised-noised: 0.7440613395592001
+origin-noised: 0.7485270366595489
+origin-noised(max): 0.9835412998903353
 
 noise_intensity=0.05
-noised-noised: 0.665463382743144
-origin-noised: 0.6727280388938778
-origin-noised(max): 0.9757738072201786
+noised-noised: 0.7376092245902228
+origin-noised: 0.7453498651416653
+origin-noised(max): 0.9755584247752199
 
 noise_intensity=0.1
-noised-noised: 0.6618495510872411
-origin-noised: 0.6703720460118597
-origin-noised(max): 0.9526725154287048
+noised-noised: 0.7272993115053188
+origin-noised: 0.7385082586178587
+origin-noised(max): 0.9473883646948527
 
 ==> start drawing..
 plot saved to plot_stl10_convnexttiny.png

@@ -6,45 +6,45 @@ Summary: flowers_convnextbase
 num_checkpoint: 160
 num_generated: 201
 num_noised: 50x4
-original_acc_mean: 0.9931838510326882
-original_acc_max: 0.9957716701902748
-original_acc_min: 0.9902423158237111
-original_acc_std: 0.0011676972150853606
-original_acc_median: 0.9932509351114003
-generated_acc_mean: 0.9942214444123503
-generated_acc_max: 0.9954464140510653
-generated_acc_min: 0.9918685965197593
-generated_acc_std: 0.0005129993293715812
-generated_acc_median: 0.9943080175638315
-noise=0.0100_acc_mean: 0.9930752967962271
-noise=0.0300_acc_mean: 0.9931956415677344
-noise=0.0500_acc_mean: 0.9932606927955766
-noise=0.1000_acc_mean: 0.9929191738494063
+original_acc_mean: 0.9922131647422343
+original_acc_max: 0.994795901772646
+original_acc_min: 0.9822735404130754
+original_acc_std: 0.0013122044493072296
+original_acc_median: 0.9923564807285737
+generated_acc_mean: 0.9936510325264231
+generated_acc_max: 0.9949585298422507
+generated_acc_min: 0.985200845665962
+generated_acc_std: 0.0010005150874209307
+generated_acc_median: 0.9938201333550171
+noise=0.0100_acc_mean: 0.9923402179216132
+noise=0.0300_acc_mean: 0.9918425760286225
+noise=0.0500_acc_mean: 0.9924768255000813
+noise=0.1000_acc_mean: 0.9921743372906164
 
-origin-origin: 0.58314556119998
-generated-generated: 0.7281754848176681
-origin-generated: 0.6223080518206754
-origin-generated(max): 0.786132439609679
+origin-origin: 0.5184055592633656
+generated-generated: 0.6639343132010593
+origin-generated: 0.5407939583412044
+origin-generated(max): 0.6921985857707982
 
 noise_intensity=0.01
-noised-noised: 0.5825306206993648
-origin-noised: 0.585363047943842
-origin-noised(max): 0.9900911727114134
+noised-noised: 0.5227501724931537
+origin-noised: 0.5216894333252249
+origin-noised(max): 0.9911285364766518
 
 noise_intensity=0.03
-noised-noised: 0.58697368938978
-origin-noised: 0.5860181864307472
-origin-noised(max): 0.9763778749754829
+noised-noised: 0.5140949693382775
+origin-noised: 0.5163166280283833
+origin-noised(max): 0.9578677111495391
 
 noise_intensity=0.05
-noised-noised: 0.5807208980574041
-origin-noised: 0.5840102173966739
-origin-noised(max): 0.961838925926709
+noised-noised: 0.5233464256509214
+origin-noised: 0.522769721242176
+origin-noised(max): 0.9396045856057751
 
 noise_intensity=0.1
-noised-noised: 0.5594305381310264
-origin-noised: 0.5720522030925143
-origin-noised(max): 0.9197650456811659
+noised-noised: 0.5063296555785308
+origin-noised: 0.513465912393354
+origin-noised(max): 0.8990383109829501
 
 ==> start drawing..
 plot saved to plot_flowers_convnextbase.png

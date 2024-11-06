@@ -30,10 +30,10 @@ def get_config():
         "dataset_root": "from_additional_config",
         "batch_size": 128,
         "num_workers": 4,
-        "learning_rate": 0.1,
-        "weight_decay": 5e-4,
+        "learning_rate": 0.15,
+        "weight_decay": 5e-3,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
-        "save_learning_rate": 0.1,
+        "save_learning_rate": 0.15,
         "total_save_number": 200,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
