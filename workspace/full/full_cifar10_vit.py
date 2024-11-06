@@ -58,7 +58,7 @@ config = {
     "model_config": {
         # diffusion config
         "layer_channels": [1, 64, 128, 256, 512, 256, 128, 64, 1],  # channels of 1D CNN
-        "model_dim": 1024,  # latent dim of vae
+        "model_dim": 768,  # latent dim of vae
         "kernel_size": 7,
         "sample_mode": DDPMSampler,
         "beta": (0.0001, 0.02),
