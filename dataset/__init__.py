@@ -298,9 +298,11 @@ class BaseDataset(Dataset, ABC):
 class MainDataset(BaseDataset):
     category = "main"
 
-
 class FullDataset(BaseDataset):
     category = "full"
+
+class AblationDataset(BaseDataset):
+    category = "ablation"
 
 
 
@@ -361,3 +363,12 @@ class STL10_MLP(FullDataset): pass
 class STL10_ResNet(FullDataset): pass
 class STL10_ViT(FullDataset): pass
 class STL10_ConvNeXt(FullDataset): pass
+
+
+
+
+class NumberCkpt_001(AblationDataset): pass
+class NumberCkpt_010(AblationDataset): pass
+class NumberCkpt_050(AblationDataset): pass
+class NumberCkpt_200(AblationDataset): pass
+class NumberCkpt_500(AblationDataset): pass
