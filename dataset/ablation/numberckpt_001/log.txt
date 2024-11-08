@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: numberckpt_001
+
+num_checkpoint: 2
+num_generated: 201
+num_noised: 50x4
+original_acc_mean: 0.7642
+original_acc_max: 0.7642
+original_acc_min: 0.7642
+original_acc_std: 0.0
+original_acc_median: 0.7642
+generated_acc_mean: 0.7635691542288556
+generated_acc_max: 0.7667
+generated_acc_min: 0.76
+generated_acc_std: 0.0011476316868452483
+generated_acc_median: 0.7636
+noise=0.0100_acc_mean: 0.7642759999999998
+noise=0.0300_acc_mean: 0.764022
+noise=0.0500_acc_mean: 0.763708
+noise=0.1000_acc_mean: 0.760152
+
+origin-origin: 1.0
+generated-generated: 0.9178494775238737
+origin-generated: 0.9411249430802411
+origin-generated(max): 0.9411249430802411
+
+noise_intensity=0.01
+noised-noised: 0.9815588876048283
+origin-noised: 0.9862035326648669
+origin-noised(max): 0.9862035326648669
+
+noise_intensity=0.03
+noised-noised: 0.9463695788704294
+origin-noised: 0.9611100617539141
+origin-noised(max): 0.9611100617539138
+
+noise_intensity=0.05
+noised-noised: 0.9153663746627515
+origin-noised: 0.9393847303287711
+origin-noised(max): 0.9393847303287711
+
+noise_intensity=0.1
+noised-noised: 0.838023271063495
+origin-noised: 0.8813702253278629
+origin-noised(max): 0.8813702253278629
+
+==> start drawing..
+plot saved to plot_numberckpt_001.png

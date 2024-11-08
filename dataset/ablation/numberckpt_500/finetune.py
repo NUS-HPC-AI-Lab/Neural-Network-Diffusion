@@ -151,11 +151,11 @@ if __name__ == "__main__":
 
     # Calculate the interval for saving checkpoints
     total_batches = len(train_loader)
-    save_interval = max(1, total_batches // config["total_save_number"])
+    save_interval = max(2, total_batches // config["total_save_number"])
     model.train()
     criterion = nn.CrossEntropyLoss()
     saved_number = 0
-    for j in range(5):
+    for j in range(10):
         pbar = tqdm(train_loader, desc='Training', ncols=100)
         for batch_idx, (inputs, targets) in enumerate(pbar):
             inputs, targets = inputs.to(device), targets.to(device)
@@ -171,10 +171,10 @@ if __name__ == "__main__":
             if (batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1:
                 # loss, acc, _, _ = test(model, test_loader, device)
                 loss, acc = 1., 1.
-                save_checkpoint(model, batch_idx, acc, config)
+                save_checkpoint(model, saved_number, acc, config)
                 saved_number += 1
                 if saved_number >= 500:
                     print("Fine-tuning completed.")
                     exit(0)
             pbar.set_postfix({'Loss': f'{loss:.3f}'})
-        print("Fine-tuning completed.")
+    print("Fine-tuning completed.")
