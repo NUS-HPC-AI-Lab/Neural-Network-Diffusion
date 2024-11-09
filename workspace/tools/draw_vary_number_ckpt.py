@@ -1,30 +1,41 @@
-import os
+import sys, os
+root = os.sep + os.sep.join(__file__.split(os.sep)[1:__file__.split(os.sep).index("Neural-Network-Parameter-Diffusion")+1])
+sys.path.append(root)
+os.chdir(root)
 
-import seaborn as sns
 import pickle
-from matplotlib import pyplot as plt
+import seaborn as sns
 import numpy as np
-
-print(os.chdir("/home/wangkai/cvpr_pdiff_cleanup/Neural-Network-Parameter-Diffusion"))
-
-with open("plot_numberckpt_001.cache", "rb") as f:
-    cache001 = pickle.load(f)
-with open("plot_numberckpt_010.cache", "rb") as f:
-    cache010 = pickle.load(f)
-with open("plot_numberckpt_050.cache", "rb") as f:
-    cache050 = pickle.load(f)
-with open("plot_numberckpt_200.cache", "rb") as f:
-    cache200 = pickle.load(f)
-with open("plot_numberckpt_300.cache", "rb") as f:
-    cache500 = pickle.load(f)
-
-caches = [cache001[-5], cache010[-5], cache050[-5], cache200[-5], cache500[-5]]
+from matplotlib import pyplot as plt
 
 
 
-for cache, label in zip(reversed(caches), reversed(["001", "010", "050", "200", "300"])):
-    sns.scatterplot(x=cache["x"], y=cache["y"], label=cache["label"]+label)
 
+tags = ["numberckpt_001", "numberckpt_010", "numberckpt_050", "numberckpt_200", "numberckpt_300"]
+caches = []
+for tag in tags:
+    with open(f"./results/plot_{tag}.cache", "rb") as f:
+        caches.append(pickle.load(f))
+multi_points = [cache[-5] for cache in caches]
+similarity = np.array([points["x"] for points in multi_points]).T
+accuracy = np.array([points["y"] for points in multi_points]).T
+
+
+ax1 = sns.violinplot(data=similarity)
+plt.xticks(ticks=range(len(tags)), labels=[str(int(tag[-3:])) for tag in tags])
+ax1.set_ylim(0.81, 1.00)
+ax2 = ax1.twinx()
+ax2.plot(range(len(tags)), accuracy.max(axis=0), color='red', marker='o')
+ax2.set_ylim(0.735, 0.778)
+
+
+# 设置右侧 y 轴的标签
+ax2.set_ylabel('Mean Similarity Score')
+
+
+# for cache, label in zip(reversed(caches), reversed(["001", "010", "050", "200", "300"])):
+#     sns.scatterplot(x=cache["x"], y=cache["y"], label=cache["label"]+label)
+#
 plt.savefig("./temp.png")
 
 # # sim = iou_matrix[num_checkpoint:num_checkpoint+num_generated, num_checkpoint:num_checkpoint+num_generated]
