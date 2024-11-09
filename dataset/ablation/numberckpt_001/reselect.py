@@ -9,8 +9,7 @@ os.makedirs("./checkpoint", exist_ok=True)
 dst = "./checkpoint"
 
 
-random.shuffle(src)
-src = src[:200]
+src.sort()
 for i in src:
     shutil.copy(i, os.path.join(dst, "origin.pth"))
 for i in src:

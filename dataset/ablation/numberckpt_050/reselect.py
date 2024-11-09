@@ -9,7 +9,7 @@ os.makedirs("./checkpoint", exist_ok=True)
 dst = "./checkpoint"
 
 
-random.shuffle(src)
-src = src[:200]
+src.sort()
+src = src[:50]
 for i in src:
     shutil.copy(i, dst)
