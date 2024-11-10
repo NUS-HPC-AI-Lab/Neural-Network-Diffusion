@@ -44,6 +44,8 @@ class PDiff(nn.Module):
             x = torch.randn((1, self.config["model_dim"]), device=self.device)
         x_shape = x.shape
         x = x.view(-1, x.size(-1))
+        if kwargs.get("only_return_x_0") is False:
+            return self.diffusion_sampler(x, c, **kwargs)
         return self.diffusion_sampler(x, c, **kwargs).view(x_shape)
 
     @property

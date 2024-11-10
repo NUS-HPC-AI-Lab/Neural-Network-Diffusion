@@ -2,8 +2,9 @@
 /.vscode
 /rubbish
 **/checkpoint*/
-**/__pycache__/
 **/generated*/
+**/process*/
+**/__pycache__/
 **/wandb/
 **/pretrained.pth
 **/ensemble.pth
