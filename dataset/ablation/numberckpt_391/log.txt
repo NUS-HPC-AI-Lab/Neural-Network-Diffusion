@@ -16,10 +16,10 @@ generated_acc_max: 0.7778
 generated_acc_min: 0.7697
 generated_acc_std: 0.0012602920027830497
 generated_acc_median: 0.7736
-noise=0.0100_acc_mean: 0.7688220000000001
-noise=0.0300_acc_mean: 0.768502
-noise=0.0500_acc_mean: 0.76754
-noise=0.1000_acc_mean: 0.7632400000000001
+noise=0.0100_acc_mean: 0.768942
+noise=0.0300_acc_mean: 0.76822
+noise=0.0500_acc_mean: 0.7674060000000001
+noise=0.1000_acc_mean: 0.763504
 
 origin-origin: 0.7886847031966817
 generated-generated: 0.8881399938988542
@@ -27,24 +27,24 @@ origin-generated: 0.8256480947283449
 origin-generated(max): 0.8649204329667654
 
 noise_intensity=0.01
-noised-noised: 0.7861502447390716
-origin-noised: 0.7878090007211015
-origin-noised(max): 0.9842970781464767
+noised-noised: 0.7861357116705441
+origin-noised: 0.7877654335742523
+origin-noised(max): 0.9838656207301326
 
 noise_intensity=0.03
-noised-noised: 0.7810871509062343
-origin-noised: 0.7855620477228168
-origin-noised(max): 0.9554710986749402
+noised-noised: 0.7786933082179586
+origin-noised: 0.7843640766019264
+origin-noised(max): 0.9544488965465848
 
 noise_intensity=0.05
-noised-noised: 0.774137781839947
-origin-noised: 0.7810069337339072
-origin-noised(max): 0.9267887436387079
+noised-noised: 0.7734004380046946
+origin-noised: 0.7803247123247821
+origin-noised(max): 0.925735925817492
 
 noise_intensity=0.1
-noised-noised: 0.7284719339069299
-origin-noised: 0.7547453825489724
-origin-noised(max): 0.8587134334096763
+noised-noised: 0.7274776855718561
+origin-noised: 0.7540834757959373
+origin-noised(max): 0.8588299848343959
 
 ==> start drawing..
 plot saved to plot_numberckpt_391.png
