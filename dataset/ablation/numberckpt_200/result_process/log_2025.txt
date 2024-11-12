@@ -3,29 +3,29 @@
 ===============================================
 Summary: 2025
 
-num_checkpoint: 200
+num_checkpoint: 2
 num_generated: 501
 num_noised: 1x1
-original_acc_mean: 0.7683194999999999
+original_acc_mean: 0.7743
 original_acc_max: 0.7743
-original_acc_min: 0.7633
-original_acc_std: 0.002414533029386841
-original_acc_median: 0.76835
-generated_acc_mean: 0.404022754491018
-generated_acc_max: 0.7653
-generated_acc_min: 0.0128
-generated_acc_std: 0.306762544980953
-generated_acc_median: 0.3379
-noise=0.0000_acc_mean: 0.7686
+original_acc_min: 0.7743
+original_acc_std: 0.0
+original_acc_median: 0.7743
+generated_acc_mean: 0.3916860279441118
+generated_acc_max: 0.7764
+generated_acc_min: 0.0068
+generated_acc_std: 0.3248008116214172
+generated_acc_median: 0.3471
+noise=0.0000_acc_mean: 0.7743
 
-origin-origin: 0.7935968066882658
-generated-generated: 0.5205177231548503
-origin-generated: 0.42015033528276113
-origin-generated(max): 0.43538435700116435
+origin-origin: 1.0
+generated-generated: 0.5261272345820514
+origin-generated: 0.42963752109845793
+origin-generated(max): 0.42963752109845793
 
 noise_intensity=0.0
 noised-noised: nan
-origin-noised: 0.7964360510321313
+origin-noised: 1.0
 origin-noised(max): 1.0
 
 ==> start drawing..

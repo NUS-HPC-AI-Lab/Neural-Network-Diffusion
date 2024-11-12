@@ -21,7 +21,7 @@ tag = sys.argv[1]
 
 
 config = {
-    "checkpoint_path": f"./dataset/ablation/numberckpt_200/checkpoint",
+    "checkpoint_path": f"./dataset/ablation/numberckpt_001/checkpoint",
     "generated_path": f"./dataset/ablation/numberckpt_200/process_{tag}",
     "cache_file": None,  # None means default dataset/tag/cache.pt
     "resume": True,  # if you updated the checkpoint and generated models, use "resume": False.
