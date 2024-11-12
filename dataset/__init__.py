@@ -370,7 +370,6 @@ class STL10_ConvNeXt(FullDataset): pass
 class NumberCkpt_001(AblationDataset): pass
 class NumberCkpt_010(AblationDataset): pass
 class NumberCkpt_050(AblationDataset): pass
-class NumberCkpt_100(AblationDataset): pass
 class NumberCkpt_200(AblationDataset): pass
 class NumberCkpt_300(AblationDataset): pass
 class NumberCkpt_391(AblationDataset): pass
