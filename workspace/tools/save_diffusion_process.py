@@ -24,7 +24,7 @@ generate_config = {
     "test_command": os.path.join(Dataset.test_command.rsplit("/", 1)[0], "generated_{}_{}.pth"),
     "need_test": False,
     "interval": 2,
-    "seed": 434,
+    "seed": 2028,
 }
 config.update(generate_config)
 
