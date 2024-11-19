@@ -9,7 +9,7 @@ import numpy as np
 import torch
 import pickle
 import importlib
-item = importlib.import_module(f"dataset.full.{sys.argv[1]}.finetune")
+item = importlib.import_module(f"dataset.ablation.{sys.argv[1]}.finetune")
 loader = item.test_loader
 model = item.model
 test = item.test
@@ -21,8 +21,8 @@ tag = os.path.basename(os.path.dirname(item.__file__))
 
 
 config = {
-    "checkpoint_path": f"./dataset/full/{tag}/checkpoint",
-    "generated_path": f"./dataset/full/{tag}/generated",
+    "checkpoint_path": f"./dataset/ablation/{tag}/checkpoint",
+    "generated_path": f"./dataset/ablation/{tag}/generated",
     "cache_file": None,  # None means default dataset/tag/cache.pt
     "resume": True,  # if you updated the checkpoint and generated models, use "resume": False.
     "noise_intensity": [0.01, 0.03, 0.05, 0.10],

@@ -373,3 +373,7 @@ class NumberCkpt_050(AblationDataset): pass
 class NumberCkpt_200(AblationDataset): pass
 class NumberCkpt_300(AblationDataset): pass
 class NumberCkpt_391(AblationDataset): pass
+class DiffusionStep_0010(AblationDataset): pass
+class DiffusionStep_0100(AblationDataset): pass
+class DiffusionStep_2000(AblationDataset): pass
+class VAE_Sample(AblationDataset): pass

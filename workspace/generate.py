@@ -7,7 +7,7 @@ os.chdir(root)
 import torch
 # father
 import importlib
-item = importlib.import_module(f"workspace.full.{sys.argv[1]}")
+item = importlib.import_module(f"workspace.ablation.{sys.argv[1]}")
 Dataset = item.Dataset
 train_set = item.train_set
 config = item.config

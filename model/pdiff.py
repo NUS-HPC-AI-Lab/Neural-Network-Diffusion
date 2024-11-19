@@ -137,6 +137,11 @@ class OneDimVAE(nn.Module):
         recons = self.decode(z)
         return recons, input, mu, log_var
 
+    def sample(self, batch=1):
+        z = torch.randn((batch, self.d_latent), device=self.device, dtype=torch.float32)
+        recons = self.decode(z)
+        return recons
+
     def forward(self, x, **kwargs):
         recons, input, mu, log_var = self.encode_decode(input=x, **kwargs)
         recons_loss = F.mse_loss(recons, input)
@@ -146,3 +151,7 @@ class OneDimVAE(nn.Module):
         else:  # not use var
             loss = recons_loss
         return loss
+
+    @property
+    def device(self):
+        return next(self.parameters()).device

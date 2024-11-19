@@ -29,7 +29,7 @@ command+=" --num_machines=1 --mixed_precision=bf16 --dynamo_backend=no"
 if [ $num_gpus -ge 2 ]; then
   command+=" --multi_gpu"
 fi
-command+=" ./full/$exec_file.py"
+command+=" ./ablation/$exec_file.py"
 
 # execute command
 eval $command
