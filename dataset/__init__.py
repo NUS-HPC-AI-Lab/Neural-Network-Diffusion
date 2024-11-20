@@ -380,4 +380,7 @@ class Save_LR00003(AblationDataset): pass
 class DiffusionStep_0010(AblationDataset): pass
 class DiffusionStep_0100(AblationDataset): pass
 class DiffusionStep_2000(AblationDataset): pass
+class Noise_0000a00(AblationDataset): pass
+class Noise_0001a00(AblationDataset): pass
+class Noise_0000a01(AblationDataset): pass
 class VAE_Sample(AblationDataset): pass
