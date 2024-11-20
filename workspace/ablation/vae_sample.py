@@ -137,7 +137,7 @@ def train_vae():
         with accelerator.autocast(autocast_handler=AutocastKwargs(enabled=config["autocast"](batch_idx))):
             param = param.flatten(start_dim=1)
             # param += torch.randn_like(param) * 0.001
-            loss = vae(x=param, use_var=True, manual_std=None, kld_weight=0.5)
+            loss = vae(x=param, use_var=True, manual_std=None, kld_weight=1.0)
         accelerator.backward(loss)
         optimizer.step()
         if accelerator.is_main_process:

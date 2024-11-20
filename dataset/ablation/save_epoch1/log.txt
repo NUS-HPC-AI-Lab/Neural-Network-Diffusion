@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: save_epoch1
+
+num_checkpoint: 391
+num_generated: 201
+num_noised: 50x4
+original_acc_mean: 0.5643046035805627
+original_acc_max: 0.5722
+original_acc_min: 0.5478
+original_acc_std: 0.004103361392197179
+original_acc_median: 0.5646
+generated_acc_mean: 0.5700855721393034
+generated_acc_max: 0.5761
+generated_acc_min: 0.5599
+generated_acc_std: 0.0024728256031716863
+generated_acc_median: 0.5703
+noise=0.0100_acc_mean: 0.564492
+noise=0.0300_acc_mean: 0.564048
+noise=0.0500_acc_mean: 0.563232
+noise=0.1000_acc_mean: 0.558772
+
+origin-origin: 0.8309939534536562
+generated-generated: 0.8921073029715534
+origin-generated: 0.8531363923712181
+origin-generated(max): 0.8821559452204166
+
+noise_intensity=0.01
+noised-noised: 0.8260613452576882
+origin-noised: 0.8291990709183317
+origin-noised(max): 0.9879675863280462
+
+noise_intensity=0.03
+noised-noised: 0.8288235234795335
+origin-noised: 0.830342398347366
+origin-noised(max): 0.9670512702701645
+
+noise_intensity=0.05
+noised-noised: 0.8173325083468999
+origin-noised: 0.8245854314776799
+origin-noised(max): 0.9456555993027906
+
+noise_intensity=0.1
+noised-noised: 0.7913157158284729
+origin-noised: 0.8088181327795919
+origin-noised(max): 0.8994271982226689
+
+==> start drawing..
+plot saved to plot_save_epoch1.png
