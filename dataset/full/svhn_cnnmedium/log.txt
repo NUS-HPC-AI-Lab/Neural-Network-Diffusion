@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: svhn_cnnmedium
+
+num_checkpoint: 281
+num_generated: 201
+num_noised: 50x4
+original_acc_mean: 0.7130296246393708
+original_acc_max: 0.7397818070067609
+original_acc_min: 0.6611862323294407
+original_acc_std: 0.014509175365201974
+original_acc_median: 0.7136216963736939
+generated_acc_mean: 0.7411018432728796
+generated_acc_max: 0.7649815611555009
+generated_acc_min: 0.6837738168408113
+generated_acc_std: 0.013079848269376125
+generated_acc_median: 0.7430086047940996
+noise=0.0100_acc_mean: 0.7130862015980333
+noise=0.0300_acc_mean: 0.709880147510756
+noise=0.0500_acc_mean: 0.705759065765212
+noise=0.1000_acc_mean: 0.6858735402581437
+
+origin-origin: 0.5273069625418596
+generated-generated: 0.6384934380419729
+origin-generated: 0.5603624579125096
+origin-generated(max): 0.6257714276873247
+
+noise_intensity=0.01
+noised-noised: 0.5326842341903134
+origin-noised: 0.5317343121483353
+origin-noised(max): 0.9598406282402006
+
+noise_intensity=0.03
+noised-noised: 0.5151501384202827
+origin-noised: 0.5222067409913707
+origin-noised(max): 0.8924621083443914
+
+noise_intensity=0.05
+noised-noised: 0.5098548878548446
+origin-noised: 0.5194474889360551
+origin-noised(max): 0.8330549213873116
+
+noise_intensity=0.1
+noised-noised: 0.48379670412729586
+origin-noised: 0.500503569527808
+origin-noised(max): 0.709972493112179
+
+==> start drawing..
+plot saved to plot_svhn_cnnmedium.png

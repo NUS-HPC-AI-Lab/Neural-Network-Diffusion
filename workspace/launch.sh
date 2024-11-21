@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # set variable
-gpu_ids="$2"
-exec_file="$1"
+cls="$1"
+gpu_ids="$3"
+exec_file="$2"
 
 
 # count gpus
@@ -29,7 +30,7 @@ command+=" --num_machines=1 --mixed_precision=bf16 --dynamo_backend=no"
 if [ $num_gpus -ge 2 ]; then
   command+=" --multi_gpu"
 fi
-command+=" ./ablation/$exec_file.py"
+command+=" ./$cls/$exec_file.py"
 
 # execute command
 eval $command

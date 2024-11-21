@@ -9,7 +9,7 @@ import numpy as np
 import torch
 import pickle
 import importlib
-item = importlib.import_module(f"dataset.ablation.{sys.argv[1]}.finetune")
+item = importlib.import_module(f"dataset.{sys.argv[1]}.{sys.argv[2]}.finetune")
 loader = item.test_loader
 model = item.model
 test = item.test
@@ -21,8 +21,8 @@ tag = os.path.basename(os.path.dirname(item.__file__))
 
 
 config = {
-    "checkpoint_path": f"./dataset/ablation/{tag}/checkpoint",
-    "generated_path": f"./dataset/ablation/{tag}/generated",
+    "checkpoint_path": f"./dataset/{sys.argv[1]}/{tag}/checkpoint",
+    "generated_path": f"./dataset/{sys.argv[1]}/{tag}/generated",
     "cache_file": None,  # None means default dataset/tag/cache.pt
     "resume": True,  # if you updated the checkpoint and generated models, use "resume": False.
     "noise_intensity": [0.01, 0.03, 0.05, 0.10],
@@ -31,8 +31,8 @@ config = {
 assert config["total_noised_number"] % len(config["noise_intensity"]) == 0, \
     "total_noised_number must be a multiple of noise_intensity"
 globals().update(config)
-if len(sys.argv) == 3:
-    exec("noise_intensity=[" + sys.argv[2] + "]")
+if len(sys.argv) == 4:
+    exec("noise_intensity=[" + sys.argv[3] + "]")
     total_noised_number = len(noise_intensity) * 50
     print("noise_intensity:", noise_intensity)
     print("total_noised_number:", total_noised_number)
