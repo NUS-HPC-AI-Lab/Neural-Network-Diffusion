@@ -3,7 +3,7 @@
 
 
 ## Environment
-We support all versions of `pytorch>=2.0`.
+We support all versions of `pytorch>=2.0.0`.
 But we recommend to use `python==3.11` and `pytorch==2.5.1`, which we have fully tested.
 ```shell
 conda create -n pdiff python=3.11
@@ -75,6 +75,7 @@ vim __init__.py
 # This __init__.py is the dataset file.
 ```
 ```diff
+# on line 392
 + class <Tag>(MainDataset): pass
 ```
 
