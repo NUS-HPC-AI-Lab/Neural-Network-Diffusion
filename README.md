@@ -28,7 +28,7 @@ bash run_all.sh main cifar100_resnet18 0
 
 ## Detailed Usage
 
-Prepare ckpt dataset.
+Prepare checkpoints dataset.
 ```shell
 cd ./dataset/main/cifar100_resnet18
 rm performance.cache  # optional
@@ -43,7 +43,7 @@ bash launch.sh main cifar100_resnet18 0
 CUDA_VISIBLE_DEVICES=0 python generate.py main cifar100_resnet18
 # CUDA_VISIBLE_DEVICES=<device> python generate.py <category> <tag>
 ```
-Test original ckpt and generated ckpt and their similarity.
+Test original checkpoints and generated checkpoints and their similarity.
 ```shell
 CUDA_VISIBLE_DEVICES=0 python evaluate.py main cifar100_resnet18
 # CUDA_VISIBLE_DEVICES=<device> python evaluate.py <category> <tag>
