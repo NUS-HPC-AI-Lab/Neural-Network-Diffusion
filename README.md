@@ -7,8 +7,9 @@ We support all versions of `pytorch>=2.0`.
 But we recommend to use `python==3.11` and `pytorch==2.5.1`, which we have fully tested.
 ```shell
 conda create -n pdiff python=3.11
+conda activate pdiff
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-git clone -b develop https://github.com/NUS-HPC-AI-Lab/Neural-Network-Parameter-Diffusion.git
+git clone -b develop https://github.com/NUS-HPC-AI-Lab/Neural-Network-Parameter-Diffusion.git --depth=1
 cd Neural-Network-Parameter-Diffusion
 pip install -r requirements.txt
 ```
@@ -25,7 +26,7 @@ bash run_all.sh main cifar100_resnet18 0
 # bash run_all <category> <tag> <device>
 ```
 
-## Detail Usage
+## Detailed Usage
 
 Prepare ckpt dataset.
 ```shell
