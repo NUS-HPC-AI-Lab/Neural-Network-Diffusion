@@ -34,7 +34,7 @@ def get_config():
         "weight_decay": 5e-4,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
         "save_learning_rate": 0.05,
-        "total_save_number": 200,
+        "total_save_number": 300,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
         "seed": 40
@@ -149,7 +149,7 @@ if __name__ == "__main__":
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
     save_index = 0
-    for i in range(20):
+    for i in range(30):
         for batch_idx, (inputs, targets) in enumerate(pbar):
             inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()

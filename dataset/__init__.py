@@ -384,4 +384,8 @@ class DiffusionStep_2000(AblationDataset): pass
 class Noise_0000a00(AblationDataset): pass
 class Noise_0001a00(AblationDataset): pass
 class Noise_0000a01(AblationDataset): pass
+class Layers_CV0000(AblationDataset): pass
+class Layers_FC0000(AblationDataset): pass
+class Layers_BN1415(AblationDataset): pass
+class Layers_BN1013(AblationDataset): pass
 class VAE_Sample(AblationDataset): pass

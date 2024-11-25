@@ -16,8 +16,17 @@ def divide(ckpt, division):
     return ckpt
 
 
-item_list = [os.path.abspath(os.path.join("./dataset/full", item)) for item in os.listdir("./dataset/full")
-             if os.path.isdir(os.path.join("./dataset/full", item))]
+if len(sys.argv) == 2:
+    item_list = [
+        os.path.abspath(os.path.join(f"./dataset/{sys.argv[1]}", item)) for item in os.listdir(f"./dataset/{sys.argv[1]}")
+        if os.path.isdir(os.path.join(f"./dataset/{sys.argv[1]}", item))
+    ]  # test all area
+elif len(sys.argv) == 3:
+    item_list = [os.path.abspath(f"./dataset/{sys.argv[1]}/{sys.argv[2]}")]
+else:  # error
+    raise RuntimeError(f"len(sys.argv) = {len(sys.argv)}. It should be 2 or 3.")
+
+
 print(item_list)
 item_list.sort()
 for item in item_list:

@@ -5,7 +5,7 @@ os.chdir(root)
 import torch
 
 
-test_area = "./dataset/temp"
+test_area = "./dataset/full"
 
 
 def add(ckpt1, ckpt2):

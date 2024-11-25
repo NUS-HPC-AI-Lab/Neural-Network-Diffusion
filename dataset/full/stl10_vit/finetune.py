@@ -37,7 +37,7 @@ def get_config():
         "weight_decay": 5e-4,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
         "save_learning_rate": 0.0003,
-        "total_save_number": 200,
+        "total_save_number": 300,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
         "seed": 40
@@ -151,6 +151,8 @@ if __name__ == "__main__":
             if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and j > 0:
                 loss, acc, _, _ = test(model, test_loader, device)
                 # loss, acc = 1., 1.
-                save_checkpoint(model, batch_idx, acc, config)
+                save_checkpoint(model, batch_idx + 400 * j, acc, config)
             pbar.set_postfix({'Loss': f'{loss:.3f}'})
-    print("Fine-tuning completed.")
+            if batch_idx >= config["total_save_number"]:
+                print("Fine-tuning completed.")
+                exit(0)

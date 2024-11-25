@@ -33,7 +33,7 @@ def get_config():
         "weight_decay": 5e-4,
         "epochs": 1,
         "save_learning_rate": 0.05,
-        "total_save_number": 200,
+        "total_save_number": 300,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
         "seed": 40,
@@ -165,4 +165,6 @@ if __name__ == "__main__":
             loss, acc = 1., 1.
             save_checkpoint(model, batch_idx, acc, config)
         pbar.set_postfix({'Loss': f'{loss:.3f}'})
+        if batch_idx >= config["total_save_number"]:
+            break
     print("Fine-tuning completed.")

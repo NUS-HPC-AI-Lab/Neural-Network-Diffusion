@@ -26,7 +26,7 @@ config = {
     "cache_file": None,  # None means default dataset/tag/cache.pt
     "resume": True,  # if you updated the checkpoint and generated models, use "resume": False.
     "noise_intensity": [0.01, 0.03, 0.05, 0.10],
-    "total_noised_number": 200,
+    "total_noised_number": 20,
 }
 assert config["total_noised_number"] % len(config["noise_intensity"]) == 0, \
     "total_noised_number must be a multiple of noise_intensity"

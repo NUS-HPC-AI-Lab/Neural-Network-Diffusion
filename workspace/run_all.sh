@@ -10,7 +10,7 @@ echo "Processing: $cls/$tag"
 
 cd "./dataset/$cls/$tag" || exit
 # CUDA_VISIBLE_DEVICES="$device" python train.py
-CUDA_VISIBLE_DEVICES="$device" python finetune.py
+# CUDA_VISIBLE_DEVICES="$device" python finetune.py
 
 cd "../../../workspace" || exit
 bash launch.sh "$cls" "$tag" "$device"
