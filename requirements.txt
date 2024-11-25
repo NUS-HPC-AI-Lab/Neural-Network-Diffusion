@@ -1,0 +1,6 @@
+tqdm
+timm
+seaborn
+notebook
+accelerate
+openpyxl
