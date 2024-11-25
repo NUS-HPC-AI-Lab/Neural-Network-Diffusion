@@ -1,9 +1,10 @@
 import os
-import json
 import random
 import numpy as np
+import json
+import warnings
 from tqdm.auto import tqdm
-import timm
+
 import torch
 import torch.nn as nn
 from torch import optim
@@ -11,6 +12,13 @@ from torch.optim import lr_scheduler
 from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR100 as Dataset
+
+try:  # relative import
+    from model import create_model
+except ImportError:
+    from .model import create_model
+
+warnings.filterwarnings("ignore", category=UserWarning)
 
 
 def set_seed(seed):
@@ -30,10 +38,10 @@ def get_config():
         "dataset_root": "from_additional_config",
         "batch_size": 128,
         "num_workers": 4,
-        "learning_rate": 0.05,
+        "learning_rate": 0.03,
         "weight_decay": 5e-4,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
-        "save_learning_rate": 0.05,
+        "save_learning_rate": 0.03,
         "total_save_number": 300,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
@@ -67,7 +75,8 @@ def get_data_loaders(config):
 
 def get_optimizer_and_scheduler(model, config):
     trainable_params = []
-    last_two_norms = ['layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias']
+    last_two_norms = ['model.layer4.1.bn1.weight', 'model.layer4.1.bn1.bias',
+                      'model.layer4.1.bn2.weight', 'model.layer4.1.bn2.bias',]  # [-2,-1]
     for name, param in model.named_parameters():
         if any(norm in name for norm in last_two_norms):
             param.requires_grad = True
@@ -81,7 +90,6 @@ def get_optimizer_and_scheduler(model, config):
 
 @torch.no_grad()
 def test(model, test_loader, device):
-    model = model.to(device)
     model.eval()
     criterion = nn.CrossEntropyLoss()
     test_loss = 0
@@ -111,7 +119,8 @@ def test(model, test_loader, device):
 def save_checkpoint(model, batch_idx, acc, config):
     if not os.path.isdir('checkpoint'):
         os.mkdir('checkpoint')
-    last_two_norms = ['layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias']
+    last_two_norms = ['model.layer4.1.bn1.weight', 'model.layer4.1.bn1.bias',
+                      'model.layer4.1.bn2.weight', 'model.layer4.1.bn2.bias',]  # [-2,-1]
     save_state = {key: value.cpu().to(torch.float32) for key, value in model.state_dict().items()
                   if any(norm in key for norm in last_two_norms)}
     torch.save(save_state,
@@ -122,27 +131,24 @@ def save_checkpoint(model, batch_idx, acc, config):
 config = get_config()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 set_seed(config['seed'])
-
-# load dataset
 train_loader, test_loader = get_data_loaders(config)
-# load model
-model = timm.create_model('resnet18', pretrained=True, num_classes=100)
+
+# Load pretrained model
+model = create_model(num_classes=100)  # Changed to 100 classes for CIFAR100
 model = model.to(device)
 state_dict = torch.load(os.path.join(os.path.dirname(__file__), "pretrained.pth"),
                         map_location=device, weights_only=True)
 model.load_state_dict(state_dict)
-# get optimizer
 optimizer, scheduler = get_optimizer_and_scheduler(model, config)
+criterion = nn.CrossEntropyLoss()
 
 
 if __name__ == "__main__":
     print("Initial test:")
     test(model, test_loader, device)
-    # Calculate the interval for saving checkpoints
     total_batches = len(train_loader)
     save_interval = max(1, total_batches // config["total_save_number"])
     model.train()
-    criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
     for batch_idx, (inputs, targets) in enumerate(pbar):
         inputs, targets = inputs.to(device), targets.to(device)
@@ -156,8 +162,7 @@ if __name__ == "__main__":
             scheduler.step()
         # Save checkpoint at regular intervals
         if (batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1:
-            # loss, acc, _, _ = test(model, test_loader, device)
-            loss, acc = 1., 1.
+            loss, acc, _, _ = test(model, test_loader, device)
             save_checkpoint(model, batch_idx, acc, config)
         pbar.set_postfix({'Loss': f'{loss:.3f}'})
         if batch_idx >= config["total_save_number"]:

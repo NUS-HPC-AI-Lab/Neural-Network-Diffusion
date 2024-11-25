@@ -1,16 +1,24 @@
 import os
-import json
 import random
 import numpy as np
+import json
+import warnings
 from tqdm.auto import tqdm
-import timm
+
 import torch
 import torch.nn as nn
 from torch import optim
 from torch.optim import lr_scheduler
 from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
-from torchvision.datasets import CIFAR100 as Dataset
+from torchvision.datasets import CIFAR100
+
+try:  # relative import
+    from model import create_model
+except ImportError:
+    from .model import create_model
+
+warnings.filterwarnings("ignore", category=UserWarning)
 
 
 def set_seed(seed):
@@ -50,7 +58,6 @@ def test(model, test_loader, criterion, device, config):
 def train(config):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     set_seed(config['seed'])
-
     # Data preparation
     train_transform = transforms.Compose([
         transforms.RandomResizedCrop(224),
@@ -64,15 +71,15 @@ def train(config):
         transforms.ToTensor(),
         transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
     ])
-    train_dataset = Dataset(root=config["dataset_root"], train=True, download=True, transform=train_transform)
-    test_dataset = Dataset(root=config["dataset_root"], train=False, download=True, transform=test_transform)
+    train_dataset = CIFAR100(root=config["dataset_root"], train=True, download=True, transform=train_transform)
+    test_dataset = CIFAR100(root=config["dataset_root"], train=False, download=True, transform=test_transform)
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True,
                               num_workers=config["num_workers"], pin_memory=True)
     test_loader = DataLoader(test_dataset, batch_size=config["batch_size"], shuffle=False,
                              num_workers=config["num_workers"], pin_memory=True)
 
     # Create model
-    model = timm.create_model('resnet18', pretrained=True, num_classes=100)
+    model = create_model(num_classes=100)
     model = model.to(device)
 
     # Loss function and optimizer
@@ -112,7 +119,6 @@ def train(config):
             best_acc = acc
             torch.save(model.state_dict(), 'best_model.pth')
             print(f'New best model saved with accuracy: {best_acc:.2%}')
-
     print(f'Best accuracy: {best_acc:.2%}')
 
 
