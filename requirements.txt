@@ -4,3 +4,4 @@ seaborn
 notebook
 accelerate
 openpyxl
+numpy==2.0.1

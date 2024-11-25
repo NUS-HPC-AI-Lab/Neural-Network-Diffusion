@@ -9,6 +9,7 @@ cd ..
 echo "Processing: $cls/$tag"
 
 cd "./dataset/$cls/$tag" || exit
+rm performance.cache
 CUDA_VISIBLE_DEVICES="$device" python train.py
 CUDA_VISIBLE_DEVICES="$device" python finetune.py
 

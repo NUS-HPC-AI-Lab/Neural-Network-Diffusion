@@ -31,6 +31,7 @@ bash run_all.sh main cifar100_resnet18 0
 Prepare ckpt dataset.
 ```shell
 cd ./dataset/main/cifar100_resnet18
+rm performance.cache  # optional
 CUDA_VISIBLE_DEVICES=0 python train.py
 CUDA_VISIBLE_DEVICES=0 python finetune.py
 ```
@@ -72,6 +73,8 @@ Add a class to the last line of the dataset file.
 cd ../../../dataset
 vim __init__.py  
 # This __init__.py is the dataset file.
+```
+```diff
 + class <Tag>(MainDataset): pass
 ```
 
@@ -81,6 +84,8 @@ You can change other hyperparameters here.
 cd ../workspace/main
 cp cifar10_resnet18.py main_<tag>.py
 vim main_<tag>.py
+```
+```diff
 # on line 33
 - from dataset import Cifar100_ResNet18 as Dataset
 + from dataset import <Tag> as Dataset
