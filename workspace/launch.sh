@@ -14,7 +14,7 @@ num_gpus=${#gpus[@]}
 find_open_port() {
   local port
   while true; do
-    port=$(( (RANDOM % 32768) + 49152 ))
+    port=$(( (RANDOM % 32768) + 32767 ))
     if ! (echo >/dev/tcp/localhost/$port) &>/dev/null; then
       break
     fi
