@@ -1,6 +1,9 @@
 # Neural Network Parameter Diffusion
 
 ### [Paper]() | [Project Page]() | [Hugging Face]()
+```diff
+! update link when publishing.
+```
 ![Motivation of p-diff](figures/motivation.gif)  
 This repository contains the code and implementation details for the research paper titled "Neural Network Parameter Diffusion". 
 The paper explores novel paradigms in deep learning, specifically focusing on diffusion models for generating high-performing neural network parameters.
@@ -58,7 +61,9 @@ git clone -b develop https://github.com/NUS-HPC-AI-Lab/Neural-Network-Parameter-
 cd Neural-Network-Parameter-Diffusion
 pip install -r requirements.txt
 ```
-<font color="red">delete "-b develop" when publishing.</font>  
+```diff
+! delete "-b develop" when publishing
+```
 
 
 ## Quick Start
