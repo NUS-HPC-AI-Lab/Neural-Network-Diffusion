@@ -48,6 +48,8 @@ config = {
     "weight_decay": 0.0,
     "save_every": 500,
     "print_every": 50,
+    "checkpoint_noise": 0.001,
+    "latent_noise": 0.1,
     "autocast": lambda i: True,
     "checkpoint_save_path": "./checkpoint",
     # test setting
@@ -146,8 +148,8 @@ def train_vae():
         vae_optimizer.zero_grad()
         with accelerator.autocast(autocast_handler=AutocastKwargs(enabled=config["autocast"](batch_idx))):
             param = param.flatten(start_dim=1)
-            param += torch.randn_like(param) * 0.001
-            loss = vae(x=param, use_var=True, manual_std=0.1, kld_weight=0.0)
+            param += torch.randn_like(param) * config["checkpoint_noise"]
+            loss = vae(x=param, use_var=True, manual_std=config["latent_noise"], kld_weight=0.0)
         accelerator.backward(loss)
         vae_optimizer.step()
         if accelerator.is_main_process:
