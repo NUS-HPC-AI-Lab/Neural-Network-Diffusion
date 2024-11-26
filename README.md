@@ -1,5 +1,29 @@
 # Neural Network Parameter Diffusion
 
+### [Paper]() | [Project Page]() | [Hugging Face]()
+![Motivation of p-diff](figs/motivation.gif)
+
+This repository contains the code and implementation details for the research paper titled "Neural Network Parameter Diffusion". 
+The paper explores novel paradigms in deep learning, specifically focusing on diffusion models for generating high-performing neural network parameters.
+
+
+## Authors
+- [Kai Wang](https://kaiwang960112.github.io/)<sup>1</sup>, 
+[Dongwen Tang](https://scholar.google.com/citations?user=9lKm_5IAAAAJ&hl=zh-CN)<sup>1</sup>,
+[Boya Zeng](https://riss.ri.cmu.edu/student/boya-zeng/)<sup>4</sup>,
+[Yida Yin](https://davidyyd.github.io/)<sup>3</sup>,
+[Zhaopan Xu](https://scholar.google.com.hk/citations?user=qNWDwOcAAAAJ&hl=zh-CN)<sup>1</sup>,
+[Yukun Zhou](https://scholar.google.com/citations?user=c0WCD74AAAAJ&hl=zh-CN), 
+[Zelin Zang](https://scholar.google.com/citations?user=foERjnQAAAAJ&hl=zh-CN)<sup>1</sup>, 
+[Trevor Darrell](https://people.eecs.berkeley.edu/~trevor/)<sup>3</sup>, 
+[Zhuang Liu*](https://liuzhuang13.github.io/)<sup>2</sup>, 
+and [Yang You*](https://www.comp.nus.edu.sg/~youy/)<sup>1</sup>(* equal advising)  
+- <sup>1</sup>[National University of Singapore](https://www.nus.edu.sg/), 
+<sup>2</sup>[Meta AI](https://www.meta.com/), 
+<sup>3</sup>[University of California, Berkeley](https://www.berkeley.edu/),
+and <sup>4</sup>[University of Pennsylvania](https://www.upenn.edu/)
+
+
 ## Overview
 
 <p align="center">
@@ -121,3 +145,30 @@ Following Section "Detail Usage".
 4. Test original ckpt and generated ckpt and their similarity.  
 Following Section "Detail Usage".  
 
+
+## Citation
+If you found our work useful, please consider citing us.
+```
+Coming soon...
+```
+
+
+## Acknowledgments
+We thank [Kaiming He](https://kaiminghe.github.io/), 
+[Dianbo Liu](https://www.cogai4sci.com/), 
+[Mingjia Shi](https://scholar.google.com/citations?user=B6f3ImkAAAAJ&hl=en), 
+[Zheng Zhu](https://scholar.google.com/citations?user=NmwjI0AAAAAJ&hl=en), 
+[Bo Zhao](https://www.bozhao.me/), 
+[Jiawei Liu](https://jia-wei-liu.github.io/), 
+[Yong Liu](https://ai.comp.nus.edu.sg/people/yong/), 
+[Ziheng Qin](https://scholar.google.com/citations?user=I04VhPMAAAAJ&hl=zh-CN), 
+[Zangwei Zheng](https://zhengzangw.github.io/), 
+[Yifan Zhang](https://sites.google.com/view/yifan-zhang/%E9%A6%96%E9%A1%B5), 
+[Xiangyu Peng](https://scholar.google.com/citations?user=KRUTk7sAAAAJ&hl=zh-CN), 
+[Hongyan Chang](https://www.comp.nus.edu.sg/~hongyan/), 
+[Zirui Zhu](https://zirui-zhu.com/), 
+[David Yin](https://davidyyd.github.io/), 
+[Dave Zhenyu Chen](https://daveredrum.github.io/), 
+[Ahmad Sajedi](https://ahmadsajedii.github.io/) 
+and [George Cazenavette](https://georgecazenavette.github.io/) 
+for valuable discussions and feedbacks.
