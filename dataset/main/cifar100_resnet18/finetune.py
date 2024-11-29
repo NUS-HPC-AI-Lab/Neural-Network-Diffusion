@@ -161,7 +161,7 @@ if __name__ == "__main__":
         if scheduler is not None:
             scheduler.step()
         # Save checkpoint at regular intervals
-        if (batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1:
+        if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 20:
             loss, acc, _, _ = test(model, test_loader, device)
             save_checkpoint(model, batch_idx, acc, config)
         pbar.set_postfix({'Loss': f'{loss:.3f}'})
