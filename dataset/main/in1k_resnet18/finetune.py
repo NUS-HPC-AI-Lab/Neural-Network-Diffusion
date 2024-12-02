@@ -144,7 +144,8 @@ if __name__ == "__main__":
     test(model, test_loader, device)
     # Calculate the interval for saving checkpoints
     total_batches = len(train_loader)
-    save_interval = max(1, total_batches // config["total_save_number"])
+    # save_interval = max(1, total_batches // config["total_save_number"])
+    save_interval = 1
     model.train()
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
@@ -159,7 +160,7 @@ if __name__ == "__main__":
         if scheduler is not None:
             scheduler.step()
         # Save checkpoint at regular intervals
-        if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 500:
+        if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 0:
             # loss, acc, _, _ = test(model, test_loader, device)
             loss, acc = 1., 1.
             save_checkpoint(model, batch_idx, acc, config)

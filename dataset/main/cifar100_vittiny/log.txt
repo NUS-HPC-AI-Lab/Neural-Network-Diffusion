@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: cifar100_vittiny
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.863957
+original_acc_max: 0.8664
+original_acc_min: 0.861
+original_acc_std: 0.0010065705804032461
+original_acc_median: 0.864
+generated_acc_mean: 0.8650417910447762
+generated_acc_max: 0.8667
+generated_acc_min: 0.8635
+generated_acc_std: 0.0006152658092558089
+generated_acc_median: 0.865
+noise=0.0100_acc_mean: 0.8643599999999999
+noise=0.0300_acc_mean: 0.86326
+noise=0.0500_acc_mean: 0.8638600000000001
+noise=0.1000_acc_mean: 0.8641400000000001
+
+origin-origin: 0.8655735873246606
+generated-generated: 0.9319337083341467
+origin-generated: 0.8847498125759897
+origin-generated(max): 0.9130807807070355
+
+noise_intensity=0.01
+noised-noised: 0.88705792234888
+origin-noised: 0.8631033326515551
+origin-noised(max): 0.9954413076185755
+
+noise_intensity=0.03
+noised-noised: 0.8830125102044575
+origin-noised: 0.8703842533834147
+origin-noised(max): 0.9876558810803708
+
+noise_intensity=0.05
+noised-noised: 0.8714451936521665
+origin-noised: 0.8650169048060319
+origin-noised(max): 0.9852952926053385
+
+noise_intensity=0.1
+noised-noised: 0.8502336918820441
+origin-noised: 0.8634563643904544
+origin-noised(max): 0.9760297615619
+
+==> start drawing..
+plot saved to plot_cifar100_vittiny.png
