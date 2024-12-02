@@ -8,3 +8,5 @@
 **/wandb/
 **/pretrained.pth
 **/ensemble.pth
+*.txt
+*.cache
