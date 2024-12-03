@@ -10,3 +10,5 @@
 **/ensemble.pth
 *.cache
 *.pth
+*.xlsx
+*.png
