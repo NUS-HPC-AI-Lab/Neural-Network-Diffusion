@@ -30,10 +30,10 @@ def get_config():
         "dataset_root": "from_additional_config",
         "batch_size": 128,
         "num_workers": 4,
-        "learning_rate": 0.05,
+        "learning_rate": 0.03,
         "weight_decay": 5e-4,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
-        "save_learning_rate": 0.05,
+        "save_learning_rate": 0.03,
         "total_save_number": 300,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
@@ -141,11 +141,12 @@ if __name__ == "__main__":
     # Calculate the interval for saving checkpoints
     total_batches = len(train_loader)
     save_interval = max(1, total_batches // config["total_save_number"])
+    # import pdb; pdb.set_trace()
     model.train()
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
     save_index = 0
-    for i in range(30):
+    for i in range(1000):
         for batch_idx, (inputs, targets) in enumerate(pbar):
             inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()

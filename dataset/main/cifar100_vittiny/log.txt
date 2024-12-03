@@ -3,48 +3,48 @@
 ===============================================
 Summary: cifar100_vittiny
 
-num_checkpoint: 300
+num_checkpoint: 301
 num_generated: 201
 num_noised: 5x4
-original_acc_mean: 0.863957
-original_acc_max: 0.8664
-original_acc_min: 0.861
-original_acc_std: 0.0010065705804032461
-original_acc_median: 0.864
-generated_acc_mean: 0.8650417910447762
-generated_acc_max: 0.8667
-generated_acc_min: 0.8635
-generated_acc_std: 0.0006152658092558089
+original_acc_mean: 0.863936877076412
+original_acc_max: 0.8657
+original_acc_min: 0.8609
+original_acc_std: 0.0010166073871333866
+original_acc_median: 0.8641
+generated_acc_mean: 0.8650034825870647
+generated_acc_max: 0.8665
+generated_acc_min: 0.8627
+generated_acc_std: 0.0006488702857326276
 generated_acc_median: 0.865
-noise=0.0100_acc_mean: 0.8643599999999999
-noise=0.0300_acc_mean: 0.86326
-noise=0.0500_acc_mean: 0.8638600000000001
-noise=0.1000_acc_mean: 0.8641400000000001
+noise=0.0100_acc_mean: 0.8629
+noise=0.0300_acc_mean: 0.8628
+noise=0.0500_acc_mean: 0.8635400000000001
+noise=0.1000_acc_mean: 0.86312
 
-origin-origin: 0.8655735873246606
-generated-generated: 0.9319337083341467
-origin-generated: 0.8847498125759897
-origin-generated(max): 0.9130807807070355
+origin-origin: 0.8657764196362602
+generated-generated: 0.933175390830182
+origin-generated: 0.885349599175035
+origin-generated(max): 0.9137560769935503
 
 noise_intensity=0.01
-noised-noised: 0.88705792234888
-origin-noised: 0.8631033326515551
-origin-noised(max): 0.9954413076185755
+noised-noised: 0.8653860017187217
+origin-noised: 0.8659624943559093
+origin-noised(max): 0.9941801215656134
 
 noise_intensity=0.03
-noised-noised: 0.8830125102044575
-origin-noised: 0.8703842533834147
-origin-noised(max): 0.9876558810803708
+noised-noised: 0.8785371234621113
+origin-noised: 0.8670882425899135
+origin-noised(max): 0.992606893327927
 
 noise_intensity=0.05
-noised-noised: 0.8714451936521665
-origin-noised: 0.8650169048060319
-origin-noised(max): 0.9852952926053385
+noised-noised: 0.8629172775375779
+origin-noised: 0.8661905892499554
+origin-noised(max): 0.9848824982326368
 
 noise_intensity=0.1
-noised-noised: 0.8502336918820441
-origin-noised: 0.8634563643904544
-origin-noised(max): 0.9760297615619
+noised-noised: 0.8617980098737688
+origin-noised: 0.864353813229194
+origin-noised(max): 0.9740182262311521
 
 ==> start drawing..
 plot saved to plot_cifar100_vittiny.png

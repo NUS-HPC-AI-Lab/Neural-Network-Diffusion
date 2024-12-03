@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: stl10_mlp
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.33604416666666664
+original_acc_max: 0.34925
+original_acc_min: 0.3155
+original_acc_std: 0.00526892692796382
+original_acc_median: 0.336625
+generated_acc_mean: 0.3431865671641791
+generated_acc_max: 0.35425
+generated_acc_min: 0.325
+generated_acc_std: 0.004432223834164484
+generated_acc_median: 0.3435
+noise=0.0100_acc_mean: 0.334375
+noise=0.0300_acc_mean: 0.333775
+noise=0.0500_acc_mean: 0.334725
+noise=0.1000_acc_mean: 0.33602499999999996
+
+origin-origin: 0.8189517142459777
+generated-generated: 0.8604906648862729
+origin-generated: 0.8337474381218589
+origin-generated(max): 0.8729022145540754
+
+noise_intensity=0.01
+noised-noised: 0.8185477876455426
+origin-noised: 0.8228625035748491
+origin-noised(max): 0.9879703463721515
+
+noise_intensity=0.03
+noised-noised: 0.8230223965274984
+origin-noised: 0.8176165406920203
+origin-noised(max): 0.9705165022976108
+
+noise_intensity=0.05
+noised-noised: 0.8173981621141433
+origin-noised: 0.8184130184303264
+origin-noised(max): 0.9489569419263798
+
+noise_intensity=0.1
+noised-noised: 0.813159071171091
+origin-noised: 0.8125254336361222
+origin-noised(max): 0.9053870538793252
+
+==> start drawing..
+plot saved to plot_stl10_mlp.png

@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: stl10_resnet
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.50776875
+original_acc_max: 0.521875
+original_acc_min: 0.492375
+original_acc_std: 0.005775902932659102
+original_acc_median: 0.508
+generated_acc_mean: 0.5138781094527364
+generated_acc_max: 0.523375
+generated_acc_min: 0.445625
+generated_acc_std: 0.007942466840371958
+generated_acc_median: 0.515375
+noise=0.0100_acc_mean: 0.5065000000000001
+noise=0.0300_acc_mean: 0.506025
+noise=0.0500_acc_mean: 0.50465
+noise=0.1000_acc_mean: 0.48795
+
+origin-origin: 0.7898999959263586
+generated-generated: 0.846251281414528
+origin-generated: 0.8109375005794324
+origin-generated(max): 0.8681861098523042
+
+noise_intensity=0.01
+noised-noised: 0.7713175743634808
+origin-noised: 0.7800571584549967
+origin-noised(max): 0.968893357887822
+
+noise_intensity=0.03
+noised-noised: 0.7759628219840881
+origin-noised: 0.783952215783543
+origin-noised(max): 0.9194544413933391
+
+noise_intensity=0.05
+noised-noised: 0.7372201827305938
+origin-noised: 0.7641399067355099
+origin-noised(max): 0.8774007488805937
+
+noise_intensity=0.1
+noised-noised: 0.676716976987483
+origin-noised: 0.7240556134202758
+origin-noised(max): 0.806333320689759
+
+==> start drawing..
+plot saved to plot_stl10_resnet.png

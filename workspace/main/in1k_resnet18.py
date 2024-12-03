@@ -46,7 +46,7 @@ config = {
     "learning_rate": 0.0001,  # diffusion learning rate
     "vae_learning_rate": 0.00002,  # vae learning rate
     "weight_decay": 0.0,
-    "save_every": 800,
+    "save_every": 500,
     "print_every": 50,
     "autocast": lambda i: True,
     "checkpoint_save_path": "./checkpoint",

@@ -147,9 +147,11 @@ if __name__ == "__main__":
     print("Initial test:")
     test(model, test_loader, device)
     total_batches = len(train_loader)
-    save_interval = max(1, total_batches // config["total_save_number"])
+    # save_interval = max(1, total_batches // config["total_save_number"])
+    save_interval = 1
     model.train()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
+    ckpt_num = 0
     for batch_idx, (inputs, targets) in enumerate(pbar):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
@@ -163,8 +165,9 @@ if __name__ == "__main__":
         # Save checkpoint at regular intervals
         if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 0:
             loss, acc, _, _ = test(model, test_loader, device)
-            save_checkpoint(model, batch_idx, acc, config)
+            save_checkpoint(model, ckpt_num, acc, config)
+            ckpt_num += 1
         pbar.set_postfix({'Loss': f'{loss:.3f}'})
-        if batch_idx >= config["total_save_number"]:
+        if ckpt_num >= config["total_save_number"]:
             break
     print("Fine-tuning completed.")

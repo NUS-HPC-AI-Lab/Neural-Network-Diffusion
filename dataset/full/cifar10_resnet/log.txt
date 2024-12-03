@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: cifar10_resnet
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.5796760000000001
+original_acc_max: 0.586
+original_acc_min: 0.572
+original_acc_std: 0.002720886620203054
+original_acc_median: 0.58
+generated_acc_mean: 0.5827139303482587
+generated_acc_max: 0.5864
+generated_acc_min: 0.5689
+generated_acc_std: 0.0019329314151943359
+generated_acc_median: 0.583
+noise=0.0100_acc_mean: 0.5800400000000001
+noise=0.0300_acc_mean: 0.57436
+noise=0.0500_acc_mean: 0.56458
+noise=0.1000_acc_mean: 0.5376
+
+origin-origin: 0.8667350875515929
+generated-generated: 0.9261737483095076
+origin-generated: 0.8893198331428271
+origin-generated(max): 0.9231824554134457
+
+noise_intensity=0.01
+noised-noised: 0.8561211816978311
+origin-noised: 0.8645386640227765
+origin-noised(max): 0.9624041612102119
+
+noise_intensity=0.03
+noised-noised: 0.7982610613310406
+origin-noised: 0.8285380000703261
+origin-noised(max): 0.8947780826032969
+
+noise_intensity=0.05
+noised-noised: 0.7533781849109135
+origin-noised: 0.7946265881152242
+origin-noised(max): 0.8314451211095829
+
+noise_intensity=0.1
+noised-noised: 0.6391642646308215
+origin-noised: 0.6987809060084866
+origin-noised(max): 0.7303123861020593
+
+==> start drawing..
+plot saved to plot_cifar10_resnet.png
