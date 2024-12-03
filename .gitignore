@@ -9,3 +9,4 @@
 **/pretrained.pth
 **/ensemble.pth
 *.cache
+*.pth
