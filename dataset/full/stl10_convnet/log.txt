@@ -6,45 +6,45 @@ Summary: stl10_convnet
 num_checkpoint: 300
 num_generated: 201
 num_noised: 5x4
-original_acc_mean: 0.4561016666666667
-original_acc_max: 0.465875
-original_acc_min: 0.431
-original_acc_std: 0.005708753999098422
-original_acc_median: 0.457
-generated_acc_mean: 0.459526119402985
-generated_acc_max: 0.464
-generated_acc_min: 0.4545
-generated_acc_std: 0.0018579285838155504
-generated_acc_median: 0.459625
-noise=0.0100_acc_mean: 0.456325
-noise=0.0300_acc_mean: 0.44604999999999995
-noise=0.0500_acc_mean: 0.442975
-noise=0.1000_acc_mean: 0.4337750000000001
+original_acc_mean: 0.46007
+original_acc_max: 0.4835
+original_acc_min: 0.43225
+original_acc_std: 0.009274320280574025
+original_acc_median: 0.4609375
+generated_acc_mean: 0.46425062189054733
+generated_acc_max: 0.482125
+generated_acc_min: 0.440875
+generated_acc_std: 0.007437326208434392
+generated_acc_median: 0.46525
+noise=0.0100_acc_mean: 0.45417499999999994
+noise=0.0300_acc_mean: 0.45685000000000003
+noise=0.0500_acc_mean: 0.4484
+noise=0.1000_acc_mean: 0.448975
 
-origin-origin: 0.8891917136482932
-generated-generated: 0.9569624432397008
-origin-generated: 0.9138930833339404
-origin-generated(max): 0.9588078796400226
+origin-origin: 0.7956689078214111
+generated-generated: 0.8277428954485717
+origin-generated: 0.8092388659129193
+origin-generated(max): 0.8840366348280363
 
 noise_intensity=0.01
-noised-noised: 0.9132943117777635
-origin-noised: 0.901173008553288
-origin-noised(max): 0.9751265299174896
+noised-noised: 0.8188779085920166
+origin-noised: 0.7988823947414706
+origin-noised(max): 0.9770399708104703
 
 noise_intensity=0.03
-noised-noised: 0.8161796632822746
-origin-noised: 0.8494025555255218
-origin-noised(max): 0.939279589930841
+noised-noised: 0.7572816964748947
+origin-noised: 0.7791367256533892
+origin-noised(max): 0.9400191791858081
 
 noise_intensity=0.05
-noised-noised: 0.7980846695439373
-origin-noised: 0.8310550428429233
-origin-noised(max): 0.8877275428773194
+noised-noised: 0.7573482453367563
+origin-noised: 0.7805696268583288
+origin-noised(max): 0.8925217434322512
 
 noise_intensity=0.1
-noised-noised: 0.7404896017140581
-origin-noised: 0.783552065374598
-origin-noised(max): 0.8277345813622826
+noised-noised: 0.7021340885544557
+origin-noised: 0.7476371150909444
+origin-noised(max): 0.8328519757466946
 
 ==> start drawing..
 plot saved to plot_stl10_convnet.png
