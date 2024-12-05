@@ -28,12 +28,12 @@ def get_config():
         additional_config = json.load(f)
     config = {
         "dataset_root": "from_additional_config",
-        "batch_size": 128,
+        "batch_size": 64,
         "num_workers": 4,
-        "learning_rate": 0.05,
+        "learning_rate": 0.03,
         "weight_decay": 5e-4,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
-        "save_learning_rate": 0.05,
+        "save_learning_rate": 0.03,
         "total_save_number": 300,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
@@ -144,6 +144,7 @@ if __name__ == "__main__":
     model.train()
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
+    ckpt_num = 0
     for batch_idx, (inputs, targets) in enumerate(pbar):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
@@ -155,11 +156,12 @@ if __name__ == "__main__":
         if scheduler is not None:
             scheduler.step()
         # Save checkpoint at regular intervals
-        if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 50:
+        if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 0:
             # loss, acc, _, _ = test(model, test_loader, device)
             loss, acc = 1., 1.
-            save_checkpoint(model, batch_idx, acc, config)
+            save_checkpoint(model, ckpt_num, acc, config)
+            ckpt_num += 1
         pbar.set_postfix({'Loss': f'{loss:.3f}'})
-        if batch_idx >= config["total_save_number"]:
+        if ckpt_num >= config["total_save_number"]:
             break
     print("Fine-tuning completed.")

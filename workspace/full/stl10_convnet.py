@@ -41,12 +41,12 @@ config = {
     # train setting
     "batch_size": 50,
     "num_workers": 4,
-    "total_steps": 8000,  # diffusion training steps
+    "total_steps": 10000,  # diffusion training steps
     "vae_steps": 2000,  # vae training steps
     "learning_rate": 0.0001,  # diffusion learning rate
     "vae_learning_rate": 0.00002,  # vae learning rate
     "weight_decay": 1e-5,
-    "save_every": 200,
+    "save_every": 5000,
     "print_every": 50,
     "autocast": lambda i: True,
     "checkpoint_save_path": "./checkpoint",

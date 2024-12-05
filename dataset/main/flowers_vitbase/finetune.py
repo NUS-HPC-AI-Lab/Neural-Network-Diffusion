@@ -145,7 +145,7 @@ if __name__ == "__main__":
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
     save_index = 0
-    for i in range(30):
+    for i in range(1000):
         for batch_idx, (inputs, targets) in enumerate(pbar):
             inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()
@@ -157,11 +157,11 @@ if __name__ == "__main__":
             if scheduler is not None:
                 scheduler.step()
             # Save checkpoint at regular intervals
-            if (batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1:
+            if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 0:
                 # loss, acc, _, _ = test(model, test_loader, device)
                 loss, acc = 1., 1.
-                save_index += 1
                 save_checkpoint(model, save_index, acc, config)
+                save_index += 1
             pbar.set_postfix({'Loss': f'{loss:.3f}'})
             if save_index >= config["total_save_number"]:
                 break

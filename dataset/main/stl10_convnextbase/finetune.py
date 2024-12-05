@@ -146,7 +146,8 @@ if __name__ == "__main__":
     model.train()
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
-    for j in range(6):
+    ckpt_num = 0
+    for j in range(1000):
         for batch_idx, (inputs, targets) in enumerate(pbar):
             inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()
@@ -158,11 +159,12 @@ if __name__ == "__main__":
             if scheduler is not None:
                 scheduler.step()
             # Save checkpoint at regular intervals
-            if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and j > 0:
+            if ((batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1) and batch_idx > 0:
                 # loss, acc, _, _ = test(model, test_loader, device)
                 loss, acc = 1., 1.
-                save_checkpoint(model, batch_idx + 400 * j, acc, config)
+                save_checkpoint(model, ckpt_num, acc, config)
+                ckpt_num += 1
             pbar.set_postfix({'Loss': f'{loss:.3f}'})
-            if batch_idx >= config["total_save_number"]:
+            if ckpt_num >= config["total_save_number"]:
                 print("Fine-tuning completed.")
                 exit(0)

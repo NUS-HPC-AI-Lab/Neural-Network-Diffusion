@@ -28,7 +28,7 @@ def get_config():
         additional_config = json.load(f)
     config = {
         "dataset_root": "from_additional_config",
-        "batch_size": 128,
+        "batch_size": 64,
         "num_workers": 4,
         "learning_rate": 0.05,
         "weight_decay": 5e-4,

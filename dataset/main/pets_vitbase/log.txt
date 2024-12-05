@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: pets_vitbase
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.9294603434178251
+original_acc_max: 0.9370400654129191
+original_acc_min: 0.9165985282093213
+original_acc_std: 0.0033206173859996503
+original_acc_median: 0.9296811120196239
+generated_acc_mean: 0.9349043824214985
+generated_acc_max: 0.9381302807304442
+generated_acc_min: 0.932406650313437
+generated_acc_std: 0.0011677311037107555
+generated_acc_median: 0.9348596347778686
+noise=0.0100_acc_mean: 0.9283728536385937
+noise=0.0300_acc_mean: 0.9287544289997275
+noise=0.0500_acc_mean: 0.9286999182338512
+noise=0.1000_acc_mean: 0.9315344780594168
+
+origin-origin: 0.6306121501710563
+generated-generated: 0.912349397640771
+origin-generated: 0.7072260130412972
+origin-generated(max): 0.8100080382614737
+
+noise_intensity=0.01
+noised-noised: 0.6048383739460629
+origin-noised: 0.6162984759152639
+origin-noised(max): 0.9915880057815543
+
+noise_intensity=0.03
+noised-noised: 0.6514918398356176
+origin-noised: 0.6507718871984468
+origin-noised(max): 0.9893178526560279
+
+noise_intensity=0.05
+noised-noised: 0.5800379670118124
+origin-noised: 0.6194327759476336
+origin-noised(max): 0.9822656231234689
+
+noise_intensity=0.1
+noised-noised: 0.6304233102342298
+origin-noised: 0.637092016777841
+origin-noised(max): 0.9665788618759841
+
+==> start drawing..
+plot saved to plot_pets_vitbase.png
