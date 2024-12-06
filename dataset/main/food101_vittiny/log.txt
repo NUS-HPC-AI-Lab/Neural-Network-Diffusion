@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: food101_vittiny
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.8732067326732673
+original_acc_max: 0.8746534653465347
+original_acc_min: 0.871960396039604
+original_acc_std: 0.0005414347118849435
+original_acc_median: 0.8732673267326733
+generated_acc_mean: 0.874013890941333
+generated_acc_max: 0.875049504950495
+generated_acc_min: 0.8729108910891089
+generated_acc_std: 0.00041515864917605487
+generated_acc_median: 0.8740594059405941
+noise=0.0100_acc_mean: 0.8732752475247525
+noise=0.0300_acc_mean: 0.8728871287128713
+noise=0.0500_acc_mean: 0.8732910891089108
+noise=0.1000_acc_mean: 0.8732118811881188
+
+origin-origin: 0.8898554097093279
+generated-generated: 0.9398289918390661
+origin-generated: 0.9071636334253979
+origin-generated(max): 0.9283054529327496
+
+noise_intensity=0.01
+noised-noised: 0.9251567564678261
+origin-noised: 0.8929927742907587
+origin-noised(max): 0.9965058823382303
+
+noise_intensity=0.03
+noised-noised: 0.8739508433332699
+origin-noised: 0.8886972937712274
+origin-noised(max): 0.9901430983156192
+
+noise_intensity=0.05
+noised-noised: 0.883471781073216
+origin-noised: 0.8907357435716265
+origin-noised(max): 0.9859827953480134
+
+noise_intensity=0.1
+noised-noised: 0.8832769768683668
+origin-noised: 0.8861547652939242
+origin-noised(max): 0.9722709331834398
+
+==> start drawing..
+plot saved to plot_food101_vittiny.png
