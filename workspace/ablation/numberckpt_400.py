@@ -30,7 +30,7 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 from accelerate.utils import DistributedDataParallelKwargs, AutocastKwargs
 from accelerate import Accelerator
 # dataset
-from dataset import NumberCkpt_391 as Dataset
+from dataset import NumberCkpt_400 as Dataset
 from torch.utils.data import DataLoader
 
 config = {

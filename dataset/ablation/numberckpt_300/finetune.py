@@ -145,9 +145,9 @@ criterion = nn.CrossEntropyLoss()
 
 if __name__ == "__main__":
     import warnings
-    warnings.warn("Use reselect to select the first k checkpoints from ../numberckpt_391/checkpoint")
-    if os.path.exists("../numberckpt_391/checkpoint"):
+    warnings.warn("Use reselect to select the first k checkpoints from ../../main/cifar100_resnet18/checkpoint")
+    if os.path.exists("../../main/cifar100_resnet18/checkpoint"):
         os.system("python reselect.py")
     else:
-        os.system(f"cd ../numberckpt_391 && CUDA_VISIBLE_DEVICES={os.environ['CUDA_VISIBLE_DEVICES']} python finetune.py")
+        os.system(f"cd ../../main/cifar100_resnet18 && CUDA_VISIBLE_DEVICES={os.environ['CUDA_VISIBLE_DEVICES']} python finetune.py")
         os.system("python reselect.py")

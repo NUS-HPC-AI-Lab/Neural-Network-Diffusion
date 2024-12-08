@@ -144,11 +144,28 @@ criterion = nn.CrossEntropyLoss()
 
 
 if __name__ == "__main__":
-    import warnings
-    warnings.filterwarnings("default", category=UserWarning)
-    warnings.warn("Use reselect to select the first k checkpoints from ../numberckpt_391/checkpoint")
-    if os.path.exists("../numberckpt_391/checkpoint"):
-        os.system("python reselect.py")
-    else:
-        os.system(f"cd ../numberckpt_391 && CUDA_VISIBLE_DEVICES={os.environ['CUDA_VISIBLE_DEVICES']} python finetune.py")
-        os.system("python reselect.py")
+    print("Initial test:")
+    test(model, test_loader, device)
+    total_batches = len(train_loader)
+    save_interval = max(1, total_batches // config["total_save_number"])
+    model.train()
+    pbar = tqdm(train_loader, desc='Training', ncols=100)
+    for batch_idx, (inputs, targets) in enumerate(pbar):
+        inputs, targets = inputs.to(device), targets.to(device)
+        optimizer.zero_grad()
+        with torch.amp.autocast("cuda", enabled=True, dtype=torch.bfloat16):
+            outputs = model(inputs)
+            loss = criterion(outputs, targets)
+        loss.backward()
+        optimizer.step()
+        if scheduler is not None:
+            scheduler.step()
+        # Save checkpoint at regular intervals
+        if (batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1:
+            # loss, acc, _, _ = test(model, test_loader, device)
+            loss, acc = 1., 1.
+            save_checkpoint(model, batch_idx, acc, config)
+        if ckpt_num >= config["total_save_number"]:
+            break
+        pbar.set_postfix({'Loss': f'{loss:.3f}'})
+    print("Fine-tuning completed.")

@@ -150,21 +150,24 @@ if __name__ == "__main__":
     save_interval = max(1, total_batches // config["total_save_number"])
     model.train()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
-    for batch_idx, (inputs, targets) in enumerate(pbar):
-        inputs, targets = inputs.to(device), targets.to(device)
-        optimizer.zero_grad()
-        with torch.amp.autocast("cuda", enabled=True, dtype=torch.bfloat16):
-            outputs = model(inputs)
-            loss = criterion(outputs, targets)
-        loss.backward()
-        optimizer.step()
-        if scheduler is not None:
-            scheduler.step()
-        # Save checkpoint at regular intervals
-        if (batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1:
-            loss, acc, _, _ = test(model, test_loader, device)
-            save_checkpoint(model, batch_idx, acc, config)
-        pbar.set_postfix({'Loss': f'{loss:.3f}'})
-        if batch_idx >= config["total_save_number"]:
-            break
-    print("Fine-tuning completed.")
+    number_saved = 0
+    for i in range(2):
+        for batch_idx, (inputs, targets) in enumerate(pbar):
+            inputs, targets = inputs.to(device), targets.to(device)
+            optimizer.zero_grad()
+            with torch.amp.autocast("cuda", enabled=True, dtype=torch.bfloat16):
+                outputs = model(inputs)
+                loss = criterion(outputs, targets)
+            loss.backward()
+            optimizer.step()
+            if scheduler is not None:
+                scheduler.step()
+            # Save checkpoint at regular intervals
+            if (batch_idx + 1) % save_interval == 0 or batch_idx == total_batches - 1:
+                loss, acc, _, _ = test(model, test_loader, device)
+                save_checkpoint(model, batch_idx, acc, config)
+                number_saved += 1
+            pbar.set_postfix({'Loss': f'{loss:.3f}'})
+            if number_saved >= config["total_save_number"]:
+                print("Fine-tuning completed.")
+                exit(0)

@@ -3,8 +3,8 @@ import shutil
 import random
 
 
-src = [os.path.join("../numberckpt_391/checkpoint", i)
-       for i in os.listdir("../numberckpt_391/checkpoint")]
+src = [os.path.join("../../main/cifar100_resnet18/checkpoint", i)
+       for i in os.listdir("../../main/cifar100_resnet18/checkpoint")]
 os.makedirs("./checkpoint", exist_ok=True)
 dst = "./checkpoint"
 
