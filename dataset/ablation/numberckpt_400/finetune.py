@@ -42,7 +42,7 @@ def get_config():
         "weight_decay": 5e-4,
         "epochs": 1,  # Changed to 1 as we're only doing one epoch
         "save_learning_rate": 0.03,
-        "total_save_number": 391,
+        "total_save_number": 400,
         "tag": os.path.basename(os.path.dirname(__file__)),
         "freeze_epochs": 0,
         "seed": 40

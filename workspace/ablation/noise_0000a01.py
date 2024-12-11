@@ -48,7 +48,7 @@ config = {
     "weight_decay": 0.0,
     "save_every": 500,
     "print_every": 50,
-    "checkpoint_noise": 0.001,
+    "checkpoint_noise": 0.000,
     "latent_noise": 0.1,
     "autocast": lambda i: True,
     "checkpoint_save_path": "./checkpoint",

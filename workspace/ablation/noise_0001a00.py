@@ -49,7 +49,7 @@ config = {
     "save_every": 500,
     "print_every": 50,
     "checkpoint_noise": 0.001,
-    "latent_noise": 0.1,
+    "latent_noise": 0.0,
     "autocast": lambda i: True,
     "checkpoint_save_path": "./checkpoint",
     # test setting

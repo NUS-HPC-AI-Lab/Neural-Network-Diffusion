@@ -5,7 +5,7 @@ Summary: cifar100_resnet18
 
 num_checkpoint: 300
 num_generated: 201
-num_noised: 5x4
+num_noised: 300x3
 original_acc_mean: 0.7672460000000001
 original_acc_max: 0.7715
 original_acc_min: 0.7633
@@ -16,35 +16,29 @@ generated_acc_max: 0.7755
 generated_acc_min: 0.7681
 generated_acc_std: 0.001281189099537825
 generated_acc_median: 0.7725
-noise=0.0100_acc_mean: 0.7666999999999999
-noise=0.0300_acc_mean: 0.76594
-noise=0.0500_acc_mean: 0.76544
-noise=0.1000_acc_mean: 0.76142
+noise=0.0010_acc_mean: 0.7672583333333333
+noise=0.0500_acc_mean: 0.7659653333333334
+noise=0.1500_acc_mean: 0.7548929999999999
 
 origin-origin: 0.783744070950229
 generated-generated: 0.8799036684646423
 origin-generated: 0.8189136019035009
 origin-generated(max): 0.8479096892975388
 
-noise_intensity=0.01
-noised-noised: 0.7804692673625698
-origin-noised: 0.7851900311258094
-origin-noised(max): 0.9829881999135296
-
-noise_intensity=0.03
-noised-noised: 0.770021096601627
-origin-noised: 0.7808839175829547
-origin-noised(max): 0.9494507777383816
+noise_intensity=0.001
+noised-noised: 0.7837735298211486
+origin-noised: 0.7844687620288421
+origin-noised(max): 0.9967755670030416
 
 noise_intensity=0.05
-noised-noised: 0.7603790618878715
-origin-noised: 0.775143834655307
-origin-noised(max): 0.9247160219513486
+noised-noised: 0.765488650808208
+origin-noised: 0.774528071506807
+origin-noised(max): 0.9228897948343431
 
-noise_intensity=0.1
-noised-noised: 0.7198123632444169
-origin-noised: 0.7485398828039533
-origin-noised(max): 0.8592503773146264
+noise_intensity=0.15
+noised-noised: 0.6748511686024631
+origin-noised: 0.7155596601813675
+origin-noised(max): 0.7921127087283428
 
 ==> start drawing..
 plot saved to plot_cifar100_resnet18.png
