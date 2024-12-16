@@ -22,8 +22,8 @@ similarity_list = np.zeros(1401)
 # original model
 for i in range(300):
     # obtain the max iou with the remaining 299 models
-    other_models = np.concatenate([iou_matrix[0:i], iou_matrix[i+1:300]])  # 排除第i个模型
-    similarity_list[i] = other_models[:, i].max()  # 取最大值
+    other_models = np.concatenate([iou_matrix[0:i], iou_matrix[i+1:300]]) 
+    similarity_list[i] = other_models[:, i].max()
 
 
 similarity_list[300:] = iou_matrix[0:300, 300:].max(axis=0)
