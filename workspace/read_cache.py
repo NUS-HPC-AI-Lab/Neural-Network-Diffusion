@@ -31,8 +31,8 @@ similarity_list[300:] = iou_matrix[0:300, 300:].max(axis=0)
 acc_list = data[0]['total_acc_list']
 
 
-original = slice(0, 301)  # original models
-p_diff = slice(301, 501)  # generated models
+original = slice(0, 300)  # original models
+p_diff = slice(300, 501)  # generated models
 noise_0001 = slice(501, 801)  # noise=0.001
 noise_005 = slice(801, 1101)  # noise=0.05
 noise_015 = slice(1101, 1401)  # noise=0.15
