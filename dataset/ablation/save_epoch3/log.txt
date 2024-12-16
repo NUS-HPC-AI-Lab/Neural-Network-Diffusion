@@ -5,7 +5,7 @@ Summary: save_epoch3
 
 num_checkpoint: 300
 num_generated: 201
-num_noised: 5x4
+num_noised: 300x3
 original_acc_mean: 0.6943186666666666
 original_acc_max: 0.7025
 original_acc_min: 0.6872
@@ -16,35 +16,29 @@ generated_acc_max: 0.7043
 generated_acc_min: 0.6965
 generated_acc_std: 0.0016899329482174847
 generated_acc_median: 0.701
-noise=0.0100_acc_mean: 0.6938600000000001
-noise=0.0300_acc_mean: 0.6933400000000001
-noise=0.0500_acc_mean: 0.69362
-noise=0.1000_acc_mean: 0.68852
+noise=0.0010_acc_mean: 0.6943256666666667
+noise=0.0500_acc_mean: 0.6928706666666666
+noise=0.1500_acc_mean: 0.6815203333333334
 
 origin-origin: 0.7936632419492747
 generated-generated: 0.8932966121473511
 origin-generated: 0.827296815964664
 origin-generated(max): 0.8577475618506314
 
-noise_intensity=0.01
-noised-noised: 0.7695834354203264
-origin-noised: 0.7849955390198877
-origin-noised(max): 0.9842530129315822
-
-noise_intensity=0.03
-noised-noised: 0.759823592978341
-origin-noised: 0.7836926882721148
-origin-noised(max): 0.9573504107353192
+noise_intensity=0.001
+noised-noised: 0.7935713767761008
+origin-noised: 0.7942954955951033
+origin-noised(max): 0.9970258879088415
 
 noise_intensity=0.05
-noised-noised: 0.7870577201098939
-origin-noised: 0.791280635131358
-origin-noised(max): 0.9396455917095624
+noised-noised: 0.7799622962365208
+origin-noised: 0.7868667343284447
+origin-noised(max): 0.9355101357318978
 
-noise_intensity=0.1
-noised-noised: 0.7639642508477451
-origin-noised: 0.7716751936777538
-origin-noised(max): 0.888966070600865
+noise_intensity=0.15
+noised-noised: 0.7078743212577527
+origin-noised: 0.7413196502757021
+origin-noised(max): 0.8234059204269378
 
 ==> start drawing..
 plot saved to plot_save_epoch3.png
