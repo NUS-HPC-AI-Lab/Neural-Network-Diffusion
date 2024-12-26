@@ -6,7 +6,7 @@ import numpy as np
 
 
 # read the cache
-cache_file = '../plot_save_lr00003.cache'
+cache_file = '../plot_noise_x001.cache'
 if not os.path.exists(cache_file):
     raise FileNotFoundError(f"Cache file {cache_file} not found")
 
@@ -16,6 +16,7 @@ with open(cache_file, "rb") as f:
 
 summary = data[0]
 iou_matrix = data[0]['iou_matrix']
+import pdb; pdb.set_trace()
 
 similarity_list = np.zeros(1401)
 
@@ -55,7 +56,7 @@ plt.scatter(similarity_list[noise_015], acc_list[noise_015],
 # fig settings
 plt.xlabel('maximum similarity')
 plt.ylabel('accuracy (%)')
-plt.title('(a) lr = 0.0003')
+plt.title('(a) noise_x001')
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.3)
 
@@ -63,5 +64,5 @@ plt.grid(True, linestyle='--', alpha=0.3)
 plt.ylim(0.74, 0.78)
 
 plt.tight_layout()
-plt.savefig('plot_save_lr00003.png', dpi=300, bbox_inches='tight')
+plt.savefig('plot_noise_x001.png', dpi=300, bbox_inches='tight')
 plt.show()

@@ -393,3 +393,5 @@ class Layers_FC0000(AblationDataset): pass
 class Layers_BN1415(AblationDataset): pass
 class Layers_BN1013(AblationDataset): pass
 class VAE_Sample(AblationDataset): pass
+class Adam_optimizer(AblationDataset): pass
+class SGD_optimizer(AblationDataset): pass
