@@ -1,9 +1,7 @@
 # Neural Network Diffusion
 
-### [Paper]() | [Project Page]() | [Hugging Face]()
-```diff
-! update link when publishing.
-```
+### [Paper](https://arxiv.org/pdf/2402.13144.pdf)
+
 ![Motivation of p-diff](figures/motivation.gif)  
 This repository contains the code and implementation details for the research paper titled "Neural Network Parameter Diffusion". 
 The paper explores novel paradigms in deep learning, specifically focusing on diffusion models for generating high-performing neural network parameters.
@@ -40,14 +38,14 @@ The generated parameters are obtained via feeding random noise to the LDM and tr
 </figcaption>
 </p>
 
-> **Abstract:** Diffusion models have achieved remarkable success in image and video generation. 
-> In this work, we demonstrate that diffusion models can also generate high-performing neural network parameters. 
-> Our approach is simple, utilizing an autoencoder and a standard latent diffusion model. 
-> The autoencoder extracts latent representations of the trained network parameters. 
-> A diffusion model is then trained to synthesize these latent parameter representations from random noise. 
-> It then generates new representations that are passed through the autoencoder's decoder, whose outputs are ready to use as new sets of network parameters. 
-> Across various architectures and datasets, our diffusion process consistently generates models of comparable or improved performance over SGD-trained models, with minimal additional cost. 
-> Our results encourage more exploration on the versatile use of diffusion models.
+> **Abstract:** Diffusion models have achieved remarkable success in image and video generation.
+> In this work, we demonstrate that diffusion models can also *generate high-performing neural network parameters*.
+> Our approach is simple, utilizing an autoencoder and a diffusion model.
+> The autoencoder extracts latent representations of a subset of the trained neural network parameters.
+> Next, a diffusion model is trained to synthesize these latent representations from random noise.
+> This model then generates new representations, which are passed through the autoencoder's decoder to produce new subsets of high-performing network parameters.
+> Across various architectures and datasets, our approach consistently generates models with comparable or improved performance over trained networks, with minimal additional cost.
+> Notably, we empirically find that the generated models are not memorizing the trained ones. Our results encourage more exploration into the versatile use of diffusion models.
 
 
 ## Environment
@@ -57,12 +55,9 @@ But we recommend to use `python==3.11` and `pytorch==2.5.1`, which we have fully
 conda create -n pdiff python=3.11
 conda activate pdiff
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-git clone -b develop https://github.com/NUS-HPC-AI-Lab/Neural-Network-Parameter-Diffusion.git --depth=1
+git clone https://github.com/NUS-HPC-AI-Lab/Neural-Network-Parameter-Diffusion.git --depth=1
 cd Neural-Network-Parameter-Diffusion
 pip install -r requirements.txt
-```
-```diff
-! delete "-b develop" when publishing
 ```
 
 
@@ -152,9 +147,14 @@ Following Section "Detail Usage".
 
 ## Citation
 If you found our work useful, please consider citing us.
+
 ```
-Coming soon...
+@misc{wang2024neural,
+      title={Neural Network Diffusion}, 
+      author={Kai Wang and Dongwen Tang and Boya Zeng and Yida Yin and Zhaopan Xu and Yukun Zhou and Zelin Zang and Trevor Darrell and Zhuang Liu and Yang You},
+      year={2024},
+      eprint={2402.13144},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
 ```
-
-
-
