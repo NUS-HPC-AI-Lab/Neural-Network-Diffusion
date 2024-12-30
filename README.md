@@ -27,23 +27,14 @@ and <sup>2</sup>[Meta AI](https://www.meta.com/)
 <p align="center">
 <img src="./figures/pipeline.png" width="100%" height="55.2%" class="center">
 <figcaption>
-Figure: Illustration of the proposed p-diff framework. 
-Our approach consists of two processes, namely parameter autoencoder and generation.
-Parameter autoencoder aims to extract the latent representations that can generate high-performing model parameters via the decoder. 
-The extracted representations are fed into a standard latent diffusion model (LDM). 
-During the inference, we freeze the parameters of the autoencoder's decoder. 
-The generated parameters are obtained via feeding random noise to the LDM and trained decoder.
+Figure: Our approach consists of two processes: parameter autoencoder and parameter generation. Parameter autoencoder aims to extract the latent representations and reconstruct model parameters via the decoder.
+The extracted representations are used to train a diffusion model (DM).
+During inference, a random noise vector is fed into the DM and the trained decoder to generate new parameters.
 </figcaption>
 </p>
 
-> **Abstract:** Diffusion models have achieved remarkable success in image and video generation.
-> In this work, we demonstrate that diffusion models can also *generate high-performing neural network parameters*.
-> Our approach is simple, utilizing an autoencoder and a diffusion model.
-> The autoencoder extracts latent representations of a subset of the trained neural network parameters.
-> Next, a diffusion model is trained to synthesize these latent representations from random noise.
-> This model then generates new representations, which are passed through the autoencoder's decoder to produce new subsets of high-performing network parameters.
-> Across various architectures and datasets, our approach consistently generates models with comparable or improved performance over trained networks, with minimal additional cost.
-> Notably, we empirically find that the generated models are not memorizing the trained ones. Our results encourage more exploration into the versatile use of diffusion models.
+> **Abstract:** Diffusion models have achieved remarkable success in image and video generation. In this work, we demonstrate that diffusion models can also generate high-performing neural network parameters.
+Our approach is simple, utilizing an autoencoder and a diffusion model. The autoencoder extracts latent representations of a subset of the trained neural network parameters. Next, a diffusion model is trained to synthesize these latent representations from random noise. This model then generates new representations, which are passed through the autoencoder's decoder to produce new subsets of high-performing network parameters. Across various architectures and datasets, our approach consistently generates models with comparable or improved performance over trained networks, with minimal additional cost. Notably, we empirically find that the generated models are not memorizing the trained ones. Our results encourage more exploration into the versatile use of diffusion models.
 
 
 ## Environment
