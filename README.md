@@ -1,7 +1,7 @@
 # Neural Network Diffusion
 
 ![Motivation of p-diff](figures/motivation.gif)  
-This repository contains the code and implementation details for the research paper titled **[Neural Network Parameter Diffusion](https://arxiv.org/pdf/2402.13144.pdf)**. 
+This repository contains the code and implementation details for the research paper titled **[Neural Network Parameter Diffusion](https://arxiv.org/abs/2402.13144)**. 
 The paper explores novel paradigms in deep learning, specifically focusing on diffusion models for generating high-performing neural network parameters.
 
 
