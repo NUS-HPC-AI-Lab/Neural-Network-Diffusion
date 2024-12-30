@@ -1,0 +1,44 @@
+
+
+===============================================
+Summary: noise_x001
+
+num_checkpoint: 300
+num_generated: 200
+num_noised: 300x3
+original_acc_mean: 0.7672460000000001
+original_acc_max: 0.7715
+original_acc_min: 0.7633
+original_acc_std: 0.0016230888248439583
+original_acc_median: 0.7671
+generated_acc_mean: 0.765402
+generated_acc_max: 0.7713
+generated_acc_min: 0.7559
+generated_acc_std: 0.0026990546493170517
+generated_acc_median: 0.76555
+noise=0.0010_acc_mean: 0.7672580000000001
+noise=0.0500_acc_mean: 0.765967
+noise=0.1500_acc_mean: 0.7549953333333334
+
+origin-origin: 0.783744070950229
+generated-generated: 0.7601345963798548
+origin-generated: 0.7686759391444887
+origin-generated(max): 0.800752043702124
+
+noise_intensity=0.001
+noised-noised: 0.7837630736203222
+origin-noised: 0.7844637686452585
+origin-noised(max): 0.9968632155789423
+
+noise_intensity=0.05
+noised-noised: 0.7647465713162575
+origin-noised: 0.7741849666545614
+origin-noised(max): 0.9228475875434022
+
+noise_intensity=0.15
+noised-noised: 0.6748632877281713
+origin-noised: 0.7155138935177828
+origin-noised(max): 0.7914981357023568
+
+==> start drawing..
+plot saved to plot_noise_x001.png

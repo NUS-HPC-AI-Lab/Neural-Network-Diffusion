@@ -1,0 +1,44 @@
+
+
+===============================================
+Summary: cifar100_resnet18
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 300x3
+original_acc_mean: 0.7672460000000001
+original_acc_max: 0.7715
+original_acc_min: 0.7633
+original_acc_std: 0.0016230888248439583
+original_acc_median: 0.7671
+generated_acc_mean: 0.7724422885572139
+generated_acc_max: 0.7755
+generated_acc_min: 0.7681
+generated_acc_std: 0.001281189099537825
+generated_acc_median: 0.7725
+noise=0.0010_acc_mean: 0.7672583333333333
+noise=0.0500_acc_mean: 0.7659653333333334
+noise=0.1500_acc_mean: 0.7548929999999999
+
+origin-origin: 0.783744070950229
+generated-generated: 0.8799036684646423
+origin-generated: 0.8189136019035009
+origin-generated(max): 0.8479096892975388
+
+noise_intensity=0.001
+noised-noised: 0.7837735298211486
+origin-noised: 0.7844687620288421
+origin-noised(max): 0.9967755670030416
+
+noise_intensity=0.05
+noised-noised: 0.765488650808208
+origin-noised: 0.774528071506807
+origin-noised(max): 0.9228897948343431
+
+noise_intensity=0.15
+noised-noised: 0.6748511686024631
+origin-noised: 0.7155596601813675
+origin-noised(max): 0.7921127087283428
+
+==> start drawing..
+plot saved to plot_cifar100_resnet18.png

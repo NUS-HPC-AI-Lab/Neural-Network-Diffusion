@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: flowers_vittiny
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.871365533691115
+original_acc_max: 0.8752642706131079
+original_acc_min: 0.8666449829240527
+original_acc_std: 0.0019562695965271533
+original_acc_median: 0.8713611969425923
+generated_acc_mean: 0.8716168709226675
+generated_acc_max: 0.8760774109611319
+generated_acc_min: 0.8661570987152383
+generated_acc_std: 0.0020841461014309824
+generated_acc_median: 0.8718490811514067
+noise=0.0100_acc_mean: 0.8702553260692796
+noise=0.0300_acc_mean: 0.8699625955439909
+noise=0.0500_acc_mean: 0.8717515043096439
+noise=0.1000_acc_mean: 0.8719791836070906
+
+origin-origin: 0.8225695343522514
+generated-generated: 0.835512130181986
+origin-generated: 0.8136901358222989
+origin-generated(max): 0.8664536224948645
+
+noise_intensity=0.01
+noised-noised: 0.8168161489676782
+origin-noised: 0.8226094425712988
+origin-noised(max): 0.9927562038870124
+
+noise_intensity=0.03
+noised-noised: 0.8032132263888357
+origin-noised: 0.8082577934930264
+origin-noised(max): 0.9865671534156544
+
+noise_intensity=0.05
+noised-noised: 0.8280148980282747
+origin-noised: 0.8239874517599504
+origin-noised(max): 0.9844124851756814
+
+noise_intensity=0.1
+noised-noised: 0.820467887310555
+origin-noised: 0.8248016996709155
+origin-noised(max): 0.959197119576975
+
+==> start drawing..
+plot saved to plot_flowers_vittiny.png

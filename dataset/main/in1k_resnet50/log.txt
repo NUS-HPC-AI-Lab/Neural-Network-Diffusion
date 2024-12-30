@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: in1k_resnet50
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.7746842666666667
+original_acc_max: 0.78004
+original_acc_min: 0.76582
+original_acc_std: 0.002989554782163315
+original_acc_median: 0.77505
+generated_acc_mean: 0.7820236815920397
+generated_acc_max: 0.78394
+generated_acc_min: 0.77908
+generated_acc_std: 0.0008162237877878229
+generated_acc_median: 0.78208
+noise=0.0100_acc_mean: 0.7756160000000001
+noise=0.0300_acc_mean: 0.7735399999999999
+noise=0.0500_acc_mean: 0.7720520000000001
+noise=0.1000_acc_mean: 0.770364
+
+origin-origin: 0.8053253239180657
+generated-generated: 0.9274865554477919
+origin-generated: 0.844108648884506
+origin-generated(max): 0.861550736555514
+
+noise_intensity=0.01
+noised-noised: 0.805563810266254
+origin-noised: 0.8084969646275837
+origin-noised(max): 0.986892854693114
+
+noise_intensity=0.03
+noised-noised: 0.8191410182553437
+origin-noised: 0.8025072210755458
+origin-noised(max): 0.9569006830500859
+
+noise_intensity=0.05
+noised-noised: 0.782033467924775
+origin-noised: 0.7966290866325827
+origin-noised(max): 0.9312826973788317
+
+noise_intensity=0.1
+noised-noised: 0.756297501098947
+origin-noised: 0.7797891724938711
+origin-noised(max): 0.8702588104954454
+
+==> start drawing..
+plot saved to plot_in1k_resnet50.png

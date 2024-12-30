@@ -1,0 +1,44 @@
+
+
+===============================================
+Summary: save_lr03000
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 300x3
+original_acc_mean: 0.6842626666666667
+original_acc_max: 0.7033
+original_acc_min: 0.5956
+original_acc_std: 0.0150538834266186
+original_acc_median: 0.6872
+generated_acc_mean: 0.7118323383084578
+generated_acc_max: 0.7263
+generated_acc_min: 0.6932
+generated_acc_std: 0.005478796669002578
+generated_acc_median: 0.7124
+noise=0.0010_acc_mean: 0.6842403333333333
+noise=0.0500_acc_mean: 0.683202
+noise=0.1500_acc_mean: 0.6763809999999999
+
+origin-origin: 0.6477034144222347
+generated-generated: 0.7789657034174426
+origin-generated: 0.6867510684959912
+origin-generated(max): 0.7435577882228703
+
+noise_intensity=0.001
+noised-noised: 0.6477078003567298
+origin-noised: 0.6488725888975981
+origin-noised(max): 0.9977937367646519
+
+noise_intensity=0.05
+noised-noised: 0.6449774485477004
+origin-noised: 0.6473129033612476
+origin-noised(max): 0.9510731581593874
+
+noise_intensity=0.15
+noised-noised: 0.6249510087735021
+origin-noised: 0.6358451545753178
+origin-noised(max): 0.8622535746368339
+
+==> start drawing..
+plot saved to plot_save_lr03000.png

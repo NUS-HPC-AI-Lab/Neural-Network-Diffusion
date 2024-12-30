@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: pets_convnexttiny
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.9331634414463523
+original_acc_max: 0.9384028345598255
+original_acc_min: 0.9212319433088035
+original_acc_std: 0.0031990759888871536
+original_acc_median: 0.9337694194603434
+generated_acc_mean: 0.9370726091537407
+generated_acc_max: 0.9411283728536386
+generated_acc_min: 0.9340419732897247
+generated_acc_std: 0.0012575701475701503
+generated_acc_median: 0.9370400654129191
+noise=0.0100_acc_mean: 0.9338239302262197
+noise=0.0300_acc_mean: 0.9314799672935404
+noise=0.0500_acc_mean: 0.9342600163532297
+noise=0.1000_acc_mean: 0.93600436086127
+
+origin-origin: 0.7071893742536972
+generated-generated: 0.9260457242698714
+origin-generated: 0.7722331829502053
+origin-generated(max): 0.8648081106712457
+
+noise_intensity=0.01
+noised-noised: 0.7194345074886836
+origin-noised: 0.6814992542833346
+origin-noised(max): 0.9950918404734541
+
+noise_intensity=0.03
+noised-noised: 0.7004606844487735
+origin-noised: 0.6879948974288033
+origin-noised(max): 0.9864829702554527
+
+noise_intensity=0.05
+noised-noised: 0.7057277905382262
+origin-noised: 0.7135928638497556
+origin-noised(max): 0.9803503944672849
+
+noise_intensity=0.1
+noised-noised: 0.6892189080259495
+origin-noised: 0.6944149970171717
+origin-noised(max): 0.948909587066518
+
+==> start drawing..
+plot saved to plot_pets_convnexttiny.png

@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: flowers_convnexttiny
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.9781292351059794
+original_acc_max: 0.9838998211091234
+original_acc_min: 0.9721906000975769
+original_acc_std: 0.002077334442512867
+original_acc_median: 0.9780452106033501
+generated_acc_mean: 0.9814191362264948
+generated_acc_max: 0.9835745649699138
+generated_acc_min: 0.9782078386729549
+generated_acc_std: 0.0007781684206301908
+generated_acc_median: 0.9814604000650512
+noise=0.0100_acc_mean: 0.979151081476663
+noise=0.0300_acc_mean: 0.9780126849894291
+noise=0.0500_acc_mean: 0.9792486583184257
+noise=0.1000_acc_mean: 0.9774272239388517
+
+origin-origin: 0.5650294671392989
+generated-generated: 0.7653274871480111
+origin-generated: 0.6129931424492502
+origin-generated(max): 0.7463578439685125
+
+noise_intensity=0.01
+noised-noised: 0.5390924330837962
+origin-noised: 0.5686790463060727
+origin-noised(max): 0.9876538159105474
+
+noise_intensity=0.03
+noised-noised: 0.5881878904933782
+origin-noised: 0.5680812168243558
+origin-noised(max): 0.9606855960905355
+
+noise_intensity=0.05
+noised-noised: 0.5451197196988281
+origin-noised: 0.5672003371143262
+origin-noised(max): 0.9420941349178179
+
+noise_intensity=0.1
+noised-noised: 0.5391193793452651
+origin-noised: 0.5539230764474724
+origin-noised(max): 0.9030528195531234
+
+==> start drawing..
+plot saved to plot_flowers_convnexttiny.png

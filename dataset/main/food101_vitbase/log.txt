@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: food101_vitbase
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.9120014521452148
+original_acc_max: 0.9134653465346535
+original_acc_min: 0.9100594059405941
+original_acc_std: 0.0007695495424425842
+original_acc_median: 0.9120990099009901
+generated_acc_mean: 0.9131853603270775
+generated_acc_max: 0.913940594059406
+generated_acc_min: 0.9124356435643565
+generated_acc_std: 0.0002728302867704314
+generated_acc_median: 0.9131881188118812
+noise=0.0100_acc_mean: 0.9118574257425743
+noise=0.0300_acc_mean: 0.9125148514851485
+noise=0.0500_acc_mean: 0.9117940594059407
+noise=0.1000_acc_mean: 0.912229702970297
+
+origin-origin: 0.8702925625617481
+generated-generated: 0.9572603796442315
+origin-generated: 0.8982462748575564
+origin-generated(max): 0.9227669068562266
+
+noise_intensity=0.01
+noised-noised: 0.8837037913526634
+origin-noised: 0.8761850112770441
+origin-noised(max): 0.9962383650047965
+
+noise_intensity=0.03
+noised-noised: 0.8563625516943192
+origin-noised: 0.869341195673126
+origin-noised(max): 0.9916212133074677
+
+noise_intensity=0.05
+noised-noised: 0.9224576045335627
+origin-noised: 0.8737333941435554
+origin-noised(max): 0.9883013747310843
+
+noise_intensity=0.1
+noised-noised: 0.858165659404364
+origin-noised: 0.8694443472210832
+origin-noised(max): 0.9800040935805399
+
+==> start drawing..
+plot saved to plot_food101_vitbase.png

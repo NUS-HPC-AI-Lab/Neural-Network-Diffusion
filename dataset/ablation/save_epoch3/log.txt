@@ -1,0 +1,44 @@
+
+
+===============================================
+Summary: save_epoch3
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 300x3
+original_acc_mean: 0.6943186666666666
+original_acc_max: 0.7025
+original_acc_min: 0.6872
+original_acc_std: 0.0035952818464698396
+original_acc_median: 0.6939
+generated_acc_mean: 0.7009577114427862
+generated_acc_max: 0.7043
+generated_acc_min: 0.6965
+generated_acc_std: 0.0016899329482174847
+generated_acc_median: 0.701
+noise=0.0010_acc_mean: 0.6943256666666667
+noise=0.0500_acc_mean: 0.6928706666666666
+noise=0.1500_acc_mean: 0.6815203333333334
+
+origin-origin: 0.7936632419492747
+generated-generated: 0.8932966121473511
+origin-generated: 0.827296815964664
+origin-generated(max): 0.8577475618506314
+
+noise_intensity=0.001
+noised-noised: 0.7935713767761008
+origin-noised: 0.7942954955951033
+origin-noised(max): 0.9970258879088415
+
+noise_intensity=0.05
+noised-noised: 0.7799622962365208
+origin-noised: 0.7868667343284447
+origin-noised(max): 0.9355101357318978
+
+noise_intensity=0.15
+noised-noised: 0.7078743212577527
+origin-noised: 0.7413196502757021
+origin-noised(max): 0.8234059204269378
+
+==> start drawing..
+plot saved to plot_save_epoch3.png

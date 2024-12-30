@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: flowers_convnextbase
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.9927023364232668
+original_acc_max: 0.994795901772646
+original_acc_min: 0.9889412912668727
+original_acc_std: 0.001059838810049704
+original_acc_median: 0.9928443649373881
+generated_acc_mean: 0.9943824542922078
+generated_acc_max: 0.9954464140510653
+generated_acc_min: 0.9925191087981786
+generated_acc_std: 0.0005640476536126303
+generated_acc_median: 0.9944706456334363
+noise=0.0100_acc_mean: 0.9927793137095463
+noise=0.0300_acc_mean: 0.9927467880956253
+noise=0.0500_acc_mean: 0.9923564807285737
+noise=0.1000_acc_mean: 0.9919661733615222
+
+origin-origin: 0.5099439165995993
+generated-generated: 0.7267244844498943
+origin-generated: 0.5542235528274191
+origin-generated(max): 0.7237217855333152
+
+noise_intensity=0.01
+noised-noised: 0.4883792535388956
+origin-noised: 0.4986036295922924
+origin-noised(max): 0.9739004319560192
+
+noise_intensity=0.03
+noised-noised: 0.5327595825563407
+origin-noised: 0.5244910334336363
+origin-noised(max): 0.9797797797797798
+
+noise_intensity=0.05
+noised-noised: 0.49443910676814384
+origin-noised: 0.5071844122209307
+origin-noised(max): 0.9330804197888053
+
+noise_intensity=0.1
+noised-noised: 0.4329539677722001
+origin-noised: 0.48922256099161987
+origin-noised(max): 0.8766666666666666
+
+==> start drawing..
+plot saved to plot_flowers_convnextbase.png

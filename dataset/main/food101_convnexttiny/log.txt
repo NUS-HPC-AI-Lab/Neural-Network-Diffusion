@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: food101_convnexttiny
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.9120225742574257
+original_acc_max: 0.916910891089109
+original_acc_min: 0.9083168316831683
+original_acc_std: 0.0011430518303417816
+original_acc_median: 0.911960396039604
+generated_acc_mean: 0.9151616176543028
+generated_acc_max: 0.9165148514851486
+generated_acc_min: 0.9141386138613862
+generated_acc_std: 0.00036047656316706385
+generated_acc_median: 0.9151683168316832
+noise=0.0100_acc_mean: 0.9112158415841585
+noise=0.0300_acc_mean: 0.9126336633663368
+noise=0.0500_acc_mean: 0.9118336633663366
+noise=0.1000_acc_mean: 0.9116039603960397
+
+origin-origin: 0.7725897800063737
+generated-generated: 0.9364163465973471
+origin-generated: 0.8136867186575327
+origin-generated(max): 0.8487492227528869
+
+noise_intensity=0.01
+noised-noised: 0.749566612429821
+origin-noised: 0.7674137117537004
+origin-noised(max): 0.9929927428485088
+
+noise_intensity=0.03
+noised-noised: 0.7748849960323149
+origin-noised: 0.7717555811029211
+origin-noised(max): 0.9856865882497535
+
+noise_intensity=0.05
+noised-noised: 0.7660046182756807
+origin-noised: 0.7750075956480287
+origin-noised(max): 0.9749926452038636
+
+noise_intensity=0.1
+noised-noised: 0.7669993303868224
+origin-noised: 0.7686573751858043
+origin-noised(max): 0.9547877525526189
+
+==> start drawing..
+plot saved to plot_food101_convnexttiny.png

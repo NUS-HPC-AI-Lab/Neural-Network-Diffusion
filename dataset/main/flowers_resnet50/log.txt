@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: flowers_resnet50
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.8471778608987912
+original_acc_max: 0.8516832005204098
+original_acc_min: 0.8393234672304439
+original_acc_std: 0.0025590134669640787
+original_acc_median: 0.8474548707106847
+generated_acc_mean: 0.8514655539993964
+generated_acc_max: 0.8537973654252724
+generated_acc_min: 0.8484306391283135
+generated_acc_std: 0.0009698844036538918
+generated_acc_median: 0.8513579443812002
+noise=0.0100_acc_mean: 0.8460237436981624
+noise=0.0300_acc_mean: 0.8462514229956092
+noise=0.0500_acc_mean: 0.8448202959830867
+noise=0.1000_acc_mean: 0.8483005366726297
+
+origin-origin: 0.8102276730020175
+generated-generated: 0.936261817137354
+origin-generated: 0.8468003056620325
+origin-generated(max): 0.8849226780926258
+
+noise_intensity=0.01
+noised-noised: 0.8084488008402421
+origin-noised: 0.8126669216511182
+origin-noised(max): 0.9930350094802364
+
+noise_intensity=0.03
+noised-noised: 0.7974046478054229
+origin-noised: 0.8105724017206009
+origin-noised(max): 0.9834490679538591
+
+noise_intensity=0.05
+noised-noised: 0.8122792120557328
+origin-noised: 0.8070938988849266
+origin-noised(max): 0.9708062624919783
+
+noise_intensity=0.1
+noised-noised: 0.8348836600915895
+origin-noised: 0.8135070802185274
+origin-noised(max): 0.9443932096133205
+
+==> start drawing..
+plot saved to plot_flowers_resnet50.png

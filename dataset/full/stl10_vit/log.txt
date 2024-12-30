@@ -1,0 +1,50 @@
+
+
+===============================================
+Summary: stl10_vit
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 5x4
+original_acc_mean: 0.5216895833333333
+original_acc_max: 0.5265
+original_acc_min: 0.515125
+original_acc_std: 0.002022798657731962
+original_acc_median: 0.52175
+generated_acc_mean: 0.5240621890547263
+generated_acc_max: 0.528125
+generated_acc_min: 0.492875
+generated_acc_std: 0.0029340312264681434
+generated_acc_median: 0.524375
+noise=0.0100_acc_mean: 0.5206250000000001
+noise=0.0300_acc_mean: 0.5227250000000001
+noise=0.0500_acc_mean: 0.5197749999999999
+noise=0.1000_acc_mean: 0.516175
+
+origin-origin: 0.9140567935769377
+generated-generated: 0.9381340166585554
+origin-generated: 0.9126040181128068
+origin-generated(max): 0.932995113966968
+
+noise_intensity=0.01
+noised-noised: 0.9056913702656759
+origin-noised: 0.9113626636483584
+origin-noised(max): 0.9888055737500053
+
+noise_intensity=0.03
+noised-noised: 0.9055068980907433
+origin-noised: 0.9116464954528183
+origin-noised(max): 0.9698299238035858
+
+noise_intensity=0.05
+noised-noised: 0.8911945277656732
+origin-noised: 0.9056117373168868
+origin-noised(max): 0.9524227750543908
+
+noise_intensity=0.1
+noised-noised: 0.8305363245621995
+origin-noised: 0.8640297660366567
+origin-noised(max): 0.9025097687540203
+
+==> start drawing..
+plot saved to plot_stl10_vit.png

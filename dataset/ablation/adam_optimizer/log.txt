@@ -1,0 +1,32 @@
+
+
+===============================================
+Summary: adam_optimizer
+
+num_checkpoint: 300
+num_generated: 201
+num_noised: 50x1
+original_acc_mean: 0.7948316666666667
+original_acc_max: 0.7965
+original_acc_min: 0.7927
+original_acc_std: 0.0007079763806480825
+original_acc_median: 0.7948500000000001
+generated_acc_mean: 0.794389552238806
+generated_acc_max: 0.7966
+generated_acc_min: 0.7889
+generated_acc_std: 0.001107073727138738
+generated_acc_median: 0.7945
+noise=0.0000_acc_mean: 0.794824
+
+origin-origin: 0.9366734854252348
+generated-generated: 0.9208876191707496
+origin-generated: 0.9253368187898923
+origin-generated(max): 0.9427621098934876
+
+noise_intensity=0
+noised-noised: 0.9358043198593178
+origin-noised: 0.9366206473684193
+origin-noised(max): 0.9999803921521512
+
+==> start drawing..
+plot saved to plot_adam_optimizer.png
