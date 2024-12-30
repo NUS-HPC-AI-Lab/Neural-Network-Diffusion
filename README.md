@@ -25,7 +25,7 @@ and <sup>4</sup>[University of Pennsylvania](https://www.upenn.edu/)
 ## Overview
 
 <p align="center">
-<img src="./figures/pipelinev2.pdf" width="100%" height="55.2%" class="center">
+<img src="./figures/pipeline.png" width="100%" height="55.2%" class="center">
 <figcaption>
 Figure: Illustration of the proposed p-diff framework. 
 Our approach consists of two processes, namely parameter autoencoder and generation.
