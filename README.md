@@ -135,11 +135,11 @@ vim main_<tag>.py
 + from dataset import <Tag> as Dataset
 ```
 
-3. Train pdiff and generate models.  
+4. Train pdiff and generate models.  
 Following Section "Detail Usage".  
 
 
-4. Test original ckpt and generated ckpt and their similarity.  
+5. Test original ckpt and generated ckpt and their similarity.  
 Following Section "Detail Usage".  
 
 
