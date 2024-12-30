@@ -1,4 +1,4 @@
-# Neural Network Parameter Diffusion
+# Neural Network Diffusion
 
 ### [Paper]() | [Project Page]() | [Hugging Face]()
 ```diff
