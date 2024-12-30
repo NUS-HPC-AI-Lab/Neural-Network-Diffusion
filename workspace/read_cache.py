@@ -6,7 +6,7 @@ import numpy as np
 
 
 # read the cache
-cache_file = '../plot_noise_x001.cache'
+cache_file = '../plot_noise_x001.cache' # replace the cache file
 if not os.path.exists(cache_file):
     raise FileNotFoundError(f"Cache file {cache_file} not found")
 
