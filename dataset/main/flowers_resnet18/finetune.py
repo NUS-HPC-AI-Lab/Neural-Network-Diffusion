@@ -138,10 +138,8 @@ optimizer, scheduler = get_optimizer_and_scheduler(model, config)
 if __name__ == "__main__":
     print("Initial test:")
     test(model, test_loader, device)
-    # Calculate the interval for saving checkpoints
     total_batches = len(train_loader)
-    save_interval = max(1, total_batches // config["total_save_number"])
-    # import pdb; pdb.set_trace()
+    save_interval = 1
     model.train()
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(train_loader, desc='Training', ncols=100)

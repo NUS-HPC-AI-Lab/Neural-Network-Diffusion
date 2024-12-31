@@ -8,7 +8,7 @@ The paper explores novel paradigms in deep learning, specifically focusing on di
 ## Authors
 - [Kai Wang](https://kaiwang960112.github.io/)<sup>1</sup>, 
 [Dongwen Tang](https://scholar.google.com/citations?user=9lKm_5IAAAAJ&hl=zh-CN)<sup>1</sup>,
-[Boya Zeng](https://riss.ri.cmu.edu/student/boya-zeng/)<sup>2</sup>,
+[Boya Zeng](https://boyazeng.github.io/)<sup>2</sup>,
 [Yida Yin](https://davidyyd.github.io/)<sup>3</sup>,
 [Zhaopan Xu](https://scholar.google.com.hk/citations?user=qNWDwOcAAAAJ&hl=zh-CN)<sup>1</sup>,
 [Yukun Zhou](https://scholar.google.com/citations?user=c0WCD74AAAAJ&hl=zh-CN), 
@@ -19,7 +19,7 @@ and [Yang You*](https://www.comp.nus.edu.sg/~youy/)<sup>1</sup>(* equal advising
 - <sup>1</sup>[National University of Singapore](https://www.nus.edu.sg/),
   <sup>2</sup>[University of Pennsylvania](https://www.upenn.edu/)
 <sup>3</sup>[University of California, Berkeley](https://www.berkeley.edu/),
-and <sup>2</sup>[Meta AI](https://www.meta.com/)
+and <sup>4</sup>[Meta AI](https://www.meta.com/)
 
 
 ## Overview
@@ -148,7 +148,6 @@ We thank [Kaiming He](https://kaiminghe.github.io/),
 [Xiangyu Peng](https://scholar.google.com/citations?user=KRUTk7sAAAAJ&hl=zh-CN), 
 [Hongyan Chang](https://www.comp.nus.edu.sg/~hongyan/), 
 [Zirui Zhu](https://zirui-zhu.com/), 
-[David Yin](https://davidyyd.github.io/), 
 [Dave Zhenyu Chen](https://daveredrum.github.io/), 
 [Ahmad Sajedi](https://ahmadsajedii.github.io/) 
 and [George Cazenavette](https://georgecazenavette.github.io/) 

@@ -147,7 +147,7 @@ if __name__ == "__main__":
     print("Initial test:")
     test(model, test_loader, device)
     total_batches = len(train_loader)
-    save_interval = max(1, total_batches // config["total_save_number"])
+    save_interval = 1
     model.train()
     pbar = tqdm(train_loader, desc='Training', ncols=100)
     ckpt_num = 0
