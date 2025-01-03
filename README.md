@@ -17,7 +17,7 @@ The paper explores novel paradigms in deep learning, specifically focusing on di
 [Zhuang Liu*](https://liuzhuang13.github.io/)<sup>4</sup>, 
 and [Yang You*](https://www.comp.nus.edu.sg/~youy/)<sup>1</sup>(* equal advising)  
 - <sup>1</sup>[National University of Singapore](https://www.nus.edu.sg/),
-  <sup>2</sup>[University of Pennsylvania](https://www.upenn.edu/)
+  <sup>2</sup>[University of Pennsylvania](https://www.upenn.edu/),
 <sup>3</sup>[University of California, Berkeley](https://www.berkeley.edu/),
 and <sup>4</sup>[Meta AI](https://www.meta.com/)
 
@@ -44,8 +44,8 @@ But we recommend to use `python==3.11` and `pytorch==2.5.1`, which we have fully
 conda create -n pdiff python=3.11
 conda activate pdiff
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-git clone https://github.com/NUS-HPC-AI-Lab/Neural-Network-Parameter-Diffusion.git --depth=1
-cd Neural-Network-Parameter-Diffusion
+git clone https://github.com/NUS-HPC-AI-Lab/Neural-Network-Diffusion.git --depth=1
+cd Neural-Network-Diffusion
 pip install -r requirements.txt
 ```
 
